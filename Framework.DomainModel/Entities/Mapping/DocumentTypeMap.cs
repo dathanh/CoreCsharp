@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class DocumentTypeMap : StarBerryEntityTypeConfiguration<DocumentType>
+    public class DocumentTypeMap : ProjectNameEntityTypeConfiguration<DocumentType>
     {
         public override void Configure(EntityTypeBuilder<DocumentType> builder)
         {

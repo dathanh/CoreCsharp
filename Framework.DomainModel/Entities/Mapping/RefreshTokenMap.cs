@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class RefreshTokenMap : StarBerryEntityTypeConfiguration<RefreshToken>
+    public class RefreshTokenMap : ProjectNameEntityTypeConfiguration<RefreshToken>
     {
         public override void Configure(EntityTypeBuilder<RefreshToken> builder)
         {

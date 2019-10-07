@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Framework.Exceptions
 {
     [Serializable]
-    public class DataAccessException : StarBerryException
+    public class DataAccessException : ProjectNameException
     {
         #region Constructors and Destructors
 

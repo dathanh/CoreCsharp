@@ -3,7 +3,7 @@
 namespace Framework.Exceptions
 {
     [Serializable]
-    public class BusinessLogicException : StarBerryException
+    public class BusinessLogicException : ProjectNameException
     {
         public BusinessLogicException(string message, Exception rootCause)
             : base(message, rootCause)

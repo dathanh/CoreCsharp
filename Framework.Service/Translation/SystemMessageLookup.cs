@@ -15,7 +15,7 @@
                 case "UnAuthorizedAccessText":
                     return "Attempted to perform an unauthorized operation on this function.";
                 case "GeneralExceptionMessageText":
-                    return "We have encountered a problem with the system. Please contact StarBerry Support <support@startberry.com>.";
+                    return "We have encountered a problem with the system. Please contact ProjectName Support <support@startberry.com>.";
                 case "RequiredTextResourceKey":
                     return "Field {0} is required.";
                 case "FileUploadIsInValid":
@@ -25,7 +25,7 @@
                 case "InvalidField":
                     return "Data field {0} is invalid - please remove or update and try again.";
                 case "InvalidData":
-                    return "Data is invalid - please try again or contact StarBerry Support <support@startberry.com>.";
+                    return "Data is invalid - please try again or contact ProjectName Support <support@startberry.com>.";
                 case "BussinessGenericErrorMessageKey":
                     return "The following process is not valid:";
                 case "CannotUploadFile":

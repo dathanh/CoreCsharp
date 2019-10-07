@@ -3,17 +3,17 @@ using MongoDB.Driver;
 
 namespace Mongo.Repositories
 {
-    public class StarBerryMongoDbContext
+    public class ProjectNameMongoDbContext
     {
         private readonly MongoClient _mongoClient;
         private readonly MongoServer _mongoServer;
         private readonly MongoDatabase _mongoDatabase;
         private readonly IConfiguration _configuration;
-        public StarBerryMongoDbContext(IConfiguration configuration)
+        public ProjectNameMongoDbContext(IConfiguration configuration)
         {
             _configuration = configuration;
-            var databaseName = configuration["StarBerryMongoDatabaseName"];
-            var hostTemplate = configuration["StarBerryMongoConnectionString"];
+            var databaseName = configuration["ProjectNameMongoDatabaseName"];
+            var hostTemplate = configuration["ProjectNameMongoConnectionString"];
             var mongoHost = hostTemplate.Replace("{DB_NAME}", databaseName);
             var settings = MongoClientSettings.FromUrl(new MongoUrl(mongoHost));
             // settings.WriteConcern = WriteConcern.Unacknowledged;
@@ -22,7 +22,7 @@ namespace Mongo.Repositories
             _mongoDatabase = _mongoServer.GetDatabase(databaseName);
 
         }
-        public StarBerryMongoDbContext(string url, string databaseName)
+        public ProjectNameMongoDbContext(string url, string databaseName)
         {
             var settings = MongoClientSettings.FromUrl(new MongoUrl(url));
             // settings.WriteConcern = WriteConcern.Unacknowledged;
@@ -31,13 +31,13 @@ namespace Mongo.Repositories
             _mongoDatabase = _mongoServer.GetDatabase(databaseName);
 
         }
-        public MongoDatabase StarBerryMongoDatabase => _mongoDatabase;
+        public MongoDatabase ProjectNameMongoDatabase => _mongoDatabase;
 
         //public MongoCollection<Car> Cars
         //{
         //    get
         //    {
-        //        return StarBerryMongoDatabase.GetCollection<Car>("cars");
+        //        return ProjectNameMongoDatabase.GetCollection<Car>("cars");
         //    }
         //}
     }

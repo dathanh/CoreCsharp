@@ -6,7 +6,7 @@ using System.Security.Principal;
 namespace Framework.Exceptions
 {
     [Serializable]
-    public class InvalidClaimsException : StarBerryException
+    public class InvalidClaimsException : ProjectNameException
     {
 
         public InvalidClaimsException()

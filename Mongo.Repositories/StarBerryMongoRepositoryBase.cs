@@ -12,20 +12,20 @@ using System.Text;
 
 namespace Mongo.Repositories
 {
-    public class StarBerryMongoRepositoryBase<TEntity> : IMongoDbRepository<TEntity>, IQueryableRepository<TEntity>
+    public class ProjectNameMongoRepositoryBase<TEntity> : IMongoDbRepository<TEntity>, IQueryableRepository<TEntity>
        where TEntity : Entity
     {
-        protected StarBerryMongoDbContext StarBerryMongoDbContext;
-        public StarBerryMongoRepositoryBase(IConfiguration configuration)
+        protected ProjectNameMongoDbContext ProjectNameMongoDbContext;
+        public ProjectNameMongoRepositoryBase(IConfiguration configuration)
         {
             Includes = new Collection<string>();
             SearchColumns = new Collection<string>();
-            StarBerryMongoDbContext = new StarBerryMongoDbContext(configuration);
+            ProjectNameMongoDbContext = new ProjectNameMongoDbContext(configuration);
 
         }
-        public StarBerryMongoRepositoryBase(string url, string databaseName)
+        public ProjectNameMongoRepositoryBase(string url, string databaseName)
         {
-            StarBerryMongoDbContext = new StarBerryMongoDbContext(url, databaseName);
+            ProjectNameMongoDbContext = new ProjectNameMongoDbContext(url, databaseName);
         }
 
 
@@ -55,7 +55,7 @@ namespace Mongo.Repositories
         /// <param name="entity">Entity which will be added to the system</param>
         public virtual void Add(TEntity entity)
         {
-            StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Insert(entity);
+            ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Insert(entity);
         }
         /// <summary>
         /// Update entity
@@ -63,7 +63,7 @@ namespace Mongo.Repositories
         /// <param name="entity">Entity which will be updated to the system</param>
         public virtual void Update(TEntity entity)
         {
-            StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Save(entity);
+            ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Save(entity);
         }
         /// <summary>
         /// Delete entity
@@ -71,7 +71,7 @@ namespace Mongo.Repositories
         /// <param name="entity">Entity which will be deleted to the system</param>
         public virtual void Delete(TEntity entity)
         {
-            StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Remove(MongoDB.Driver.Builders.Query.EQ("Id", entity.Id));
+            ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Remove(MongoDB.Driver.Builders.Query.EQ("Id", entity.Id));
         }
         /// <summary>
         /// Get entity by Id
@@ -80,7 +80,7 @@ namespace Mongo.Repositories
         /// <returns>TEntity</returns>
         public virtual TEntity GetById(int id)
         {
-            return StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).FindOneByIdAs<TEntity>(id);
+            return ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).FindOneByIdAs<TEntity>(id);
         }
         /// <summary>
         /// Add entity
@@ -99,7 +99,7 @@ namespace Mongo.Repositories
         /// <returns></returns>
         protected virtual IQueryable<TEntity> GetAll()
         {
-            return StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).AsQueryable<TEntity>();
+            return ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).AsQueryable<TEntity>();
         }
         /// <summary>
         /// Count entity
@@ -200,7 +200,7 @@ namespace Mongo.Repositories
         }
         public virtual void InsertOrUpdate(TEntity entity)
         {
-            StarBerryMongoDbContext.StarBerryMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Save(entity);
+            ProjectNameMongoDbContext.ProjectNameMongoDatabase.GetCollection<TEntity>(typeof(TEntity).Name).Save(entity);
         }
 
         public virtual List<int> DeleteById(IEnumerable<int> ids)

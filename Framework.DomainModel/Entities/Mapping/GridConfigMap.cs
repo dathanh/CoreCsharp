@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class GridConfigMap : StarBerryEntityTypeConfiguration<GridConfig>
+    public class GridConfigMap : ProjectNameEntityTypeConfiguration<GridConfig>
     {
         public override void Configure(EntityTypeBuilder<GridConfig> builder)
         {

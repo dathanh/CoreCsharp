@@ -3,30 +3,30 @@ using System.Runtime.Serialization;
 
 namespace Framework.Exceptions
 {
-    public class StarBerryException : Exception
+    public class ProjectNameException : Exception
     {
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StarBerryException" /> class.
+        ///     Initializes a new instance of the <see cref="ProjectNameException" /> class.
         /// </summary>
-        public StarBerryException()
+        public ProjectNameException()
         {
 
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StarBerryException" /> class.
+        ///     Initializes a new instance of the <see cref="ProjectNameException" /> class.
         /// </summary>
         /// <param name="message">
         ///     The message.
         /// </param>
-        public StarBerryException(string message)
+        public ProjectNameException(string message)
             : base(message)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StarBerryException" /> class.
+        ///     Initializes a new instance of the <see cref="ProjectNameException" /> class.
         /// </summary>
         /// <param name="message">
         ///     The message.
@@ -34,13 +34,13 @@ namespace Framework.Exceptions
         /// <param name="inner">
         ///     The root cause.
         /// </param>
-        public StarBerryException(string message, Exception inner)
+        public ProjectNameException(string message, Exception inner)
             : base(message, inner)
         {
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="StarBerryException" /> class.
+        ///     Initializes a new instance of the <see cref="ProjectNameException" /> class.
         /// </summary>
         /// <param name="info">
         ///     The serialization information.
@@ -48,7 +48,7 @@ namespace Framework.Exceptions
         /// <param name="context">
         ///     The context.
         /// </param>
-        public StarBerryException(SerializationInfo info, StreamingContext context)
+        public ProjectNameException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class StarBerryEntityTypeConfiguration<T> : IEntityTypeConfiguration<T>
+    public class ProjectNameEntityTypeConfiguration<T> : IEntityTypeConfiguration<T>
         where T : Entity
     {
         public virtual void Configure(EntityTypeBuilder<T> builder)

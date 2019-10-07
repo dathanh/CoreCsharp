@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class LanguageMap : StarBerryEntityTypeConfiguration<Language>
+    public class LanguageMap : ProjectNameEntityTypeConfiguration<Language>
     {
         public override void Configure(EntityTypeBuilder<Language> builder)
         {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class UserRoleMap : StarBerryEntityTypeConfiguration<UserRole>
+    public class UserRoleMap : ProjectNameEntityTypeConfiguration<UserRole>
     {
         public override void Configure(EntityTypeBuilder<UserRole> builder)
         {

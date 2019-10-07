@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Framework.Exceptions
 {
     [Serializable]
-    public class UnAuthorizedAccessException : StarBerryException
+    public class UnAuthorizedAccessException : ProjectNameException
     {
         public UnAuthorizedAccessException()
         {

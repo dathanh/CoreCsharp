@@ -47,7 +47,7 @@
             }
 
             vm.closePopupHandle = function () {
-                $window.history.pushState(null, 'StarBerry', $location.absUrl());
+                $window.history.pushState(null, 'ProjectName', $location.absUrl());
             }
 
         }

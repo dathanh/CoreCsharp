@@ -24,7 +24,7 @@
             }
 
             $timeout(function () {
-                var favoriteCookie = $cookies.getObject("loginStarBerryWeb");
+                var favoriteCookie = $cookies.getObject("loginProjectNameWeb");
                 if (favoriteCookie !== undefined && favoriteCookie !== null && favoriteCookie.staySignIn) {
                     $scope.userName = favoriteCookie.userName;
                     $scope.password = favoriteCookie.password;
@@ -47,7 +47,7 @@
 
                     if ($scope.staySignIn) {
                         $timeout(function () {
-                            $cookies.putObject('loginStarBerryWeb', { userName: $scope.userName, password: $scope.password, staySignIn: $scope.staySignIn });
+                            $cookies.putObject('loginProjectNameWeb', { userName: $scope.userName, password: $scope.password, staySignIn: $scope.staySignIn });
                         }, 1000);
                     }
                     if (result.isLogin) {

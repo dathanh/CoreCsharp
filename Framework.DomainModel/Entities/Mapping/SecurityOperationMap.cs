@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Framework.DomainModel.Entities.Mapping
 {
-    public class SecurityOperationMap : StarBerryEntityTypeConfiguration<SecurityOperation>
+    public class SecurityOperationMap : ProjectNameEntityTypeConfiguration<SecurityOperation>
     {
         public override void Configure(EntityTypeBuilder<SecurityOperation> builder)
         {
