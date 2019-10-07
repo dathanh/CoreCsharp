@@ -1,0 +1,28 @@
+﻿@model ProjectName.Models.Base.Input.SliderViewModel
+
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        @if (Model.Orientation == "vertical")
+        {
+            <input id="@Model.Id" kendo-slider ng-model="@Model.DataBindingValue" k-tooltip="{ enabled: true }" k-orientation="'vertical'"
+                   style="height: @(Model.Height);" @(Model.IsDisabled?"disabled=disabled":"") k-min="@Model.Min" k-max="@(Model.Max)" />
+
+        }
+        else
+        {
+            <input id="@Model.Id" kendo-slider ng-model="@Model.DataBindingValue" k-tooltip="{ enabled: true }"
+                   style="width: @(Model.Width);" @(Model.IsDisabled ? "disabled=disabled" : "") k-min="@Model.Min" k-max="@(Model.Max)" />
+        }
+    </div>
+
+</div>

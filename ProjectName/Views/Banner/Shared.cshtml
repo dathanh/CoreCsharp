@@ -1,0 +1,68 @@
+﻿@using Framework.DomainModel.Entities.Common
+@using Framework.Utility
+@using ProjectName.HtmlHelpers
+<style>
+    .content-tab-index {
+        height: 100% !important;
+    }
+</style>
+<div data-ng-controller="sharedBannerController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div>
+            <h4 class="mb5">Banner information</h4>
+            <hr class="mt0" />
+        </div>
+        <div kendo-tab-strip id="tab-strip-banner">
+            <ul>
+                <li value="1" class="k-state-active"><i class="fa fa-info"></i> Main information</li>
+                <li value="2"><i class="fa fa-info"></i> Vietnamese</li>
+            </ul>
+            <div class="content-tab-index" style="padding: 1em;">
+                <div class="row">
+                    @Html.CustomTextBox("Name", "Name", "vms.Banner.Name", required: true, length: 300)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("Description", "Description", "vms.Banner.Description", maxlength: 4000, rows: 3, height: 150, classcol: ConstantValue.ClassCol12)
+                </div>
+                <div class="row">
+                    @Html.InputPositiveNumeric("OrderNumber", "Order Number", "vms.Banner.OrderNumber", maximumValue: 100)
+                    @Html.CustomDropDownList("Type", "Type", "vms.Banner.Type", readUrl: "/Common/BannerTypeLookup")
+                    @Html.CustomTextBox("TimeDuration", "TimeDuration", "vms.Banner.TimeDuration", length: 50)
+                    @Html.CustomCheckBox("IsActive", "Active", "vms.Banner.IsActive")
+                </div>
+                <div class="row">
+                    @Html.CustomFileUploadAngular("Background", "Background", "vms.Banner.Background", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.BackgroundTopBanner, isFakeRemove: true, previewHeight: 200)
+                </div>
+                <div class="row" ng-show="vms.Banner.Type==3">
+                    @Html.CustomCheckBox("IsHideDescription", "Hide Description", "vms.Banner.IsHideDescription")
+                </div>
+                <div class="row" ng-show="vms.Banner.Type==1||vms.Banner.Type==3">
+                    @Html.CustomFileUploadAngular("VideoDetails", "Video File", "vms.Banner.VideoDetails", classcol: ConstantValue.ClassCol12, acceptType: "video/*", isUploadVideo: true, selectText: "Browse video", imageType: (int)UploadImageType.VideoFile, required: true)
+                </div>
+                <div class="row" ng-show="vms.Banner.Type==2">
+                    @Html.CustomTextBox("UrlLink", "Youtube Link", "vms.Banner.UrlLink", required: false, length: 300)
+                </div>
+                <div class="row" ng-show="vms.Banner.Type==1">
+                    @Html.CustomComboBoxAutoComplete("VideoId", "Video Detail", "vms.Banner.VideoId", required: true, readUrl: "Video/GetLookup", dataBindingText: "vms.Banner.VideoName", classcol: ConstantValue.ClassCol6)
+                </div>
+            </div>
+            <div class="content-tab-index" style="padding: 1em">
+                <div class="row">
+                    @Html.CustomTextBox("NameInVietnamese", "Name", "vms.Banner.NameInVietnamese", required: true, length: 300)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("DescriptionInVietnamese", "Description", "vms.Banner.DescriptionInVietnamese", maxlength: 4000, rows: 3, height: 150, classcol: ConstantValue.ClassCol12)
+                </div>
+                <div class="row">
+                    @Html.CustomTextBox("TimeDuration", "TimeDuration", "vms.Banner.TimeDurationInVietnamese", length: 50)
+                </div>
+                <div class="row">
+                    @Html.CustomFileUploadAngular("DashboardBannerShareViewModel", "Background", "vms.Banner.BackgroundInVietnamese", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.BackgroundTopBanner, isFakeRemove: true, previewHeight: 200)
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <div ng-if="vms.Banner.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.Banner.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

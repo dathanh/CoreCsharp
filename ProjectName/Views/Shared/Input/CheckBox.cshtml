@@ -1,0 +1,57 @@
+﻿@model ProjectName.Models.Base.Input.CheckBoxViewModel
+@{
+    var readOnlyCheckbox = "";
+    if (Model.ReadOnly)
+    {
+        readOnlyCheckbox = "disabled";
+    }
+}
+<div class="form-group @Model.ClassCol">
+    @if (Model.LabelTop)
+    {
+
+        if (!string.IsNullOrEmpty(Model.Label))
+        {
+            <label class="p0 @Model.ClassLabel control-label">@Model.Label</label>
+        }
+
+        <div class="p0 @Model.ClassField">
+            <label class="checkbox">
+                @{
+                var disabledStr = Model.IsDisabled ? "disabled='disabled'" : "";
+                if (Model.NgChangeFunction == "")
+                {
+
+                    <input id="@Model.Id" type="checkbox" class="k-checkbox @Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox style="margin-top: 7px;" @disabledStr />
+                }
+                else
+                {
+                    <input id="@Model.Id" type="checkbox" class="k-checkbox @Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox ng-change="@Model.NgChangeFunction" style="margin-top:7px" @disabledStr />
+                }
+                }
+                <i></i>
+            </label>
+        </div>
+    }
+    else
+    {
+        <label class="p0 control-label @Model.ClassLabel" ng-if="@Model.HideLable">&nbsp;</label>
+    <div class="p0 @Model.ClassField">
+        @{
+        var disabledStr = Model.IsDisabled ? "disabled='disabled'" : "";
+        if (Model.NgChangeFunction == "")
+        {
+
+            <input id="@Model.Id" type="checkbox" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox style="margin-top: 7px;" @disabledStr />
+        }
+        else
+        {
+            <input id="@Model.Id" type="checkbox" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox ng-change="@Model.NgChangeFunction" style="margin-top:7px" @disabledStr />
+        }
+        }
+
+        <label class="k-checkbox-label @(Model.IsDisabled ? "k-checkbox-label-disabled" : "")" for="@Model.Id">@Model.Label</label>
+    </div>
+    }
+</div>
+

@@ -1,0 +1,33 @@
+﻿@model ProjectName.Models.Base.Input.InputTextViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        @if (Model.IsDisabled)
+        {
+            <span class="k-textbox k-space-right" style="width: 100%;">
+                <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class text-and-btn"
+                       ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" disabled="disabled" />
+                <a ng-click="@Model.ButtonFunctionName" class="k-icon @Model.ButtonFunctionText">&nbsp;</a>
+            </span>
+
+        }
+        else
+        { <span class="k-textbox k-space-right" style="width: 100%;">
+              <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class text-and-btn"
+                     ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr />
+
+              <a ng-click="@Model.ButtonFunctionName" class="k-icon @Model.ButtonFunctionText">&nbsp;</a>
+          </span>
+           
+        }
+    </div>
+</div>

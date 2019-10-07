@@ -1,0 +1,114 @@
+﻿@using ProjectName.HtmlHelpers
+@using Newtonsoft.Json
+@model ProjectName.Models.Base.GridViewModel
+
+<script type="text/x-kendo-template" id="templateHeader">
+    <div class="row">
+        <div class="col-md-9 col-sm-8 col-xs-4">
+            @if (Model.CanAddNewRecord)
+            {
+                <button ng-click="gridVm.Add()" class="btn btn-primary no-margin"><i class="fa fa-plus"></i> Add</button>
+            }
+            @if (Model.CanExportExcel)
+            {
+                <div class="btn-group" id="dropdown-export">
+                    <button data-toggle="dropdown" class="btn btn-primary" type="button">
+                        <i class="fa fa-file-excel-o"></i>&nbsp;Export excel
+                    </button>
+                    <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul role="menu" class="dropdown-menu export-menu">
+                        <li>
+                            <a href="javascript:;">
+                                <input type='radio' name='chk-export' id="chk-1000" value="1000" class="k-radio" checked="checked" />
+                                <label class="k-radio-label large" for="chk-1000"> &nbsp;1000 rows</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <input type='radio' name='chk-export' id="chk-5000" value="5000" class="k-radio" />
+                                <label class="k-radio-label large" for="chk-5000"> &nbsp;5000 rows</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <input type='radio' name='chk-export' id="chk-10000" value="10000" class="k-radio" />
+                                <label class="k-radio-label large" for="chk-10000"> &nbsp;10000 rows</label>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <input type='radio' name='chk-export' id="chk-all" value="-1" class="k-radio" />
+                                <label class="k-radio-label large" for="chk-all"> &nbsp;All</label>
+                            </a>
+                        </li>
+
+                        <li class="divider"></li>
+                        <li style="padding:0 0 10px 0;overflow: hidden;text-align: center;">
+                            <button class="btn btn-primary" ng-click="gridVm.ExportToExcel()"><i class="fa fa-file-excel-o"></i> Export</button>
+                        </li>
+                    </ul>
+                </div>
+            }
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-8">
+            <div class="input-group bootstrap-touchspin no-margin">
+                <input data-placement="top" title="Keywords..." data-toggle="tooltip" placeholder="Keywords..." class="form-control tx-search" ng-model="gridVm.SearchText" ng-enter="gridVm.Search($event)">
+                <span class="input-group-addon bootstrap-touchspin-postfix btn-search" ng-click="gridVm.Search()"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<cis-grid model-name="@Model.ModelName"
+          view-schema-config-data='@Html.GetGridViewSchemaConfigData(Model)'
+          view-columns-config-data='@Html.GetGridColumnsConfigData(Model)'
+          view-columns-data="@(JsonConvert.SerializeObject(Model.ViewColumns))"
+          grid-id="@Model.GridId"
+          user-id="@Model.CurrentUserId"
+          document-type-id="@Model.DocumentTypeId"
+          grid-internal-name="@Model.GridInternalName"
+          custom-header-template="@Model.CustomHeaderTemplate"
+          popup-width="@Model.PopupWidth"
+          popup-height="@Model.PopupHeight"
+          custom-params="@(JsonConvert.SerializeObject(Model.CustomParameters))"
+          add-fuc="@Model.AddFunction" cancel-fuc="@Model.CancelFunction"
+          edit-fuc="@Model.UpdateFunction" delete-fuc="@Model.DeleteFunction"
+          ext-func-1="@Model.ExtFunc1"
+          ext-func-2="@Model.ExtFunc2"
+          ext-func-3="@Model.ExtFunc3"
+          ext-func-4="@Model.ExtFunc4"
+          ext-func-5="@Model.ExtFunc5"
+          parent-search="@Model.ParentSearch"
+          bound-func="@Model.DataBoundFunc"
+          detail-init-bind="@Model.DetailInitBind"
+          detail-template-variable="@Model.DetailTemplate"
+          disable-auto-bind='@(Model.DisableAutoBind.ToString().ToLower())'
+          is-lazy-paging="@(Model.IsLazyPaging != null ? Model.IsLazyPaging.ToString().ToLower() : "false")"
+          number-line-header=@Model.NumberLineHeader>
+</cis-grid>
+
+<script type="text/x-kendo-template" id="commandTemplate">
+
+    @if (Model.CanUpdateRecord)
+    {
+        <button ng-click="gridVm.Edit(${ Id });" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="Update"><i class="fa fa-pencil"></i></button>
+    }
+    @if (Model.CanDeleteRecord)
+    {
+        <button ng-click="gridVm.Delete(${ Id });" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i></button>
+    }
+</script>
+
+<script type="text/x-kendo-template" id="isActiveTemplate">
+    #if(IsActive == true){#
+    <div class="fa fa-check" style="color:\\#5cb85c"></div>
+    #}#
+    #if(IsActive != true){#
+    <div class="fa fa-times" style="color:\\#d9534f"></div>
+    #}#
+</script>

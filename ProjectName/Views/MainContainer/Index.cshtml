@@ -1,0 +1,96 @@
+﻿@using Framework.Utility
+@{
+    Layout = null;
+    var urlCdn = ImageHelper.GetUrlCdn();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang=en class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset=utf-8>
+    <title>ProjectName Admin</title>
+    <!-- Mobile specific metas -->
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+    <!-- Force IE9 to render in normal mode -->
+    <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+    <meta name=author content="">
+    <meta name=description content="">
+    <meta name=keywords content="">
+    <meta name=application-name content="">
+    <!-- Css files -->
+    <link rel="stylesheet" type="text/css" media="screen" href="@urlCdn/css/allsite.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="@urlCdn/css/css/Site.css">
+    <link rel=apple-touch-icon sizes=57x57 href="@urlCdn/css/images/favicons/apple-touch-icon-57x57.png">
+    <link rel=apple-touch-icon sizes=60x60 href="@urlCdn/css/images/favicons/apple-touch-icon-60x60.png">
+    <link rel=apple-touch-icon sizes=72x72 href="@urlCdn/css/images/favicons/apple-touch-icon-72x72.png">
+    <link rel=apple-touch-icon sizes=76x76 href="@urlCdn/css/images/favicons/apple-touch-icon-76x76.png">
+    <link rel=apple-touch-icon sizes=114x114 href="@urlCdn/css/images/favicons/apple-touch-icon-114x114.png">
+    <link rel=apple-touch-icon sizes=120x120 href="@urlCdn/css/images/favicons/apple-touch-icon-120x120.png">
+    <link rel=apple-touch-icon sizes=144x144 href="@urlCdn/css/images/favicons/apple-touch-icon-144x144.png">
+    <link rel=apple-touch-icon sizes=152x152 href="@urlCdn/css/images/favicons/apple-touch-icon-152x152.png">
+    <link rel=apple-touch-icon sizes=180x180 href="@urlCdn/css/images/favicons/apple-touch-icon-180x180.png">
+    <link rel=icon type=image/png href="@urlCdn/css/images/favicons/favicon-32x32.png" sizes=32x32>
+    <link rel=icon type=image/png href="@urlCdn/css/images/favicons/favicon-194x194.png" sizes=194x194>
+    <link rel=icon type=image/png href="@urlCdn/css/images/favicons/favicon-96x96.png" sizes=96x96>
+    <link rel=icon type=image/png href="@urlCdn/css/images/favicons/android-chrome-192x192.png" sizes=192x192>
+    <link rel=icon type=image/png href="@urlCdn/css/images/favicons/favicon-16x16.png" sizes=16x16>
+    <link rel=manifest href="@urlCdn/css/images/favicons/manifest.json">
+    <link rel=mask-icon href="@urlCdn/css/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name=msapplication-TileColor content="#da532c">
+    <meta name=msapplication-TileImage content="~/mstile-144x144.png">
+    <meta name=theme-color content="#ffffff">
+
+</head>
+
+<body ng-class="$root.BodyClass">
+    @*<div id="loading-request" style="z-index: 20010; width: 100%; height: 100%;position: absolute; background-color: #c0c0c0; opacity: 0.1;"></div>*@
+    <div id="loading-white-backgroud" style="z-index: 10001; width: 100%; height: 100%;position: absolute; background-color: #fff; display: none;"></div>
+    <script type="text/javascript">
+        //show white-backgroud if param popup = 1: use for Task View Feedback
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        if (getParameterByName('popup', document.URL) === '1') {
+            var x = document.getElementById('loading-white-backgroud');
+            x.style.display = "";
+        }
+    </script>
+
+<div class="container body">
+    <div class="main_container">
+        <div ng-if="$root.BodyClass!='login-page'" ng-include="'/app/layout/left-sitebar.html'"></div>
+        <!-- top navigation -->
+        <div ng-if="$root.BodyClass!='login-page'" ng-include="'/app/layout/header.html'"></div>
+        <!-- /top navigation -->
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="ui-view-container">
+                <div class="animated-class" ui-view="main" id="{{$root.BodyClass!='login-page'?'':'wrapper'}}">
+                    <div class="waiting" ng-if="$root.BodyClass==null ||$root.BodyClass==''">
+                        <img src="@urlCdn/css/images/loading.gif" alt="" />
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var cdnUrl = "@urlCdn";
+</script>
+<script data-main="@urlCdn/app/main.js?v=@(DateTime.Now.ToString("MMddyyyyHHmmss"))" src="@urlCdn/app/libs/require.js"></script>
+
+</body>
+
+</html>

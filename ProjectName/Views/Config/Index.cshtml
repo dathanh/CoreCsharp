@@ -1,0 +1,46 @@
+﻿@model ProjectName.Models.Config.DashboardConfigIndexViewModel
+<div ng-controller="configController as vm">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="javascript:void(0);" ng-click="vm.basePopup.cancel()"><h2>Manage Config</h2></a></li>
+            <li ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">{{vm.actionState == 3 || vm.actionState == 4? "Create config": (vm.actionState == 5 || vm.actionState == 6? "Update config":"")}}</li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">
+        <div ng-if="vm.actionState == 1 || vm.actionState == 2">
+            <partial name="~/Views/Shared/Grid/_ReadOnlyGrid.cshtml"
+                     model="Model.GridViewModel" />
+        </div>
+        <!-- Add -->
+        <div ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{vm.actionState == 3 || vm.actionState == 4? "Create": (vm.actionState == 5 || vm.actionState == 6? "Update":"")}} config</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" ng-include="'/Config/Shared'"></div>
+            </div>
+        </div>
+        <!-- Update -->
+    </div>
+    <!-- End: Content -->
+</div>
+
+<script type="text/x-kendo-template" id="configFilter">
+    <div class="row">
+        <div class="col-md-9 col-sm-9 col-xs-12"></div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="input-group bootstrap-touchspin no-margin">
+                <input data-placement="top" title="Keywords..." data-toggle="tooltip" placeholder="Enter keyword..." class="form-control tx-search" ng-model="gridVm.SearchText" ng-enter="gridVm.Search($event)">
+                <span class="input-group-addon bootstrap-touchspin-postfix btn-search" ng-click="gridVm.Search()"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="commandConfigTemplate">
+    <button ng-click="gridVm.Edit(${ Id });" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="fa fa-pencil"></i></button>
+</script>

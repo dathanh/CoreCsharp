@@ -1,0 +1,25 @@
+﻿@model ProjectName.Models.Base.Input.CheckboxAndTextboxViewModel
+@{
+    var readOnlyCheckbox = "";
+    if (Model.ReadOnly)
+    {
+        readOnlyCheckbox = "disabled";
+    }
+}
+<div class="form-group @Model.ClassCol">
+    @{
+        var disabledStr = Model.IsDisabled ? "disabled='disabled'" : "";
+        if (Model.NgChangeFunction == "")
+        {
+            <input name="@Model.Name" id="cb@(Model.Id)" type="checkbox" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox style="margin-top: 9px;" @disabledStr />
+        }
+        else
+        {
+            <input name="@Model.Name" id="cb@(Model.Id)" type="checkbox" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox ng-change="@Model.NgChangeFunction" style="margin-top:9px" @disabledStr />
+        }
+    }
+    <label class="k-checkbox-label" style="height: 16px;line-height: 23px" for="cb@(Model.Id)">@Model.Label</label>&nbsp;
+    <input id="@Model.TextboxId" maxlength='@Model.TextboxLength' class="@Model.TextboxClass" ng-disabled="!@Model.DataBindingValue" ng-model="@Model.TextboxDataBindingValue" />
+    
+</div>
+

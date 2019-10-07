@@ -1,0 +1,69 @@
+﻿@model ProjectName.Models.Base.Input.FileUploadViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+
+        <input id="@Model.Id" type="file" name="file" />
+        <input type="hidden" id="@Model.Id-uploadFile" ng-model="@Model.DataBindingValue" />
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@Model.Id").kendoUpload({
+            multiple: false,
+            async: {
+                saveUrl: "/FileAttachment/UploadAttachment",
+                removeUrl: "/FileAttachment/RemoveAttachment",
+                autoUpload: true
+            },
+            //cancel: onCancel,
+            //complete: onComplete,
+            //error: onError,
+            //progress: onProgress,
+            remove: onRemove,
+            //select: onSelect,
+            success: onSuccess
+        });
+    });
+
+    function onUpload(e) {
+        getFileInfo(e);
+    }
+
+    function getFileInfo(e) {
+        if (e.files.length > 0) {
+            var fileUpload = e.files[0];
+            //console.log(fileUpload);
+        }
+    }
+
+    function onSuccess(e) {
+        var selectedFiles = $(".k-widget.k-upload").find("li");
+        if (selectedFiles.length > 1) {
+            selectedFiles.first().remove();
+        }
+        $("#" + '@Model.Id').parents('form').addClass('dirty');
+        //EnableCreateFooterButton(true);
+        $("#@Model.Id-uploadFile").val(e.response).trigger('change');
+    }
+
+    function onRemove(e) {
+        var fileName = e.name;
+        e.data = { fileName: fileName };
+        $("#" + '@Model.Id').parents('form').addClass('dirty');
+        //EnableCreateFooterButton(true);
+        if (e.response) {
+            $("#@Model.Id-uploadFile").val("").trigger('change');
+        }
+    }
+</script>
+

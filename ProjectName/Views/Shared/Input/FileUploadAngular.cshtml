@@ -1,0 +1,35 @@
+﻿@model ProjectName.Models.Base.Input.FileUploadViewModel
+<style type="text/css">
+    .k-upload-sync .k-upload-button, .k-ie7 .k-upload-button, .k-ie8 .k-upload-button, .k-ie9 .k-upload-button {
+        margin: 0;
+    }
+</style>
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <cis-upload ng-model="@Model.DataBindingValue"
+                    upload-id="@Model.Id"
+                    multiple='@(Model.IsMultiple.ToString().ToLower())'
+                    save-url='@Model.SaveUrl'
+                    remove-url="'@Model.RemoveUrl'"
+                    onsuccessfuc="@Model.OnsuccessFunction"
+                    preview-height="@Model.PreviewHeight"
+                    preview-width="@Model.PreviewWidth"
+                    is-upload-image='@(Model.IsUploadImage.ToString().ToLower())'
+                    is-upload-video='@(Model.IsUploadVideo.ToString().ToLower())'
+                    is-change-avatar='@(Model.IsChangeAvatar.ToString().ToLower())'
+                    is-allow-multi-file='@(Model.IsAllowMultiFile.ToString().ToLower())'
+                    accept-type="'@Model.AcceptType.ToLower()'"
+                    is-return-object='@Model.IsReturnObject.ToString().ToLower()'
+                    select-text="'@Model.SelectText'" />
+    </div>
+</div>

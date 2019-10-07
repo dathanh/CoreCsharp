@@ -1,0 +1,43 @@
+﻿<div ng-controller="leftSitebarController as leftsitebar">
+    <div class="col-md-3 left_col menu_fixed" ng-if="leftsitebar.loggedIn">
+        <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                <a class="site_title" ng-href="{{$root.WebsitePortalURL}}" target="_blank">
+                    <img src="/css/images/logo.png?v=1.0.0.1" class="logo-md" alt="Libris logo" style="height: 100%">
+                    <img src="/css/images/facion.png?v=1.0.0.1" class="logo-sm" alt="Libris logo" style="width: 80%;padding-top:10px">
+                </a>
+            </div>
+            <div class="clearfix"></div>
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                <div class="menu_section">
+                    <ul class="nav side-menu">
+                        <!-- li (nav item ) -->
+                        <li ng-repeat="r in leftsitebar.navRoutes" ng-class="{'active':checkLiActive(r.views.main.settings.children)}" data-ng-if="leftsitebar.isVisibleParent(r.views.main.settings.children)" data-ng-show="leftsitebar.isShowParent(r)">
+                            <a data-ng-bind-html="r.views.main.title"></a>
+                            <!-- .sub-nav -->
+                            <ul data-ng-if="r.views.main.settings.children.length>0" class="nav child_menu" role="menu" ng-style="checkLiActive(r.views.main.settings.children) && !isNavSm() && {'display':'block'}">
+                                <li ng-class="{'current-page':childR.views.main.settings.nav==leftsitebar.menuActive||childR.views.main.settings.nav==leftsitebar.menuParentActive}" data-ng-repeat="childR in r.views.main.settings.children" data-ng-if="childR.views.main.settings.isShow==true && leftsitebar.isVisibleChildren(childR.name)">
+                                    <a ng-click="createFuction($event)" data="{{childR.name}}" ng-if="childR.views.main.linkIsFuction==true">{{childR.views.main.title}}<span data-ng-if="childR.views.main.settings.children.length>0" class="fa fa-chevron-down"></span></a>
+                                    <a href="{{createRoute(childR)}}" ng-if="childR.views.main.linkIsFuction!=true" target="{{childR.target}}">{{childR.views.main.title}}<span data-ng-if="childR.views.main.settings.children.length>0" class="fa fa-chevron-down"></span></a>
+                                    <ul data-ng-if="childR.views.main.settings.children.length>0" class="nav child_menu level3 hide">
+                                        <li ng-class="{'current-page':childRR.views.main.settings.nav==leftsitebar.menuActive||childRR.views.main.settings.nav==leftsitebar.menuParentActive}" data-ng-repeat="childRR in childR.views.main.settings.children" data-ng-if="childRR.views.main.settings.isShow==true">
+                                            <a target="{{childRR.target}}" href="{{createRouteChildRR(childRR)}}">
+                                                {{childRR.views.main.title}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- / .sub-nav -->
+                        </li>
+                        <!-- / li -->
+                    </ul>
+                </div>
+            </div>
+            <!-- /sidebar menu -->
+        </div>
+    </div>
+</div>

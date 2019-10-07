@@ -1,0 +1,6 @@
+﻿<div class="popup-footer">
+    <!--footer-->
+    <button ng-click="vm.basePopup.cancel()" class="btn btn-default mb0" ng-show="vm.basePopup.showCancel" ng-style="vm.basePopup.styleCancel"><i class="fa fa-close"></i> Hủy</button>
+    <button ng-show="!$root.waitingModified" ng-disabled="!$root.popupFormModified" class="btn btn-primary mb0" ng-click="vm.basePopup.update()"><i class="fa fa-save"></i> Cập nhật</button>
+    <button ng-show="$root.waitingModified" class="btn btn-primary mb0"><img src="/css/images/waiting.gif" style="width: 70px;height: 10px" /></button>
+</div>

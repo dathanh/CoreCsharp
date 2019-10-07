@@ -1,0 +1,48 @@
+﻿@model ProjectName.Models.Role.DashboardRoleIndexViewModel
+<!------------------------------------>
+<div ng-controller="roleController as vm">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="javascript:void(0);" ng-click="vm.basePopup.cancel()"><h2>Manage roles</h2></a></li>
+            <li ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">{{vm.actionState == 3 || vm.actionState == 4? "Create role": (vm.actionState == 5 || vm.actionState == 6? "Update role":"")}}</li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">
+        <div ng-if="vm.actionState == 1 || vm.actionState == 2">
+            <partial name="~/Views/Shared/Grid/_ReadOnlyGrid.cshtml"
+                     model="Model.GridViewModel" />
+            <script type="text/x-kendo-template" id="commandRoleTemplate">
+                @if (Model.CanEditRecord)
+                {
+                    <button ng-click="gridVm.Edit(${ Id });" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="Update"><i class="fa fa-pencil"></i></button>
+                }
+                @if (Model.CanDeleteRecord)
+                {<text>
+                        #if(AppRoleName== ""){#
+
+                        <button ng-click="gridVm.Delete(${ Id });" ng-show="gridVm.IsDefault!=true" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="Delete"><i class="fa fa-trash"></i></button>
+                        #}#
+                </text>
+            }
+
+                <button ng-click="gridVm.GridExtFunc1(${ Id });" class="btn btn-default btn-alt" data-toggle="tooltip" data-placement="bottom" title="View Detail"><i class="fa fa-tasks"></i></button>
+
+            </script>
+        </div>
+        <!-- Add -->
+        <div ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{vm.actionState == 3 || vm.actionState == 4? "Create": (vm.actionState == 5 || vm.actionState == 6? "Update":"")}} role</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" ng-include="'/UserRole/Shared'"></div>
+            </div>
+        </div>
+        <!-- Update -->
+    </div>
+    <!-- End: Content -->
+</div>

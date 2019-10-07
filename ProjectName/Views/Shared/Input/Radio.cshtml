@@ -1,0 +1,25 @@
+﻿@model ProjectName.Models.Base.Input.RadioViewModel
+@{
+    var readOnlyRadio = "";
+    if (Model.ReadOnly)
+    {
+        readOnlyRadio = "disabled";
+    }
+}
+<div class="form-group @Model.ClassCol">
+    
+    @{
+        var disabledStr = Model.IsDisabled ? "disabled='disabled'" : "";
+        if (Model.NgChangeFunction == "")
+        {
+
+            <input name="@Model.Name" id="rad@(Model.Id)" type="radio" value="@Model.Value" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyRadio style="margin-top: 2px;" @disabledStr />
+        }
+        else
+        {
+            <input name="@Model.Name" id="rad@(Model.Id)" type="radio" value="@Model.Value" class="@Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyRadio ng-change="@Model.NgChangeFunction" style="margin-top:2px" @disabledStr />
+        }
+    }
+    <label class="k-radio-label @(Model.IsDisabled ? "k-radio-label-disabled" : "")" style="height: 16px;line-height: 16px" for="rad@(Model.Id)">@Model.Label</label>
+</div>
+

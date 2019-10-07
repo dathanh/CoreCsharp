@@ -1,0 +1,32 @@
+﻿@model ProjectName.Models.Base.Date.DropDownListViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+            {
+                <span class='red'>*</span>
+            }
+            @Model.Label
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+            {
+                <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+            }
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <cis-multi-select class="custom-lookup" style="width: 100%;"
+                          multiselect-id="@Model.Id"
+                          show-selectall="@Model.IsShowSelectAll.ToString().ToLower()"
+                          is-display-on-top="@Model.IsDisplayOnTop.ToString().ToLower()"
+                          url-read-data="@Model.ReadUrl"
+                          place-holder-text="@Model.PlaceHolderText"
+                          parameter-dependencies="@Model.ParameterDependencies"
+                          ng-model="@Model.DataBindingValue"
+                          model-binding-text="@Model.DataBindingText"
+                          onchange-datasource-fuc="@Model.OnChangeDatasourceFunction"
+                          enable-multiselect="@Model.Enabled.ToString().ToLower()"/>
+    </div>
+
+</div>

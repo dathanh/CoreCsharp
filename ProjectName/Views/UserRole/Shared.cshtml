@@ -1,0 +1,21 @@
+﻿@using ProjectName.HtmlHelpers
+@model ProjectName.Models.Role.DashboardRoleShareViewModel
+<div data-ng-controller="sharedRoleController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div ng-if="vms.Role.IsDefault==true">
+            @Html.CustomTextBox("Name", "Name", "vms.Role.Name", required: true, classcol: "col-sm-6 col-xs-7", length: 50,isReadonly:true)
+        </div>
+        <div ng-if="vms.Role.IsDefault!=true">
+            @Html.CustomTextBox("Name", "Name", "vms.Role.Name", required: true, classcol: "col-sm-6 col-xs-7", length: 50)
+        </div>
+        @Html.CustomCheckBox("CheckAll", "Select all", "vms.Role.CheckAll", ngChangeFunction: "CheckAll()", classcol: "col-sm-3 col-xs-5", classlabel: "mb5")
+        <div class="form-group col-md-12">
+            <label class="p0 col-md-12 control-label">Role</label>
+            <div class="p0 col-md-12">
+                <div kendo-grid k-options="vms.functionGridOptions" id="roleGrid"></div>
+            </div>
+        </div>
+    </form>
+    <div ng-if="vms.Role.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.Role.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

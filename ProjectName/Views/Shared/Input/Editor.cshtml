@@ -1,0 +1,113 @@
+﻿@model ProjectName.Models.Base.Input.EditorViewModel
+@if (Model.IsDisabled)
+{
+    <div id="editor-@Model.Id" class="form-group @Model.ClassCol" style="pointer-events: none">
+        @if (!string.IsNullOrEmpty(Model.Label))
+        {
+            <label class="p0 @Model.ClassLabel control-label">
+                @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+                {
+                    <span class='red'>*</span>
+                }
+                @Model.Label
+                @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+                {
+                    <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+                }
+            </label>
+        }
+        <style>
+            .editor-wrap {
+                position: relative;
+            }
+
+                .editor-wrap .k-overlay {
+                    position: absolute;
+                    opacity: 0;
+                    z-index: 1;
+                }
+
+                .editor-wrap .k-resize-se {
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 6px;
+                    right: 6px;
+                }
+
+                .editor-wrap > .k-editor {
+                    height: 100%;
+                }
+        </style>
+        <div class="p0 @Model.ClassField">
+            <div class="editor-wrap">
+                <cis-editor editor-id="@Model.Id"
+                            url-read="@Model.UrlRead"
+                            url-destroy="@Model.UrlDestroy"
+                            url-image="@Model.UrlImage"
+                            url-create="@Model.UrlCreate"
+                            url-upload="@Model.UrlUpload"
+                            url-thumb="@Model.UrlThumb"
+                            editor-width="@Model.Width"
+                            editor-height="@Model.Height"
+                            is-basic="@Model.IsBasic.ToString().ToLower()"
+                            ng-model="@Model.DataBindingValue" />
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div id="editor-@Model.Id" class="form-group @Model.ClassCol">
+        @if (!string.IsNullOrEmpty(Model.Label))
+        {
+            <label class="p0 @Model.ClassLabel control-label">
+                @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+                {
+                    <span class='red'>*</span>
+                }
+                @Model.Label
+                @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+                {
+                    <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+                }
+            </label>
+        }
+        <style>
+            .editor-wrap {
+                position: relative;
+            }
+
+                .editor-wrap .k-overlay {
+                    position: absolute;
+                    opacity: 0;
+                    z-index: 1;
+                }
+
+                .editor-wrap .k-resize-se {
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 6px;
+                    right: 6px;
+                }
+
+                .editor-wrap > .k-editor {
+                    height: 100%;
+                }
+        </style>
+        <div class="p0 @Model.ClassField">
+            <div class="editor-wrap">
+                <cis-editor editor-id="@Model.Id"
+                            url-read="@Model.UrlRead"
+                            url-destroy="@Model.UrlDestroy"
+                            url-image="@Model.UrlImage"
+                            url-create="@Model.UrlCreate"
+                            url-upload="@Model.UrlUpload"
+                            url-thumb="@Model.UrlThumb"
+                            editor-width="@Model.Width"
+                            editor-height="@Model.Height"
+                            is-basic="@Model.IsBasic.ToString().ToLower()"
+                            ng-model="@Model.DataBindingValue" />
+            </div>
+        </div>
+    </div>
+}

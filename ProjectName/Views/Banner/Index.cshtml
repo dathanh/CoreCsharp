@@ -1,0 +1,75 @@
+﻿@using Framework.Utility;
+@model ProjectName.Models.Banner.DashboardBannerIndexViewModel
+<div ng-controller="bannerController as vm">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="javascript:void(0);" ng-click="vm.basePopup.cancel()"><h2>Manage Banner</h2></a></li>
+            <li ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">{{vm.actionState == 3 || vm.actionState == 4? "Create banner": (vm.actionState == 5 || vm.actionState == 6? "Update banner":"")}}</li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">
+        <div ng-if="vm.actionState == 1 || vm.actionState == 2">
+            <partial name="~/Views/Shared/Grid/_ReadOnlyGrid.cshtml"
+                     model="Model.GridViewModel" />
+        </div>
+        <!-- Add -->
+        <div ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{vm.actionState == 3 || vm.actionState == 4? "Create": (vm.actionState == 5 || vm.actionState == 6? "Update":"")}} banner</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" ng-include="'/Banner/Shared'"></div>
+            </div>
+        </div>
+        <!-- Update -->
+        <script type="text/x-kendo-template" id="isHideDescriptionTemplate">
+            #if(IsHideDescription == true){#
+            <div class="fa fa-check" style="color:\\#5cb85c"></div>
+            #}#
+            #if(IsHideDescription != true){#
+            <div class="fa fa-times" style="color:\\#d9534f"></div>
+            #}#
+        </script>
+    </div>
+    <!-- End: Content -->
+</div>
+<script type="text/x-kendo-template" id="bannerFilter">
+    <div class="row">
+        <div class="@ConstantValue.ClassCol6">
+            @if (Model.CanAddNewRecord)
+            {
+                <button ng-click="gridVm.Add()" class="btn btn-primary no-margin"><i class="fa fa-plus"></i> Add</button>
+            }
+        </div>
+        <div class="@ConstantValue.ClassCol3">
+            <form role="form" class="form-horizontal">
+                <div class="row">
+                    <cis-comboboxautocomplete class="custom-lookup"
+                                              dropdown-id="filterTypeId"
+                                              url-read-data="Common/BannerTypeLookup"
+                                              ng-model="$parent.vm.Type"
+                                              onchangefuc=''
+                                              parameter-dependencies=''
+                                              is-readonly="false"
+                                              auto-bind="true"
+                                              place-holder="--Choose type--"
+                                              model-binding-text=''
+                                              enable-dropdown="true"
+                                              style="width: 100%;"
+                                              is-just-auto-complete="false" />
+                </div>
+            </form>
+        </div>
+        <div class="@ConstantValue.ClassCol3">
+            <div class="input-group bootstrap-touchspin no-margin">
+                <input data-placement="top" title="Từ khóa..." data-toggle="tooltip" placeholder="Từ khóa..." class="form-control tx-search" ng-model="gridVm.SearchText" ng-enter="gridVm.Search($event)">
+                <span class="input-group-addon bootstrap-touchspin-postfix btn-search" ng-click="gridVm.Search()"><i class="fa fa-search"></i></span>
+            </div>
+        </div>
+    </div>
+</script>
+

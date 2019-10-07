@@ -1,0 +1,37 @@
+﻿@*@model ProjectName.Attributes.WebHandleErrorInfo
+<html lang="en" class=" ">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Error Exception</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <!-- Custom Theme Style -->
+    <link rel="stylesheet" href="/css/custom.css">
+</head>
+<body class="nav-md error">
+    <div class="container body">
+        <div class="main_container">
+            <!-- page content -->
+            <div class="col-md-12">
+                <div class="col-middle">
+                    <div class="text-center text-center">
+                        <h1 class="error-number">Lỗi ngoại lệ</h1>
+                        <h2>Chúng tôi không thể thực hiện trang này</h2>
+                            @if (Model != null)
+                            {
+                            <p>Error: @Html.Raw(Model.ErrorMessage.Replace(Environment.NewLine, @"<br/>"))</p>
+                            }
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+        </div>
+    </div>
+</body>
+</html>*@

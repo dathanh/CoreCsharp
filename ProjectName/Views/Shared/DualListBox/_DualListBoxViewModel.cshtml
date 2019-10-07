@@ -1,0 +1,26 @@
+﻿@model ProjectName.Models.Base.Input.DualListBoxViewModel
+<link rel="stylesheet" href="@Url.Content("~/css/sprites.css")" />
+<link rel="stylesheet" href="@Url.Content("~/css/bootstrap-duallistbox.css")" />
+<link rel="stylesheet" href="@Url.Content("~/css/dual-select-list-box.css")" />
+<script src="~/js/ViewModels/DualListBoxViewModel.js"></script>
+
+<!-- ko stopBinding: true -->
+
+<div id="dual_list_@Model.ControlId" style="height: 100%;">
+    <fieldset class="span25">
+        <legend><label class="control-label">@Model.HeaderText</label></legend>
+        <select id="dual_list_select_@Model.ControlId" multiple="multiple" size="10" name="duallistbox_entity"
+               data-bind="options: values, optionsText: 'Name', optionsValue: 'Id'"></select>
+    </fieldset>
+</div>
+<!-- /ko -->
+<script>
+    var dual_list_@(Model.ControlId) = new DualListBoxViewModel('@Model.ControlId',
+                    '@Model.GetAllUrl',
+                    '@Model.GetSelectedUrl',
+                    '@Model.ModelName');
+
+    // This allows us to have nested bindings.
+
+</script>
+

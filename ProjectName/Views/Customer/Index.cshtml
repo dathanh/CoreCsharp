@@ -1,0 +1,122 @@
+﻿@model ProjectName.Models.Customer.DashboardCustomerIndexViewModel
+
+<div ng-controller="customerController as vm" ng-init="vm.init();">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="javascript:void(0);" ng-click="vm.basePopup.cancel()"><h2>Manage customer register</h2></a></li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">
+        <div ng-if="vm.actionState == 1 || vm.actionState == 2">
+            <div kendo-tooltip k-options="tooltipOptions">
+                <partial name="~/Views/Shared/Grid/_ReadOnlyGrid.cshtml"
+                         model="Model.GridViewModel" />
+            </div>
+        </div>
+        <script type="text/x-kendo-template" id="customerFilter">
+            <div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <div class="btn-group" id="dropdown-export">
+                        <button data-toggle="dropdown" class="btn btn-primary" type="button">
+                            <i class="fa fa-file-excel-o"></i>&nbsp;Export excel
+                        </button>
+                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle" type="button" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul role="menu" class="dropdown-menu export-menu">
+                            <li>
+                                <a href="javascript:;">
+                                    <input type='radio' name='chk-export' id="chk-1000" value="1000" class="k-radio" checked="checked" />
+                                    <label class="k-radio-label large" for="chk-1000"> &nbsp;1000 rows</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <input type='radio' name='chk-export' id="chk-5000" value="5000" class="k-radio" />
+                                    <label class="k-radio-label large" for="chk-5000"> &nbsp;5000 rows</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <input type='radio' name='chk-export' id="chk-10000" value="10000" class="k-radio" />
+                                    <label class="k-radio-label large" for="chk-10000"> &nbsp;10000 rows</label>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:;">
+                                    <input type='radio' name='chk-export' id="chk-all" value="-1" class="k-radio" />
+                                    <label class="k-radio-label large" for="chk-all"> &nbsp;All</label>
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+                            <li style="padding:0 0 10px 0;overflow: hidden;text-align: center;">
+                                <button class="btn btn-primary" ng-click="gridVm.ExportToExcel()"><i class="fa fa-file-excel-o"></i> Export excel</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <form role="form" class="form-horizontal">
+                        <div class="row" style="padding-left:10px">
+                            <cis-comboboxautocomplete class="custom-lookup"
+                                                      dropdown-id="filterType"
+                                                      url-read-data="Common/CustomerRegisterTypeLookup"
+                                                      ng-model="$parent.vm.Type"
+                                                      onchangefuc=''
+                                                      parameter-dependencies=''
+                                                      is-readonly="false"
+                                                      auto-bind="true"
+                                                      place-holder="Register via"
+                                                      model-binding-text=''
+                                                      enable-dropdown="true"
+                                                      is-just-auto-complete="false"
+                                                      style="width: 100%;" />
+
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div style="display: inline;overflow: hidden;">
+                        <div class="row no-margin">
+                            <div class="col-md-4 col-sm-4 col-xs-12 text-right" style="float:left"><label class="mt10">Register from:</label></div>
+                            <div class="col-md-8 col-sm-8 col-xs-12"><input style="width:100%" kendo-date-picker id="RegisterStartDate" k-format="'MM/dd/yyyy'" k-ng-model="$parent.vm.RegisterStartDate" /></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <div style="display: inline;overflow: hidden;">
+                        <div class="row no-margin">
+                            <div class="col-md-2 col-sm-2 col-xs-12 text-right" style="float:left"><label class="mt10">To:</label></div>
+                            <div class="col-md-10 col-sm-10 col-xs-12"><input style="width:100%" kendo-date-picker id="RegisterEndDate" k-format="'MM/dd/yyyy'" k-ng-model="$parent.vm.RegisterEndDate" /></div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-12">
+                    <div class="input-group bootstrap-touchspin no-margin">
+                        <button data-toggle="dropdown" class="btn btn-primary" type="button" ng-click="gridVm.Search()">
+                            <i class="fa fa-search" ></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row">
+                <div class="col-md-2 col-sm-2 col-xs-12" style="padding-top:5px;"></div>
+               
+                <div class="col-md-3 col-sm-3 col-xs-12" style="padding-top:5px;">
+
+
+                </div>
+            </div>*@
+        </script>
+        <!-- Add -->
+        <!-- Update -->
+    </div>
+    <!-- End: Content -->
+</div>

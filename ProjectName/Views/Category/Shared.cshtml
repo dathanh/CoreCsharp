@@ -1,0 +1,55 @@
+﻿@using Framework.DomainModel.Entities.Common
+@using Framework.Utility
+@using ProjectName.HtmlHelpers
+<style>
+    .content-tab-index {
+        height: 100% !important;
+    }
+</style>
+<div data-ng-controller="sharedCategoryController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div>
+            <h4 class="mb5">Category information</h4>
+            <hr class="mt0" />
+        </div>
+        <div kendo-tab-strip id="tab-strip-category">
+            <ul>
+                <li value="1" class="k-state-active"><i class="fa fa-info"></i> Main information</li>
+                <li value="2"><i class="fa fa-info"></i> Vietnamese</li>
+            </ul>
+            <div class="content-tab-index" style="padding: 1em;">
+                <div class="row">
+                    @Html.CustomTextBox("Name", "Name", "vms.Category.Name", required: true, length: 300)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("Description", "Description", "vms.Category.Description", maxlength: 4000, rows: 3, height: 150, classcol: ConstantValue.ClassCol12)
+                </div>
+                @*<div class="row">
+                        @Html.CustomFileUploadAngular("Avatar", "Icon", "vms.Category.Avatar", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.CategoryImage, isFakeRemove: true)
+
+                    </div>*@
+                <div class="row">
+                    @Html.CustomFileUploadAngular("Background", "Background", "vms.Category.Background", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.CategoryBackground, isFakeRemove: true)
+                </div>
+                <div class="row">
+                    @Html.CustomDropDownList("ParentId", "Category Parent", "vms.Category.ParentId", dataBindingText: "vms.Category.ParentName", readUrl: "/Category/GetParentLookup", placeHolderText: "-None-", placeHolderValue: "")
+                    @Html.CustomCheckBox("IsActive", "Active", "vms.Category.IsActive")
+                </div>
+            </div>
+            <div class="content-tab-index" style="padding: 1em">
+                <div class="row">
+                    @Html.CustomTextBox("NameInVietnamese", "Name", "vms.Category.NameInVietnamese", required: true, length: 300)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("DescriptionInVietnamese", "Description", "vms.Category.DescriptionInVietnamese", maxlength: 4000, height: 150, classcol: ConstantValue.ClassCol12, rows: 3)
+                </div>
+                <div class="row">
+                    @Html.CustomFileUploadAngular("BackgroundInVietnamese", "Background", "vms.Category.BackgroundInVietnamese", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.CategoryBackground, isFakeRemove: true)
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <div ng-if="vms.Category.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.Category.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

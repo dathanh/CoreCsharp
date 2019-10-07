@@ -1,0 +1,29 @@
+﻿@model ProjectName.Models.Base.Input.InputNumericViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        @if (Model.ReadOnly)
+        {
+            <input id='@Model.Id' type='number' style="text-align: right; width: 100%;"
+                   maxlength='@Model.Length' kendo-numeric-text-box k-min="@Model.MinimumValue"
+                   k-max="@Model.MaximumValue" ng-model="@Model.DataBindingValue" k-format="'@Model.Format'" disabled="disabled"
+                   k-step="@Model.StepValue" k-decimals="@Model.Decimals" k-model-spinners="true" />
+        }
+        else
+        {
+            <input id='@Model.Id' type='number' style="text-align: right; width: 100%;"
+                   maxlength='@Model.Length' kendo-numeric-text-box k-min="@Model.MinimumValue"
+                   k-max="@Model.MaximumValue" ng-model="@Model.DataBindingValue" k-format="'@Model.Format'"
+                   k-step="@Model.StepValue" k-decimals="@Model.Decimals" k-model-spinners="true" />
+        }
+    </div>
+</div>

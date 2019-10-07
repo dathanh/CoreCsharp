@@ -1,0 +1,40 @@
+﻿@model ProjectName.Models.Base.Date.DateTimePickerViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <cis-time-picker ng-model="@Model.DataBindingValue"
+                         picker-id="@Model.Id"
+                         picker-format="@Model.Format"
+                         picker-readonly="@Model.ReadOnly"
+                         picker-place-holder="@Model.PlaceHolderText" @Model.HtmlAttributes style="width: 100%;" />
+    </div>
+</div>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+
+        //masked
+        var timepicker = $("#@Model.Id");
+        timepicker.kendoMaskedTextBox({
+            mask: "00:00 ~^",
+            rules: {
+                "~": /[PA]/,
+                "^": /[M]/
+            }
+        });
+        timepicker.closest(".k-timepicker")
+            .add(timepicker)
+            .removeClass("k-textbox");
+
+    });
+</script>*@
+

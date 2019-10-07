@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Message key="NotEqualTime">
+    <Content>{0} phải lớn hơn {1}.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RequestProviderPortalDuplicate">
+    <Content>Thông tin của bạn đã được chỉnh sửa bởi người khác. Vui lòng làm mới trang để có thông tin mới nhất.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RequestWarning">
+    <Content>Có lỗi xãy ra. Vui lòng kiểm tra lại những thông tin sau: </Content>
+    <Description></Description>
+  </Message>
+  <Message key="FieldInvalidText">
+    <Content>{0} không hợp lệ.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="FieldValidText">
+    <Content>{0} hợp lệ.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RequiredTextResourceKey">
+    <Content>Bạn phải nhập vào {0}.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="PhoneInvalidText">
+    <Content>{0} không phải là một số điện thoại hợp lệ.</Content>
+    <Description></Description>
+  </Message>
+
+  <Message key="DateTimeInvalid">
+    <Content>{0} không phải là một ngày hợp lệ.</Content>
+    <Description></Description>
+  </Message>
+
+  <Message key="DateInvalid">
+    <Content>{0} không phải là một ngày hợp lệ.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="BussinessGenericErrorMessageKey">
+    <Content>Bạn phải kiểm tra lại các thông tin sau:</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RestorePasswordSuccessText">
+    <Content>Lấy lại mật khẩu thành công. Vui lòng kiểm tra email của bạn để có thông tin chi tiết.</Content>
+    <Description></Description>
+  </Message>
+
+  <Message key="CreateText">
+    <Content>Tạo mới</Content>
+    <Description></Description>
+  </Message>
+  <Message key="UnAuthorizedAccessText">
+    <Content>Bạn không có quyền truy cập chức năng này.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="Unauthorized">
+    <Content>Không có quyền truy cập</Content>
+    <Description></Description>
+  </Message>
+  <Message key="MustGreaterThan">
+    <Content>{0} phải lớn hơn {1}.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="InvalidDate">
+    <Content>{0} là một ngày không hợp lê.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ItemIsDeleted">
+    <Content>{0} không thể tìm thấy.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RecoverPasswordSuccessfully">
+    <Content>Vui lòng kiểm tra email của bạn.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="SaveSuccessfully">
+    <Content>Cập nhật thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="UpdateSuccessfully">
+    <Content>Cập nhật thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="CreateSuccessfully">
+    <Content>Tạo mới thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="DeleteSuccessfully">
+    <Content>Xóa dữ liệu thành công</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ApproveSuccessfully">
+    <Content>Approve thành công</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RejectSuccessfully">
+    <Content>Reject thành công</Content>
+    <Description></Description>
+  </Message>
+  <Message key="InactiveSuccessfully">
+    <Content>Vô hiệu dữ liệu thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ChangePasswordUserSuccess">
+    <Content>Thay đổi mật khẩu thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ResetPasswordUserSuccess">
+    <Content>Lấy lại mật khẩu mới thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ComparePassword">
+    <Content>Mật khẩu mới và mật khẩu nhập lại không phù hợp.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="RequiredField">
+    <Content>Bạn phải nhập vào {0}.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="PasswordLength">
+    <Content>{0} phải chứa ít nhất 6 kí tự.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="PasswordAndConfirmRequired">
+    <Content>Bạn phải nhập vào mật khẩu mới và mật khẩu nhập lại.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="Successfully">
+    <Content>{0} thành công.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ConfirmDelete">
+    <Content>Bạn có chắc muốn xóa dữ liệu này?</Content>
+    <Description></Description>
+  </Message>
+  <Message key="NotExisted">
+    <Content>{0} không tồn tại trong hệ thống.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="MustGreaterThanToday">
+    <Content>{0} phải lớn hơn ngày hiện tại.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="ValidateAddNewRecord">
+    <Content>Bạn chỉ có thể tạo thêm dữ liệu mới khi bạn hoàn tất các thông tin cần thiết.</Content>
+    <Description></Description>
+  </Message>
+  <Message key="Successfully">
+    <Content>{0} thành công.</Content>
+    <Description></Description>
+  </Message>
+</root>

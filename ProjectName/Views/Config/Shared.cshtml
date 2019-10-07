@@ -1,0 +1,26 @@
+﻿@using Framework.DomainModel.Entities.Common
+@using Framework.Utility
+@using ProjectName.HtmlHelpers
+<div data-ng-controller="sharedConfigController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div>
+            <h4 class="mb5">Config information</h4>
+            <hr class="mt0" />
+        </div>
+        <div class="row">
+            @Html.CustomTextBox("Name", "Name", "vms.Config.Name", required: true, length: 200, classcol: "col-md-6 col-sm-6 col-xs-12", isDisabled: true, isReadonly: true)
+            @*@Html.CustomTextBox("Value", "Value", "vms.Config.Value", required: true, length: 1000, classcol: "col-md-6 col-sm-6 col-xs-12")*@
+        </div>
+        <div class="row">
+            @Html.CustomTextArea("Description", "Description", "vms.Config.Description", required: true, classcol: "col-md-12 col-sm-12 col-xs-12", rows: 2)
+        </div>
+        <div class="row">
+            @Html.CustomFileUploadAngular("Background", "Background", "vms.Config.Background", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.ConfigBackground, isFakeRemove: true, previewHeight: 200, required: true)
+        </div>
+        <div class="row">
+            @Html.CustomFileUploadAngular("VideoDetails", "Video File", "vms.Config.VideoDetails", classcol: ConstantValue.ClassCol12, acceptType: "video/*", isUploadVideo: true, selectText: "Browse video", imageType: (int)UploadImageType.VideoFile, required: true)
+        </div>
+
+    </form>
+    <div ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

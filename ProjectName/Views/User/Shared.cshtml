@@ -1,0 +1,42 @@
+﻿@using ProjectName.HtmlHelpers
+<div data-ng-controller="sharedUserController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div>
+            <h4 class="mb5">User information</h4>
+            <hr class="mt0" />
+        </div>
+        <div class="row">
+            @Html.CustomDropDownList("UserRoleId", "Role", "vms.User.UserRoleId", dataBindingText: "vms.User.UserRoleText", readUrl: "/UserRole/GetListRoles", required: true)
+            <div ng-if="vms.User.CreateMode">
+                @Html.CustomTextBox("UserName", "User name", "vms.User.UserName", isReadonly: false, length: 100, required: true)
+            </div>
+            <div ng-if="!vms.User.CreateMode">
+                @Html.CustomTextBox("UserName", "User name", "vms.User.UserName", isReadonly: true, required: true, classcol: "col-md-2 col-sm-3 col-xs-12")
+            </div>
+            @Html.CustomTextBox("Password", "Password", "vms.User.Password", required: true, isPasswordType: true, isShowInfoPasswordRule: false, length: 100, autoComplete: "false")
+            @Html.CustomTextBox("ConfirmPassword", "Confirm password", "vms.User.ConfirmPassword", required: true, length: 100, isPasswordType: true)
+        </div>
+
+        <div class="col-md-12">
+            <span style="float: right; right: 0px;">Password must have at least 8 characters, include number, upper case, normal case and special characters.</span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="mb5">General information</h4>
+                <hr class="mt0" />
+            </div>
+        </div>
+        <div class="row"></div>
+
+        <div class="row">
+            @Html.CustomTextBox("FullName", "Full name", "vms.User.FullName", required: true, length: 200)
+            @Html.CustomTextBox("Email", "Email", "vms.User.Email", required: true, length: 100)
+            @Html.CustomPhone("Phone", "Phone", "vms.User.Phone", isRequired: true)
+            @Html.CustomCheckBox("IsActive", "Active", "vms.User.IsActive")
+        </div>
+        <div class="row">
+        </div>
+    </form>
+    <div ng-if="vms.User.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.User.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

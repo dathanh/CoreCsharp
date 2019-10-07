@@ -1,0 +1,29 @@
+<div style="color: white;">
+    <div><%=data.Message%></div>
+</div>
+    <%
+    if(data.ModelState != null && data.ModelState.length!=0)
+    {
+    %>
+<div>
+    <ul style="list-style: decimal-leading-zero; margin-top: 10px;">
+        <%
+        _.each(data.ModelState,function(item){%>
+        <li>
+            <span><%=item %></span>
+        </li>
+        <%});
+        %>
+    </ul>
+</div>
+    <%
+    }
+    if(data.Description!=null)
+    {
+    %>
+<div class="toast-scroll">
+    <%=data.Description %>
+</div>
+    <%
+    }
+    %>

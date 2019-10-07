@@ -1,0 +1,73 @@
+﻿@model ProjectName.Models.Base.Input.InputTextViewModel
+
+<div class="form-group @Model.ClassCol">
+  @if (!string.IsNullOrEmpty(Model.Label) )
+  {
+      <label class="p0 @Model.ClassLabel control-label">
+          @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+          {
+              <span class='@Model.RequireMarkColor'>*</span>
+          }
+          
+          @Model.Label
+
+          @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+          {
+              <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+          }
+      </label>
+  }
+
+<div class="p0 @Model.ClassField">
+    @if (Model.IsDisabled)
+    {
+        <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class" style="width: 100%;"
+               ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" disabled="disabled" autocomplete="@Model.AutoComplete" />
+    }
+    else
+    {
+        if (Model.IsNumberOnly)
+        {
+            <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class" style="width: 100%;"
+                   ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr autocomplete="@Model.AutoComplete" numbers-only />
+
+        }
+        else if (Model.IsNotAllowWhiteSpace)
+        {
+            <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class" style="width: 100%;"
+                   ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr autocomplete="@Model.AutoComplete" ng-trim="false" ng-change="@Model.DataBindingValue = @(Model.DataBindingValue).split(' ').join('')" />
+        }
+        else if (Model.IsNumberAndCharacterOnly)
+        {
+            <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class" style="width: 100%;"
+                   ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr autocomplete="@Model.AutoComplete" characters-and-numbers-only ng-trim="false" />
+        }
+        else
+        {
+            <input id="@Model.Id" @Model.TextboxType maxlength='@Model.Length' class="@Model.Class" style="width: 100%;" 
+                   ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr autocomplete="@Model.AutoComplete" />
+        }
+    }
+    @if (Model.TextboxType == "type=password" && Model.IsShowInfoPasswordRule == true)
+{
+    <label id="infoPasswordRule@(Model.Id)" style="z-index: 9999; border-radius: 50%;top:0;font-size: 14px;height: 20px;margin: 7px 2px;padding: 0;position: absolute;right: 0;width: 20px;"
+            type="button" class="btn btn-lg btn-primary" data-container="body" data-toggle="tooltip" data-placement="@(Model.DataPlacementTooltipInfoPasswordRule)" title="" data-original-title="Your password must be at least 8 characters including at least 1 number, at least 1 uppercase character, at least 1 lowercase character and at least 1 special character.">
+        <i class="fa fa-info"></i>
+    </label>
+        <script>
+            $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                @*$("#@Model.Id,#infoPasswordRule@(Model.Id)").hover(
+                    function () {
+                        $("#infoPasswordRule@(Model.Id)").removeClass("hide");
+                        $('[data-toggle="tooltip"]').tooltip();
+                    }, function () {
+                        $("#infoPasswordRule@(Model.Id)").addClass("hide");
+                    }
+                );*@
+            });
+        </script>
+    }
+</div>
+
+</div>

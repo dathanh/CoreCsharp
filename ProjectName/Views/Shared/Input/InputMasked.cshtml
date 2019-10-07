@@ -1,0 +1,54 @@
+﻿@model ProjectName.Models.Base.Input.InputMaskedViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+            {
+                <span class='@Model.RequireMarkColor'>*</span>
+            }
+            @Model.Label
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+            {
+                <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+            }
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <input id="@Model.Id" type="text" class="k-textbox"
+               data-ng-model="@Model.DataBindingValue" style="width: 100%;" placeholder="@Model.PlaceHolderText" />
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var id = '@Model.Id';
+        var format = '@Model.Format';
+        var idValueControl = "#" + id;
+        $(idValueControl).kendoMaskedTextBox({
+            mask: format,
+            change:function() {
+                var value = this.value();
+                if (((format == "(999) 000-0000" || format == "000-000-0000" ||format == "0000000000" ))
+                    && value.replace(/\D+/g, "").length!=10 &&value.replace(/\D+/g, "").length!=11) {
+                    maskedtextbox.value("");
+                }
+            }
+        });
+        var isReadOnly=@Model.ReadOnly.ToString().ToLower();
+        var maskedtextbox =  $(idValueControl).data("kendoMaskedTextBox");
+        maskedtextbox.enable(!isReadOnly);
+        //$(idValueControl).removeClass("k-textbox");
+        $(idValueControl).bind("paste", function (e) {
+            var value = e.originalEvent.clipboardData.getData('Text');
+            if ((format == "(999) 000-0000" || format == "000-000-0000" ||format == "0000000000" )
+                    
+                    && value.replace(/\D+/g, "").length!=10 &&value.replace(/\D+/g, "").length!=11) {
+                maskedtextbox.value("");
+                e.preventDefault();
+            }
+            
+        });
+    });
+</script>

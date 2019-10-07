@@ -1,0 +1,57 @@
+﻿@using Newtonsoft.Json
+@model ProjectName.Models.Base.LookupViewModel
+
+<div id="lookup-container-@Model.Id" class=" @Model.ClassCol" ng-show="@Model.IsShow">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+
+        <cis-lookup ng-model="@Model.DataBindingValue"
+                    class="custom-lookup @(Model.ShowAddEdit && Model.ShowAdvancedSearch ? "has-addoreditadvancedsearch" : (Model.ShowAddEdit || Model.ShowAdvancedSearch ? "has-addoredit" : ""))"
+                    lookup-id="@Model.Id"
+                    current-id="@Model.CurrentId"
+                    url-read-data="@Model.UrlToReadData"
+                    model-name="@Model.ModelName"
+                    add-popup-lookup="@Model.AddLookupPopupFunction"
+                    edit-popup-lookup="@Model.EditLookupPopupFunction"
+                    advanced-search-popup-lookup="@Model.AdvancedSearchLookupPopupFunction"
+                    show-add-edit="@Model.ShowAddEdit"
+                    show-advanced-search="@Model.ShowAdvancedSearch"
+                    enable-lookup="@Model.Enabled.ToString().ToLower()"
+                    place-holder-text="@Model.PlaceHolderText"
+                    custom-params="@Model.CustomParams"
+                    hierarchy-key-send="@Model.HierarchyKeyToSend"
+                    hierarchy-key-listen="@(Model.HierarchyKeyToListen)" />
+        
+    </div>    
+    @if (Model.ShowAddEdit)
+    {
+        <cis-popup popup-id="@Model.PopupAddEditId" popup="@Model.PopupAddEditInstalFunction" popup-options="@Model.PopupAddEditOptions"></cis-popup>
+    }
+@if (Model.ShowAdvancedSearch)
+{
+    <cis-popup popup-id="@Model.PopupAdvancedSearchId" popup="@Model.PopupAdvancedSearchInstalFunction" popup-options="@Model.PopupAdvancedSearchOptions"></cis-popup>
+}
+</div>
+@{
+    if (Model.HtmlAttributes.ContainsKey("style"))
+    {
+        if (!Model.HtmlAttributes["style"].ToString().Contains("width"))
+        {
+            Model.HtmlAttributes["style"] = Model.HtmlAttributes["style"] + "width: 350px;";
+        }
+    }
+    else
+    {
+        Model.HtmlAttributes.Add("style", "width: 350px;");
+    }
+
+}

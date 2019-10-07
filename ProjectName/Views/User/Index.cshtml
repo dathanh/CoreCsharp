@@ -1,0 +1,31 @@
+﻿@model ProjectName.Models.User.DashboardUserIndexViewModel
+
+<div ng-controller="userController as vm">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="javascript:void(0);" ng-click="vm.basePopup.cancel()"><h2>Manage users</h2></a></li>
+            <li ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">{{vm.actionState == 3 || vm.actionState == 4? "Create user": (vm.actionState == 5 || vm.actionState == 6? "Update user":"")}}</li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">
+        <div ng-if="vm.actionState == 1 || vm.actionState == 2">
+            <partial name="~/Views/Shared/Grid/_ReadOnlyGrid.cshtml"
+                     model="Model.GridViewModel" />
+        </div>
+        <!-- Add -->
+        <div ng-if="vm.actionState == 3 || vm.actionState == 4 || vm.actionState == 5 || vm.actionState == 6">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>{{vm.actionState == 3 || vm.actionState == 4? "Create": (vm.actionState == 5 || vm.actionState == 6? "Update":"")}} user</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content" ng-include="'/User/Shared'"></div>
+            </div>
+        </div>
+        <!-- Update -->
+    </div>
+    <!-- End: Content -->
+</div>

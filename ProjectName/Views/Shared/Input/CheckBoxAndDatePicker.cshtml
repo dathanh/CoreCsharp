@@ -1,0 +1,65 @@
+﻿@model ProjectName.Models.Base.Input.CheckBoxAndDatePickerViewModel
+
+@{
+    var readOnlyCheckbox = "";
+    if (Model.ReadOnly)
+    {
+        readOnlyCheckbox = "disabled";
+    }
+    Model.MinDate = Model.MinDate ?? new DateTime(1900, 1, 1);
+    Model.MaxDate = Model.MaxDate ?? new DateTime(2050, 1, 1);
+}
+<div class="form-group @Model.ClassCol">
+    @{
+        var disabledStr = Model.IsDisabled ? "disabled='disabled'" : "";
+        if (Model.NgChangeFunction == "")
+        {
+            <input name="@Model.Name" id="checkBox@(Model.Id)" type="checkbox" value="@Model.Value" class="k-checkbox @Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox style="margin-top: 9px;" @disabledStr />
+        }
+        else
+        {
+            <input name="@Model.Name" id="checkBox@(Model.Id)" type="checkbox" value="@Model.Value" class="k-checkbox @Model.Class" data-ng-model="@Model.DataBindingValue" @readOnlyCheckbox ng-change="@Model.NgChangeFunction" style="margin-top:9px" @disabledStr />
+        }
+    }
+    <label class="k-checkbox-label" style="height: 16px;line-height: 16px; padding-top: 3px" for="checkBox@(Model.Id)">@Model.Label</label>&nbsp;
+    <input id="@Model.DateId"
+           kendo-date-picker
+           k-format="'@Model.Format'"
+           k-ng-readonly="'@Model.ReadOnly'"
+           ng-model="@Model.DateDataBindingValue"
+           k-min="'@Model.MinDate'"
+           k-max="'@Model.MaxDate'"
+           placeholder="@Model.PlaceHolderText"
+           class="@Model.DateClass" ng-disabled="!@Model.DataBindingValue" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var datepicker = $("#@Model.DateId");
+            datepicker.kendoMaskedTextBox({
+                mask: "00/00/0000",
+                change: function () {
+                    var v = this.value();
+                    if (!isValidDate(v)) {
+                        datepicker.data("kendoDatePicker").value("");
+                    }
+                }
+            });
+            datepicker.closest(".k-datepicker")
+                .add(datepicker)
+                .removeClass("k-textbox");
+        });
+
+        isValidDate = function (str) {
+            var comp = str.split('/');
+            var m = parseInt(comp[0], 10);
+            var d = parseInt(comp[1], 10);
+            var y = parseInt(comp[2], 10);
+            var date = new Date(y, m - 1, d);
+            if (date.getFullYear() == y && date.getMonth() + 1 == m && date.getDate() == d) {
+                return true;
+            }
+            return false;
+        }
+    </script>
+</div>
+

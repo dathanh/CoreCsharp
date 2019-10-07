@@ -1,0 +1,39 @@
+﻿@model ProjectName.Models.Base.Date.DropDownListViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }
+            @Model.Label
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <cis-comboboxautocomplete class="custom-lookup"
+                                  dropdown-id="@Model.Id"
+                                  url-read-data="@Model.ReadUrl"
+                                  ng-model="@Model.DataBindingValue"
+                                  onchangefuc="@Model.OnchangeFunction"
+                                  parameter-dependencies="@Model.ParameterDependencies"
+                                  is-readonly="@(Model.ReadOnly?"true":"false")"
+                                  auto-bind="@Model.IsAutoBind.ToString().ToLower()"
+                                  place-holder="@Model.PlaceHolderText"
+                                  model-binding-text="@Model.DataBindingText"
+                                  enable-dropdown="@Model.Enabled.ToString().ToLower()" style="width: 100%;" />
+
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                var kendoNumberic = $('#@Model.Id').data("kendoComboBox");
+                @if (Model.ReadOnly)
+                    {
+                        <text>kendoNumberic.readonly();</text>
+                    }
+            }, 500);
+        });
+    </script>
+</div>

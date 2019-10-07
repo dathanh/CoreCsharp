@@ -1,0 +1,41 @@
+﻿@model ProjectName.Models.Base.Input.AreaTextViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="@Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    @if (Model.AutoHeight)
+    {
+        <div class="@Model.ClassField">
+            <textarea @(Model.IsExcludeFormModified ? "bs-modifiable=false" : "") onkeyup="textAreaAdjust(this)" id="@Model.Id" rows="@Model.Rows" cols="@Model.Cols" style="height: @Model.HeightStr !important; width: 100%;" class="@Model.Class"
+                  ng-model="@Model.DataBindingValue" ng-change="@Model.OnChange" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr maxlength="@Model.MaxLength"></textarea>
+        </div>
+        <script>
+            $(document).ready(function() {
+                textAreaAdjust(document.getElementById("@Model.Id"));
+            });
+
+            function textAreaAdjust(o) {
+                if (o.value != "" && o.value != null) {
+                    o.style.height = "1px";
+                    o.style.height = (10 + o.scrollHeight) + "px";
+                } else {
+                    o.style.height = "32px";
+                }
+            }
+        </script>
+    }
+    else
+    {
+        <div class="@Model.ClassField">
+            <textarea @(Model.IsExcludeFormModified ? "bs-modifiable=false" : "") id="@Model.Id" rows="@Model.Rows" cols="@Model.Cols" style="height: @Model.HeightStr !important;width: 100%;" class="@Model.Class"
+                  ng-model="@Model.DataBindingValue" ng-change="@Model.OnChange" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr maxlength="@Model.MaxLength"></textarea>
+        </div>    
+    }
+</div>

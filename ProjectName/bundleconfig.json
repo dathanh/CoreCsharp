@@ -1,0 +1,21 @@
+﻿[  
+  {
+    "outputFileName": "wwwroot/css/allsite.min.css",
+    "inputFiles": [
+      "wwwroot/css/bootstrap.css",
+      "wwwroot/css/kendo/kendo.common-bootstrap.min.css",
+      "wwwroot/css/kendo/kendo.bootstrap.min.css",
+      "wwwroot/css/font-awesome.min.css",
+      "wwwroot/css/jquery.mCustomScrollbar.min.css",
+      "wwwroot/css/custom.css",
+      "wwwroot/css/toastr/toastr.css",
+      "wwwroot/css/css/Site.css",
+      "wwwroot/css/loading-bar.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

@@ -1,0 +1,66 @@
+﻿@using ProjectName.HtmlHelpers
+@using Newtonsoft.Json
+
+<!-- Begin: Content -->
+<div data-ng-controller="viewMyProfileController as vm" ng-init="vm.init()">
+    <header>
+        <ol class="breadcrumb mb10  pt0 pb0 pl0">
+            <li><a class="underline-effect" href="/#/my-profile"><h2>Account information</h2></a></li>
+        </ol>
+    </header>
+    <div id="content-container">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Account information</h2>
+                <span style="float: right;color: #000;padding-top: 6px;">* = Required.</span>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <form name="popupForm">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar" align="center">
+                                    <img ng-id="avatarProfilePage" ng-if="vm.MyProfile.Avatar!=''" ng-src="{{vm.MyProfile.Avatar}}" onerror="this.src = '/css/images/avatar.jpg'" class="img-responsive avatar-view">
+                                    <img ng-id="avatarProfilePage" ng-if="vm.MyProfile.Avatar==''" src="/css/images/avatar.jpg" class="img-responsive avatar-view">
+                                </div>
+                            </div>
+                            <h3 style="font-size: 20px">
+                                {{vm.MyProfile.FullName}}
+                            </h3>
+                            <ul class="list-unstyled user_data">
+                                <li>
+                                    <i class="fa fa-envelope user-profile-icon"></i> {{vm.MyProfile.Email}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-phone user-profile-icon"></i> {{vm.MyProfile.Phone}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="row">
+                                @Html.CustomTextBox("FullName", "Full name", "vm.MyProfile.FullName", "col-md-6 col-sm-6 col-xs-12", required: true, length: 50, isDisabled: false, moreClass: "sectionCss", requireMarkColor: "black", requireMarkPosition: "right")
+                            </div>
+                            <div class="row">
+                                @Html.CustomTextBox("Email", "Email", "vm.MyProfile.Email", "col-md-6 col-sm-6 col-xs-12", length: 100, moreClass: "sectionCss", required: true, requireMarkColor: "black", requireMarkPosition: "right")
+                                @Html.CustomPhone("Phone", "Phone", "vm.MyProfile.Phone", isRequired: true, classcol: "col-md-6 col-sm-6 col-xs-12", requireMarkColor: "black", requireMarkPosition: "right")
+                            </div>
+                            <div class="row">
+                                @Html.CustomFileUploadAngular("Avatar", "Avatar (250 x 250)", "vm.MyProfile.Avatar", classcol: "col-md-12 col-sm-12 col-xs-12", previewWidth: 100, previewHeight: 100, acceptType: "image/*", isUploadImage: true, selectText: "Browse Image", isChangeAvatar: true)
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="popup-footer">
+                    <button ng-show="$root.waitingModified" class="btn btn-primary ml0 alignright"><img src="/css/images/waiting.gif" style="width: 70px;height: 10px" /></button>
+                    <button ng-disabled="!$root.popupFormModified" ng-show="!$root.waitingModified" ng-click="vm.SaveMyProfile()" class="btn btn-primary ml0 alignright" title="Update">
+                        <i class="fa fa-save"></i> Update
+                    </button>
+                    <button ng-hide="!$root.popupFormModified" ng-click="vm.CancelEditing()" class="btn btn-default alignright" title="Cancel">
+                        <i class="fa fa-close"></i> Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

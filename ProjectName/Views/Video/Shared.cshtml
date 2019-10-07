@@ -1,0 +1,60 @@
+﻿@using Framework.DomainModel.Entities.Common
+@using Framework.Utility
+@using ProjectName.HtmlHelpers
+    <style>
+        .content-tab-index {
+            height: 100% !important;
+        }
+    </style>
+<div data-ng-controller="sharedVideoController as vms" ng-init="vms.shareInit(vm.Id)">
+    <form name="popupForm">
+        <div>
+            <h4 class="mb5">Video information</h4>
+            <hr class="mt0" />
+        </div>
+        <div kendo-tab-strip id="tab-strip-video">
+            <ul>
+                <li value="1" class="k-state-active"><i class="fa fa-info"></i> Main information</li>
+                <li value="2"><i class="fa fa-info"></i> Vietnamese</li>
+            </ul>
+            <div class="content-tab-index" style="padding: 1em;">
+                <div class="row">
+                    @Html.CustomTextBox("Name", "Name", "vms.Video.Name", required: true, length: 300)
+                    @Html.CustomTextBox("UrlLink", "Link Video", "vms.Video.UrlLink", required: true, length: 300)
+                    @Html.CustomTextBox("TimeDuration", "TimeDuration", "vms.Video.TimeDuration", length: 200)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("Description", "Description", "vms.Video.Description", maxlength: 4000,rows: 3,height: 150, classcol: ConstantValue.ClassCol12)
+                </div>
+                <div class="row">                   
+                    @Html.CustomDropDownList("ParentCategoryId", "Parent Category", "vms.Video.ParentCategoryId", required: true, dataBindingText: "vms.Video.ParentCategoryName", readUrl: "/Category/GetParentLookup", onchangeFunction: "vms.ChangeParentCategory", placeHolderText: "-None-", placeHolderValue: "")
+                    @Html.CustomDropDownList("CategoryId", "Sub Category", "vms.Video.CategoryId", readUrl: "Category/GetListSubCategory", parameterDependencies: "{{vms.Video.ParentCategoryId}}",dataBindingText: "vms.Video.CategoryName",required:true)
+                    @Html.CustomDropDownList("SeriesId", "Series", "vms.Video.SeriesId", dataBindingText: "vms.Video.SeriesName", readUrl: "/Series/GetListSeries", placeHolderText: "-None-", placeHolderValue: "")
+                </div>
+                <div class="row">
+                    @Html.CustomFileUploadAngular("Avatar", "Avatar", "vms.Video.Avatar", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.VideoImage, isFakeRemove: true, previewWidth: 300, previewHeight: 200)
+                </div>
+                <div class="row">    
+                    @Html.CustomCheckBox("IsTrending", "Trending", "vms.Video.IsTrending")
+                    @Html.CustomCheckBox("IsPopular", "Popular", "vms.Video.IsPopular")
+                    @Html.CustomCheckBox("IsActive", "Active", "vms.Video.IsActive")
+                </div>
+            </div>
+            <div class="content-tab-index" style="padding: 1em">
+                <div class="row">
+                    @Html.CustomTextBox("NameInVietnamese", "Name", "vms.Video.NameInVietnamese", required: true, length: 300)
+                    @Html.CustomTextBox("TimeDurationInVietnamese", "Time Duration", "vms.Video.TimeDurationInVietnamese", length: 200)
+                </div>
+                <div class="row">
+                    @Html.CustomTextArea("DescriptionInVietnamese", "Description", "vms.Video.DescriptionInVietnamese", maxlength: 4000, rows: 3, height: 150, classcol: ConstantValue.ClassCol12)
+                </div>
+                <div class="row">
+                    @Html.CustomFileUploadAngular("AvatarInVietnamese", "Avatar", "vms.Video.AvatarInVietnamese", classcol: ConstantValue.ClassCol12, acceptType: "image/*", isUploadImage: true, selectText: "Browse image", imageType: (int)UploadImageType.VideoImage, isFakeRemove: true, previewWidth: 300, previewHeight: 200)
+                </div>
+            </div>
+        </div>
+        
+    </form>
+    <div ng-if="vms.Video.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.Video.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+</div>

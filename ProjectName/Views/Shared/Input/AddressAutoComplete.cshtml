@@ -1,0 +1,20 @@
+﻿@model ProjectName.Models.Base.Input.InputTextViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="@Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"")
+            {
+                <span class='red'>*</span>
+            }@Model.Label
+        </label>
+    }
+
+    <div class="@Model.ClassField">
+        <input places-auto-complete types="['address']" component-restrictions="{country:'us'}" style="margin-top: 4px;" on-place-changed="@Model.CallbackFunction" id="@Model.Id" maxlength='@Model.Length' class="form-control @Model.Class"
+               ng-model="@Model.DataBindingValue" placeholder="@Model.PlaceHolderText" @Model.ReadOnlyAttr />
+    </div>
+</div>
+<style>
+.pac-container { z-index: 20000 !important; }
+</style>

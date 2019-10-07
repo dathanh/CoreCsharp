@@ -1,0 +1,39 @@
+﻿@using ProjectName.HtmlHelpers
+@model int
+
+<div ng-controller="viewDetailRoleController as vms" ng-init="vms.shareInit(@Model)">
+    <!-- Start: Topbar -->
+    <header>
+        <ol class="breadcrumb mb10 pt0 pb0 pl0">
+            <li><a class="underline-effect" href="/#/role" ><h2>Manage role</h2></a></li>
+            <li>Detail information</li>
+        </ol>
+    </header>
+    <!-- End: Topbar -->
+    <!-- Begin: Content -->
+    <div id="content-container">      
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Information</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <form name="popupForm">
+                        @Html.CustomTextBox("Name", "Name", "vms.Role.Name", required: true, classcol: "col-sm-6 col-xs-12", length: 50,isDisabled:true)                      
+                        <div class="form-group col-md-12">
+                            <label class="p0 col-md-12 control-label">Role</label>
+                            <div class="p0 col-md-12">
+                                <div kendo-grid k-options="vms.functionGridOptions" id="roleGrid"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="popup-footer">
+                        <button ng-click="vms.cancel()" class="btn btn-default mb0"><i class="fa fa-close"></i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+ 
+        <!-- Update -->
+    </div>
+    <!-- End: Content -->
+</div>

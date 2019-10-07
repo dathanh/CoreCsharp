@@ -1,0 +1,42 @@
+﻿@using Newtonsoft.Json
+@model ProjectName.Models.Base.Date.DropDownListViewModel
+@{
+    var isBindingText = !string.IsNullOrEmpty(Model.DataBindingText);
+}
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+            {
+                <span class='@Model.RequireMarkColor'>*</span>
+            }
+            @Model.Label
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+            {
+                <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+            }
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        @*<span class="hide" id="@(Model.Id)_TextDefaultHidden" ng-bind="@Model.DataBindingText"></span>*@
+        <cis-dropdownlist class="custom-lookup"
+                          dropdown-id="@Model.Id"
+                          url-read-data="@Model.ReadUrl"
+                          ng-model="@Model.DataBindingValue"
+                          onchangefuc="@Model.OnchangeFunction"
+                          on-data-bound-fuc="@Model.OnDataBoundFunction"
+                          enable-dropdown="@Model.Enabled.ToString().ToLower()"
+                          auto-bind="@Model.IsAutoBind.ToString().ToLower()"
+                          place-holder="@Model.PlaceHolderText"
+                          model-binding-text="@Model.DataBindingText"
+                          place-holder-value="@Model.PlaceHolderValue"
+                          set-first-value-is-default="@Model.SetFirstValueIsDefault"
+                          style="width: 100%;"
+                          use-binding-text="@isBindingText.ToString().ToLower()"
+                          custom-params="@(JsonConvert.SerializeObject(Model.CustomParams))"
+                          parameter-dependencies="@Model.ParameterDependencies" />
+
+    </div>
+</div>

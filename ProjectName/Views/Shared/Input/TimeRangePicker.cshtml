@@ -1,0 +1,97 @@
+﻿@model ProjectName.Models.Base.Date.DatetimeRangePickerViewModel
+<div class="form-group @Model.ClassCol">
+    <div style="display: inline;overflow: hidden;">
+        <div style="width: 47.5%;float: left;">
+            @if (!string.IsNullOrEmpty(Model.LabelStart))
+            {
+                <label class="@Model.ClassLabel control-label">
+                    @if (Model.RequiredAttribute == "required=\"required\"")
+                    {
+                        <span class='red'>*</span>
+                    }@Model.LabelStart
+                </label>
+            }
+
+            <div class="@Model.ClassField no-padding">
+                <input id='@Model.IdStart' style="width:100%" @Model.RequiredAttribute
+                       class="@Model.Class" @Model.RequiredAttribute
+                       ng-model="@Model.DataBindingValueStart" />
+            </div>
+        </div>
+        <div style="width: 5%;float: left;min-width: 10px;">
+            <label class="control-label">
+                &nbsp;
+            </label>
+
+            <div class="@Model.ClassField no-padding text-center">
+                <div style="line-height: 25px">-</div>
+            </div>
+        </div>
+        <div style="width: 47.5%;float: left;">
+            @if (!string.IsNullOrEmpty(Model.LabelEnd))
+            {
+                <label class="@Model.ClassLabel control-label">
+                    @if (Model.RequiredAttribute == "required=\"required\"")
+                    {
+                        <span class='red'>*</span>
+                    }@Model.LabelEnd
+                </label>
+            }
+
+            <div class="@Model.ClassField no-padding">
+                <input id='@Model.IdEnd' style="width:100%" @Model.RequiredAttribute
+                       class="@Model.Class" @Model.RequiredAttribute
+                       ng-model="@Model.DataBindingValueEnd" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        function startChange() {
+            var startTime = start.value();
+
+            if (startTime) {
+                startTime = new Date(startTime);
+
+                end.max(startTime);
+
+                startTime.setMinutes(startTime.getMinutes() + this.options.interval);
+
+                end.min(startTime);
+                end.value(startTime);
+            }
+        }
+
+        //init start timepicker
+        var start = $("#@Model.IdStart").kendoTimePicker({
+            change: startChange
+        }).data("kendoTimePicker");
+
+        //init end timepicker
+        var end = $("#@Model.IdEnd").kendoTimePicker().data("kendoTimePicker");
+
+        //define min/max range
+        start.min("12:00 AM");
+        start.max("11:59 PM");
+
+        //define min/max range
+        end.min("12:00 AM");
+        end.max("11:59 PM");
+    });
+</script>
+
+
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@Model.Id").kendoMaskedTextBox({
+            mask: "00:00 ~^",
+            rules: {
+                "~": /[PA]/,
+                "^": /[M]/
+            }
+        });
+    });
+</script>*@
+

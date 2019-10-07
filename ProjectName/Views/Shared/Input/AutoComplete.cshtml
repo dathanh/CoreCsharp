@@ -1,0 +1,29 @@
+﻿
+@model ProjectName.Models.Base.Input.AutoCompleteViewModel
+<div class="form-group @Model.ClassCol">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <label class="p0 @Model.ClassLabel control-label">
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "left")
+            {
+                <span class='@Model.RequireMarkColor'>*</span>
+            }
+            @Model.Label
+            @if (Model.RequiredAttribute == "required=\"required\"" && Model.RequireMarkPosition == "right")
+            {
+                <span class='@Model.RequireMarkColor' style="margin-left: -4px">*</span>
+            }
+        </label>
+    }
+
+    <div class="p0 @Model.ClassField">
+        <cis-autocomplete autocomplete-id="@Model.Id"
+                          url-read-data="@Model.ReadUrl"
+                          ng-model="@Model.DataBindingValue"
+                          onchangefuc="@Model.OnchangeFunction"
+                          parameter-dependencies="@Model.ParameterDependencies"
+                          max-length="@Model.Length"
+                          is-readonly="@(Model.ReadOnly?"true":"false")"
+                          style="width: 100%;" />
+    </div>
+</div>
