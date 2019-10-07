@@ -1,0 +1,44 @@
+@font-face {
+	font-family: 'GaramondpremrPro';
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	src: local('GaramondpremrPro'),
+		url('../fonts/GaramondPremrPro.otf') format('opentype');
+ }
+			
+@font-face {
+	font-family: 'GaramondpremrproMed';
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	src: local('GaramondpremrproMed'),
+		url('../fonts/GaramondPremrPro-Med.otf') format('opentype');
+ }		
+
+ @font-face {
+	 font-family: 'GaramondPremrProMedIt';
+	 font-weight: normal;
+	 font-style: normal;
+	 font-display: auto;
+	 src: local('GaramondPremrProMedIt'),
+		 url('../fonts/GaramondPremrPro-MedItSubh.otf') format('opentype');
+}
+ 
+ @font-face {
+	font-family: 'GaramondpremrProMedSubh';
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	src: local('GaramondpremrProMedSubh'),
+		url('../fonts/GaramondPremrPro-MedSubh.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'GaramondpremrProsmbd';
+	font-weight: normal;
+	font-style: normal;
+	font-display: auto;
+	src: local('GaramondpremrProsmbd'),
+		url('../fonts/GaramondPremrPro-Smbd.otf') format('opentype');
+}

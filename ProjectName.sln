@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectName", "ProjectName\ProjectName.csproj", "{9CB269E5-71DB-4364-998A-ACFE062D11FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectName", "ProjectName\ProjectName.csproj", "{9CB269E5-71DB-4364-998A-ACFE062D11FB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{C94A59BC-F705-4960-8C49-4D33B8FB534C}"
 EndProject
@@ -40,6 +40,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Service", "Framework.Service\Framework.Service.csproj", "{AA938B59-06C3-4664-82E0-C8702940EE41}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Utility", "Framework.Utility\Framework.Utility.csproj", "{9EBB3476-B75B-45CA-AB2F-9DA1A86116B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectNameApi", "ProjectNameApi\ProjectNameApi.csproj", "{4DAC6C91-F4A0-492B-BBE2-39AF3F0868F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -115,6 +117,10 @@ Global
 		{9EBB3476-B75B-45CA-AB2F-9DA1A86116B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EBB3476-B75B-45CA-AB2F-9DA1A86116B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EBB3476-B75B-45CA-AB2F-9DA1A86116B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DAC6C91-F4A0-492B-BBE2-39AF3F0868F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DAC6C91-F4A0-492B-BBE2-39AF3F0868F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DAC6C91-F4A0-492B-BBE2-39AF3F0868F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DAC6C91-F4A0-492B-BBE2-39AF3F0868F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

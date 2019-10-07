@@ -1,0 +1,490 @@
+/* Code Popup Game  */
+.section-box{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+
+/* pop 1 */
+.fs-pop-game{
+    /* position:absolute;
+    left:0;
+    top:50%; */
+    display:block;
+    width:100%;
+    height:auto;
+    padding:0;
+    /* -webkit-transform:translateY(-50%);
+    transform:translateY(-50%);
+    z-index:4;
+    visibility:visible;
+      opacity:1;
+      -webkit-transition:all 0.3s ease-in-out 0s, visibility 0s linear 0.3s;	
+    transition:all 0.3s ease-in-out 0s, visibility 0s linear 0.3s; */
+  }
+
+  .box-chest{
+    padding-bottom: 50px;
+  }
+  
+   .fs-game-box .fs-area-pic{
+    display: inline-block;
+    vertical-align: middle;
+    width: 35%;
+  }
+   .fs-game-box .fs-img-chest{
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 95px;
+    left: 80px;
+  }
+   .fs-game-box .fs-img-gift{
+    position: absolute;
+    display: inline-block;
+    top: 12%;
+    left: 24%;
+    width: 56%;
+    height: auto;
+  }
+  
+   .fs-game-box{
+    position: relative;
+    display: none;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    max-width: 1500px;
+    z-index: 1;
+  }
+  
+   .fs-game-box .fs-area-pic img{
+    display:block;
+    width:100%;
+  }
+  
+   .fs-game-box .fs-area-txt{
+    display: inline-block;
+    position: relative;
+    top: 35px;
+    width: 64%;
+    vertical-align: middle;
+    text-align: center;
+  }
+   .fs-game-box .fs-area-txt p{
+    font-family: 'iCielSamsungSharpSansMedium', arial;
+    font-weight: normal;
+    font-size: 40px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+   .fs-game-box .fs-area-txt p .bold-text{
+    font-family: 'iCielSamsungSharpSansBold', arial;
+    font-weight: normal;
+    font-size: 38px;
+    color: #fff;
+  }
+   .fs-game-box .fs-area-txt .desscript{
+    display: block;
+    color: #fff;
+    font-size: 22px;
+    font-family: 'iCielSamsungSharpSansMedium', arial;
+    font-weight: normal;
+  }
+  .fs-game-box .fs-area-txt br{
+    display: none;
+  }
+   .fs-game-confirm h2 {
+    font-size: 49px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+   .fs-game-confirm .fs-btn {
+    padding: 13px 85px 15px 85px;
+    -webkit-border-radius: 50px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    margin: 0 10px 0 0;
+  }
+   .fs-game-confirm .fs-box-but{
+    padding-top: 20px;
+    display: inline-block;
+  }
+  .fs-game-confirm .fs-box-but .btn-confirm-sp{
+    display: none;
+  }
+   .fs-game-confirm .fs-btn span{
+    font-family: "iCielSamsungSharpSansBold", arial;
+    font-weight: normal;
+    color: #fff;
+    font-size: 30px;
+  }
+  
+  /* pop 2 */
+  .empty-chest .fs-area-pic{
+    width: 100%;
+    text-align: center;
+    }
+
+  .fs-img-chest-empty{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+  }
+  .fs-game-box .fs-img-chest-empty img{
+    display: block;
+    width: auto;
+    max-width: 100%;
+  }
+  .empty-chest .fs-title-game{
+    display: block;
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+  }
+  .empty-chest .fs-title-game.close-chest br{
+    display: none;
+  }
+  .empty-chest .fs-title-game h2{
+    color: #fff;
+    font-weight: normal;
+    font-size: 23px;
+    font-family: 'iCielSamsungSharpSansMedium', arial;
+  }
+  .empty-chest .fs-title-game br{
+    display: none;
+  }
+  .confirm-game{
+    padding: 50px 0 80px 0;
+  }
+  .confirm-game .fs-payment-box{
+    max-width: 1520px;
+  }
+  .confirm-game .fs-success p{
+      font-size: 31px;
+  }
+  .confirm-game .fs-area-pic{
+    margin: 0;
+  }
+  .fs-btn-game{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 17px 82px;
+    background-color: #cf0921;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+  .fs-btn-game:hover{
+    background-color: #000;
+  }
+  .fs-btn-game span {
+    font-family: "iCielSamsungSharpSansBold", arial;
+    font-weight: normal;
+    color: #fff;
+    font-size: 39px;
+  }
+  .fs-text-try .fs-area-txt p{
+    margin-bottom: 25px;
+  }
+  .fs-text-try .fs-area-txt h2{
+    margin-bottom: 10px;
+  }
+  .fs-text-try .fs-area-txt br{
+    display: none;
+  }
+  .btn-open{
+    margin-right: 10px;
+  }
+  .fs-game-box .fs-area-txt .desscript-sp{
+    display: none;
+  }
+
+
+  @media screen and (max-width:1800px) {
+
+  
+  }
+  
+  @media screen and (max-width:1700px) {
+    
+  }
+  
+  
+  @media screen and (max-width:1550px) {
+
+  
+  }
+  @media screen and (max-width:1600px) {
+    .fs-text-try .fs-area-txt h2{
+      font-size: 2.3vw;
+    }
+    .fs-game-box .fs-area-txt p{
+      font-size: 2.3vw;
+    }
+  }
+  
+  @media screen and (max-width:1440px) {
+    .fs-game-confirm h2{
+      font-size: 3vw;
+    }
+    .fs-text-try .fs-area-txt h2{
+      font-size: 2.3vw;
+    }
+  }
+  
+  @media screen and (max-width:1400px) {
+    .fs-game-confirm h2, .fs-game-box .fs-area-txt p, .fs-game-box .fs-area-txt p .bold-text, .fs-game-confirm .fs-btn span{
+      font-size: 2.35vw;
+    }
+    .fs-game-box .fs-area-txt .desscript{
+      font-size: 1.5vw;
+    }
+    .fs-text-try .fs-area-txt p{
+      font-size: 2.3vw
+    }
+    .fs-text-try .fs-area-txt h2{
+      font-size: 2.3vw;
+    }
+    .fs-btn-game span{
+      font-size: 2vw;
+    }
+    .fs-btn-game{
+      padding: 13px 60px;
+    }
+  }
+  
+  @media screen and (max-width:1360px) {
+
+    
+  }
+  
+  @media screen and (max-width:1300px) {
+
+  
+  }
+  
+  @media screen and (max-width:1200px) {
+    
+  }
+  
+  
+  @media screen and (min-width:1101px) and (max-height:1000px){
+
+    
+  }
+  
+  @media screen and (min-width:1101px) and (max-width:1500px) and (max-height:1000px){
+
+  }
+  
+  @media screen and (min-width:1101px) and (max-height:860px) {
+
+  }
+  
+  @media screen and (min-width:1101px) and (max-width:1300px) and (max-height:860px) {
+
+  }
+  
+  @media screen and (min-width:1101px) and (max-height:740px) {
+
+  
+  }
+  
+  @media screen and (min-width:1101px) and (max-height:660px) {
+
+  
+  }
+  
+  /*Media Mobile*/
+  @media screen and (max-width:1100px) {
+    .fs-pop-game{
+      padding: 0 0 80px 0;
+    }
+    .fs-game-box .fs-img-gift{
+      top: 18%;
+      left: 26%;
+      width: 50%;
+    }
+    .fs-game-confirm h2, .fs-game-box .fs-area-txt p, .fs-game-box .fs-area-txt p .bold-text, .fs-game-confirm .fs-btn span{
+      font-size: 2.5vw;
+    }
+    .fs-game-box .fs-area-txt .desscript{
+      font-size: 1.5vw;
+    }
+    
+  }
+  
+  /* Pop Game */
+  
+  /* End Pop Game */
+  
+  @media screen and (max-width:840px) {
+    .fs-pop-game{
+      padding: 85px 0 150px 0;
+    }
+    .empty-chest .open-chest{
+      padding: 0 25px;
+      bottom: 0;
+    }
+    .empty-chest .close-chest{
+      padding: 0 50px;
+      bottom: 0;
+    }
+    .empty-chest .fs-title-game.close-chest br{
+      display: block;
+    }
+    .confirm-game-sp .fs-area-pic{
+      display: none;
+    }
+    .confirm-game-sp .fs-area-txt{
+      display: block;
+      width: 100%;
+    }
+    .fs-text-try .fs-area-txt br{
+      display: block;
+    }
+    .confirm-game .fs-payment-box{
+      max-width: unset;
+      position: relative;
+      width: 100%;
+      margin: unset;
+    }
+    .fs-text-try .fs-area-txt h2{
+      font-size: 6vw;
+      line-height: 1.4;
+    }
+    .fs-text-try .fs-area-txt p{
+      font-size: 3.5vw;
+    }
+    .btn-open{
+      margin-right: 3px;
+    }
+    .fs-btn-game{
+      padding: 9px 40px;
+    }
+    .fs-btn-game span{
+      font-size: 5vw;
+    }
+    .fs-text-try .fs-area-txt p:nth-child(3){
+      margin-bottom: 10px;
+      font-size: 5vw;
+      font-family: "iCielSamsungSharpSansBold", arial;
+    }
+    .fs-text-try .fs-area-txt p{
+      margin-bottom: 40px;
+    }
+    .fs-game-box{
+      position: relative;
+      width: 100%;
+      margin: unset;
+      max-width: unset;
+    }
+    .fs-game-box .fs-area-pic{
+      width: 100%;
+    }
+    .fs-game-box .fs-area-txt{
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .fs-game-box .fs-img-gift{
+      width: 49%;
+      top: 16%;
+      left: 27%;
+    }
+    .fs-game-box .fs-area-txt br{
+      display: block;
+    }
+    .fs-game-confirm h2{
+      font-size: 4.58vw;
+    }
+    .fs-game-box .fs-area-txt p, .fs-game-box span .sp-text-price{
+      font-size: 6vw;
+    }
+    .fs-game-box .fs-area-txt p .bold-text{
+      font-size: 7.5vw;
+    }
+    .fs-game-box .fs-area-txt .desscript{
+      display: none;
+    }
+    .fs-game-box .fs-area-txt .desscript-sp{
+      display: block;
+      color: #fff;
+      font-size: 2.79vw;
+      margin-top: 30px;
+      font-family: 'iCielSamsungSharpSansMedium', arial;
+      font-weight: normal;
+    }
+    .fs-game-confirm .fs-btn{
+      padding: 14px 70px 12px 70px;
+    }
+    .fs-game-confirm .fs-btn span{
+      font-size: 5.5vw;
+    }
+    .win-game{
+      padding: 50px 0 130px 0;
+    }
+    .fs-game-confirm .fs-box-but .btn-confirm-sp{
+      display: inline-block;
+    }
+    .fs-game-confirm .fs-box-but .btn-confirm{
+      display: none;
+    }
+    .fs-game-box .fs-img-chest{
+      top: 0;
+      left: 0;
+    }
+    .empty-chest .fs-title-game br{
+      display: block;
+    }
+    .confirm-game .close-payment{
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width:1100px) and (orientation :landscape) {
+    /*Supper*/
+  
+  }
+  
+  @media screen and (max-width:840px)  and (orientation :landscape){
+    .fs-game-box .fs-img-gift {
+      width: 49%;
+      top: 17%;
+      left: 27%;
+    }
+  }
+  
+  @media screen and (max-width:840px)  and (orientation :portrait){  
+  
+  }
+  
+  @media screen and (max-width:600px) {
+ 
+  }
+  
+  @media screen and (max-width:560px) {
+    .empty-chest .fs-title-game h2{
+      font-size: 4.3vw;
+      line-height: 1.5;
+    }
+  }
+  
+  @media screen and (max-width:390px) {
+
+  
+  }
+  
+  @media screen and (max-width:370px) {
+
+  
+  }
