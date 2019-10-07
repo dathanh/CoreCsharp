@@ -12,7 +12,6 @@ namespace Framework.DomainModel.Entities.Mapping
             builder.Property(t => t.Token).HasColumnName("Token");
             builder.Property(t => t.Expires).HasColumnName("Expires");
             builder.Property(t => t.CustomerId).HasColumnName("CustomerId");
-            builder.HasOne(c => c.Customer).WithMany(s => s.RefreshTokens).HasForeignKey(f => f.CustomerId);
         }
     }
 }

@@ -19,20 +19,13 @@ namespace ServiceLayer.Translate
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IMemoryCache _memoryCache;
-        private readonly ICustomerRepository _customerRepository;
-        public FrontEndMessageLookup(IHttpContextAccessor httpContextAccessor, IMemoryCache memoryCache, ICustomerRepository customerRepository)
+        public FrontEndMessageLookup(IHttpContextAccessor httpContextAccessor, IMemoryCache memoryCache)
         {
             _httpContextAccessor = httpContextAccessor;
             _memoryCache = memoryCache;
-            _customerRepository = customerRepository;
         }
         public string GetMessage(string resourceKey, int languageId = 0)
         {
-            if (languageId == 0)
-            {
-                languageId = GetCurrentLanguageId();
-            }
-
 
             if (languageId == (int)LanguageKey.English)
             {
@@ -174,34 +167,5 @@ namespace ServiceLayer.Translate
             return "";
         }
 
-        private int GetCurrentLanguageId()
-        {
-
-            var caller = _httpContextAccessor.HttpContext.User;
-            var userIdObj = caller.Claims.Single(c => c.Type == "id");
-            var defaultLanguage = (int)LanguageKey.English;
-            if (userIdObj == null)
-            {
-                return defaultLanguage;
-            }
-
-            var idStr = userIdObj.Value;
-            int.TryParse(idStr, out var userId);
-            var userInCache = _memoryCache.Get<CustomerDto>(CacheKeys.CustomerInfo + userId);
-            if (userInCache == null)
-            {
-                var user = _customerRepository.GetById(userId);
-                if (user != null)
-                {
-                    var cacheEntryOptions = new MemoryCacheEntryOptions()
-                        // Keep in cache for this time, reset time if accessed.
-                        .SetSlidingExpiration(TimeSpan.FromDays(1));
-                    var userDto = user.MapTo<CustomerDto>();
-                    _memoryCache.Set(CacheKeys.CustomerInfo + userId, userDto, cacheEntryOptions);
-                    return userDto.LanguageId.GetValueOrDefault();
-                }
-            }
-            return userInCache.LanguageId.GetValueOrDefault();
-        }
     }
 }

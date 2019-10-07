@@ -61,14 +61,7 @@ namespace ProjectName.Services.Container
             builder.RegisterType<EntityFrameworkUserRoleRepository>().As<IUserRoleRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
             builder.RegisterType<EntityFrameworkUserRoleFunctionRepository>().As<IUserRoleFunctionRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
             builder.RegisterType<EntityFrameworkGridConfigRepository>().As<IGridConfigRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkCategoryRepository>().As<ICategoryRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkVideoRepository>().As<IVideoRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkSeriesRepository>().As<ISeriesRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkBannerRepository>().As<IBannerRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkCustomerRepository>().As<ICustomerRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
             builder.RegisterType<EntityFrameworkConfigRepository>().As<IConfigRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkPlayListRepository>().As<IPlayListRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            builder.RegisterType<EntityFrameworkCustomerRepository>().As<ICustomerRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
         }
 
     }

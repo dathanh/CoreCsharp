@@ -9,6 +9,5 @@ namespace Framework.DomainModel.Entities
         public int CustomerId { get; set; }
         public bool Active => DateTime.UtcNow <= Expires;
 
-        public virtual Customer Customer { get; set; }
     }
 }

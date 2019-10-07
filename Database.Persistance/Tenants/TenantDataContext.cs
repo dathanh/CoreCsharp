@@ -25,22 +25,6 @@ namespace Database.Persistance.Tenants
         public DbSet<GridConfig> GridConfigs { get; set; }
         public DbSet<SecurityOperation> SecurityOperations { get; set; }
         public DbSet<Language> Languages { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<CategoryLanguage> CategoryLanguages { get; set; }
-        public DbSet<Video> Videos { get; set; }
-        public DbSet<VideoLanguage> VideoLanguages { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Banner> Banners { get; set; }
-        public DbSet<BannerLanguage> BannerLanguages { get; set; }
-        public DbSet<Series> Series { set; get; }
-        public DbSet<SeriesLanguage> SeriesLanguages { set; get; }
-        public DbSet<PlayList> PlayLists { set; get; }
-        public DbSet<PlayListLanguage> PlayListLanguages { set; get; }
-        public DbSet<VideoPlayList> VideoPlayLists { set; get; }
-        public DbSet<Comment> Comments { set; get; }
-        public DbSet<LikeComment> LikeComments { set; get; }
-        public DbSet<LikeVideo> LikeVideos { set; get; }
-        public DbSet<CustomerVideoWatched> CustomerVideoWatcheds { get; set; }
         public DbSet<Config> Configs { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
@@ -178,23 +162,7 @@ namespace Database.Persistance.Tenants
             modelBuilder.ApplyConfiguration(new GridConfigMap());
             modelBuilder.ApplyConfiguration(new SecurityOperationMap());
             modelBuilder.ApplyConfiguration(new LanguageMap());
-            modelBuilder.ApplyConfiguration(new CategoryMap());
-            modelBuilder.ApplyConfiguration(new CategoryLanguageMap());
-            modelBuilder.ApplyConfiguration(new VideoMap());
-            modelBuilder.ApplyConfiguration(new VideoLanguageMap());
-            modelBuilder.ApplyConfiguration(new BannerMap());
-            modelBuilder.ApplyConfiguration(new BannerLanguageMap());
-            modelBuilder.ApplyConfiguration(new SeriesMap());
-            modelBuilder.ApplyConfiguration(new SeriesLanguageMap());
-            modelBuilder.ApplyConfiguration(new CustomerMap());
             modelBuilder.ApplyConfiguration(new ConfigMap());
-            modelBuilder.ApplyConfiguration(new PlayListMap());
-            modelBuilder.ApplyConfiguration(new PlayListLanguageMap());
-            modelBuilder.ApplyConfiguration(new VideoPlayListMap());
-            modelBuilder.ApplyConfiguration(new CommentMap());
-            modelBuilder.ApplyConfiguration(new LikeCommentMap());
-            modelBuilder.ApplyConfiguration(new LikeVideoMap());
-            modelBuilder.ApplyConfiguration(new CustomerVideoWatchedMap());
             modelBuilder.ApplyConfiguration(new RefreshTokenMap());
         }
     }

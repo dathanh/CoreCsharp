@@ -46,14 +46,7 @@ namespace ProjectName.Services.Container
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<UserRoleService>().As<IUserRoleService>();
             builder.RegisterType<GridConfigService>().As<IGridConfigService>();
-            builder.RegisterType<CategoryService>().As<ICategoryService>();
-            builder.RegisterType<VideoService>().As<IVideoService>();
-            builder.RegisterType<SeriesService>().As<ISeriesService>();
-            builder.RegisterType<BannerService>().As<IBannerService>();
-            builder.RegisterType<CustomerService>().As<ICustomerService>();
             builder.RegisterType<ConfigService>().As<IConfigService>();
-            builder.RegisterType<PlayListService>().As<IPlayListService>();
-            builder.RegisterType<CustomerService>().As<ICustomerService>();
         }
 
 
@@ -65,23 +58,8 @@ namespace ProjectName.Services.Container
             builder.RegisterType<BusinessRuleSet<UserRole>>().AsImplementedInterfaces();
             builder.RegisterType<UserRoleRule<UserRole>>().AsImplementedInterfaces();
 
-            builder.RegisterType<BusinessRuleSet<Category>>().AsImplementedInterfaces();
-            builder.RegisterType<CategoryRule<Category>>().AsImplementedInterfaces();
-
-            builder.RegisterType<BusinessRuleSet<Video>>().AsImplementedInterfaces();
-            builder.RegisterType<VideoRule<Video>>().AsImplementedInterfaces();
-
-            builder.RegisterType<BusinessRuleSet<Series>>().AsImplementedInterfaces();
-            builder.RegisterType<SeriesRule<Series>>().AsImplementedInterfaces();
-
-            builder.RegisterType<BusinessRuleSet<Banner>>().AsImplementedInterfaces();
-            builder.RegisterType<BannerRule<Banner>>().AsImplementedInterfaces();
-
             builder.RegisterType<BusinessRuleSet<Config>>().AsImplementedInterfaces();
             builder.RegisterType<ConfigRule<Config>>().AsImplementedInterfaces();
-
-            builder.RegisterType<BusinessRuleSet<PlayList>>().AsImplementedInterfaces();
-            builder.RegisterType<PlayListRule<PlayList>>().AsImplementedInterfaces();
 
         }
     }
