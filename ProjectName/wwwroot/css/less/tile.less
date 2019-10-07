@@ -1,0 +1,79 @@
+
+    .tile(@theme-color: @state-info-text) {
+        border: 1px @theme-color solid;
+        background-color: mix(@theme-color,#fff,2%);
+        .title, .content, .tile-icon {
+            color: @theme-color;
+        }
+    }
+.tile {
+    cursor: pointer;
+    padding: 10px 5px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    //background-color: @brand-primary;
+    //color: #fff;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    
+    .tile();
+    
+    &.hover {
+            .tile(@state-warning-text / 2 + @brand-warning / 2);
+    //background-color: @brand-warning;
+    }
+    &.active {
+            .tile(@state-danger-text);
+    //background-color: @brand-danger;
+    }
+    &.tile-large {
+        float: left;
+        margin:10px;
+        padding: 10px;
+        /*.tile-large();
+        &.hover {
+            .tile-large(@state-warning-text / 2 + @brand-warning / 2);
+        }
+        &.active {
+            .tile-large(@state-danger-text);
+        }*/
+        .title {
+            font-size: 16px;
+        }
+        
+    .tile-icon i {
+            font-size: 80px;
+    }
+    }
+
+    .title {
+        //text-transform: uppercase;
+        font-weight: 900;
+        font-size: 14px;
+        z-index: 2;
+        text-align: center;
+    }
+
+    .content {
+        font-weight: 400;
+        font-size: 14px;
+        line-height:1.5em;
+        z-index: 2;
+    }
+
+    .tile-icon {
+        opacity: 0.08;
+        position: absolute;
+        right: 5px;
+        top: 0;
+        z-index: 1;
+        //color: #fff;
+        width: auto;
+        height: auto;
+        i {
+            font-size: 40px;
+            vertical-align: top;
+        }
+    }
+}

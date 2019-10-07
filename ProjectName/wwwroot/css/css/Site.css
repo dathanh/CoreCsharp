@@ -1,0 +1,152 @@
+.btn-approve {
+    background-color: #16A085 !important;
+    border-color: #16A085 !important;
+}
+
+.btn-reject {
+    background-color: #C0392B !important;
+    border-color: #C0392B !important;
+}
+
+.red {
+    color: red !important;
+}
+
+tr.gray td {
+    color: #ccc;
+}
+
+article.sortable-grid {
+    min-height: 30px;
+}
+
+.jarviswidget, .jarviswidget-editbox, .jarviswidget > div {
+    zoom: 1;
+}
+
+.jarviswidget {
+    margin: 0 0 30px;
+    position: relative;
+    -moz-border-radius: 0;
+    -khtml-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    padding: 0;
+}
+
+    .jarviswidget > header {
+        color: #333;
+        border: 1px solid #C2C2C2;
+        background: #fafafa;
+        height: 34px;
+        padding: 0;
+        line-height: 40px;
+    }
+
+        .jarviswidget > header h2 {
+            height: 100%;
+            width: auto;
+            display: inline-block;
+            font-size: 14px;
+            position: relative;
+            margin: 0;
+            line-height: 34px;
+            font-weight: 400;
+            letter-spacing: 0;
+            margin-left: 10px;
+            float: left;
+        }
+
+        .jarviswidget > header > .widget-icon {
+            display: block;
+            width: 30px;
+            height: 32px;
+            position: relative;
+            float: left;
+            font-size: 111%;
+            line-height: 32px;
+            text-align: center;
+            margin-right: -10px;
+            margin-left: 0;
+        }
+
+#smartAdmin .well {
+    background-color: #fbfbfb;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 1px #ececec;
+    -webkit-box-shadow: 0 1px 1px #ececec;
+    -moz-box-shadow: 0 1px 1px #ececec;
+    position: relative;
+}
+
+#smartAdmin .well-sm {
+    padding: 9px;
+    border-radius: 2px;
+}
+
+#smartAdmin .well.well-light {
+    background: #fff;
+    border: 1px solid #e2e2e2;
+}
+
+#smartAdmin .fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -moz-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+#smartAdmin .air-bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+#smartAdmin .air {
+    position: absolute;
+    z-index: 5;
+}
+
+#smartAdmin .padding-10 {
+    padding: 10px !important;
+}
+
+#smartAdmin .bg-color-teal {
+    background-color: #568a89 !important;
+}
+
+#smartAdmin .txt-color-white {
+    color: #fff !important;
+}
+
+[class*=" bg-"], [class^=bg-] {
+    filter: none !important;
+}
+
+#smartAdmin .btn, #smartAdmin a:link, #smartAdmin button {
+    -webkit-tap-highlight-color: rgba(169,3,41,.5);
+}
+
+#smartAdmin .list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+}
+
+@media (max-width: 480px) {
+    .col-xs-12 {
+        padding-bottom: 5px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .display-none-max-480 {
+        display: none;
+                
+    }
+    .bookingDetailContainer {
+        overflow: auto;
+    }
+}
+.k-tabstrip-wrapper .content-tab-index{
+    height:auto !important;
+}

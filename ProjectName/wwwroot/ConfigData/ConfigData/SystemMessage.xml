@@ -91,14 +91,6 @@
     <Content>Xóa dữ liệu thành công</Content>
     <Description></Description>
   </Message>
-  <Message key="ApproveSuccessfully">
-    <Content>Approve thành công</Content>
-    <Description></Description>
-  </Message>
-  <Message key="RejectSuccessfully">
-    <Content>Reject thành công</Content>
-    <Description></Description>
-  </Message>
   <Message key="InactiveSuccessfully">
     <Content>Vô hiệu dữ liệu thành công.</Content>
     <Description></Description>

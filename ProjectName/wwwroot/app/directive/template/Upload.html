@@ -3,7 +3,7 @@
        k-localization="{select: '{{uploadVm.selectText}}'}"
        accept="{{uploadVm.acceptType}}"
        k-select="uploadVm.onSelect" k-success="uploadVm.onSuccess" k-remove="uploadVm.onRemove" k-show-file-list="false" k-multiple="uploadVm.isAllowMultiFile" />
-<input ng-model="modelBinding" id="{{uploadVm.uploadId}}" type="hidden" />
+<input ng-model="modelBinding" id="{{uploadVm.uploadId}}" type="hidden"/>
 <div ng-if="uploadVm.isAllowMultiFile && uploadVm.isUploadImage && modelBinding !== null && modelBinding !== '' && modelBinding !== undefined && modelBinding.length > 0">
 
     <table class="table table-bordered">
@@ -24,7 +24,7 @@
     </table>
 </div>
 
-<div ng-if="uploadVm.isAllowMultiFile && !uploadVm.isUploadImage&& !uploadVm.isUploadVideo && modelBinding !== null && modelBinding !== '' && modelBinding !== undefined && modelBinding.length > 0">
+<div ng-if="uploadVm.isAllowMultiFile && !uploadVm.isUploadImage && modelBinding !== null && modelBinding !== '' && modelBinding !== undefined && modelBinding.length > 0">
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -36,8 +36,8 @@
         <tbody>
             <tr data-ng-repeat="media in modelBinding">
                 <th scope="row">{{$index+1}}</th>
-                <td><a download="{{media.ImageUrl}}" ng-href="{{media.ImageUrl}}">{{media.FileNameOriginal}}</a></td>
-                <td><button class="btn btn-default" ng-click="uploadVm.deleteFile(media.FilePath)">Delete</button></td>
+                <td><a download="{{file.ImageUrl}}" ng-href="{{file.ImageUrl}}">{{file.FileNameOriginal}}</a></td>
+                <td><button class="btn btn-default" ng-click="uploadVm.deleteFile(file.FilePath)">Delete</button></td>
             </tr>
         </tbody>
     </table>
@@ -54,21 +54,4 @@
         <!-- end of image cropping -->
     </div>
     <div style="float: left;line-height:{{uploadVm.previewHeight}}px;margin-left:10px; "><button class="btn btn-default mt10" ng-click="uploadVm.deleteFile(modelBinding)">Delete</button></div>
-</div>
-<!-- Upload with video -->
-<div ng-if="uploadVm.isUploadVideo && modelBinding !== null && modelBinding !== '' && modelBinding !== undefined && modelBinding.length > 0">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Video Name</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr data-ng-repeat="media in modelBinding">
-                <td><a download="{{media.VideoLink}}" ng-href="{{media.VideoLink}}">{{media.FileNameOriginal}}</a></td>
-                <td><button class="btn btn-default" ng-click="uploadVm.deleteFile(media.FilePath)">Delete</button></td>
-            </tr>
-        </tbody>
-    </table>
 </div>

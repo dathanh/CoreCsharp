@@ -1,0 +1,96 @@
+﻿/* Styles go here */
+
+.view-container {
+    position: relative;
+}
+
+.view-list {
+    margin-top: 1%;
+}
+
+.view-list > article h1 {
+    font-size: 125%;
+    line-height: 120%;
+    margin-bottom: 2%;
+}
+
+.view-list > article > div > img {
+    height: 80px;
+    float: left;
+    margin-right: 4%;
+}
+
+.view-list > article > div > time {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    float: right;
+    margin-left: 2%;
+    text-transform: uppercase;
+}
+
+.view-list > article > div > address {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 95%;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.view-list > .article-container-full-width img {
+    float: none;
+    display: block;
+    margin: auto;
+}
+
+.view-list > .article-container-full-width address {
+    text-align: center;
+}
+
+.article-left-content {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px rgba(255,255,255,.8);
+    min-height: 100px;
+    padding: 20px;
+}
+
+.article-container-full-width {
+    margin: 6px;
+    float: left;
+    width: 110px;
+    height: 140px;
+    border-bottom: solid 0 transparent;
+    padding: 1.5% .5%;
+}
+
+small.right {
+    clear: right;
+    float: right;
+}
+
+#ng-view {
+    position: relative;
+}
+
+span[data-ng-show] {
+    color: #FA787E;
+}
+
+.thumbnail {
+    /*padding-bottom: 20px;
+    margin: 10px;*/
+    background-color: #DBDBDB;
+}
+.thumbnail .caption {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Comic Sans MS';
+}
+.voting-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.right {
+    clear: right;
+    float: right;
+}

@@ -1,0 +1,215 @@
+@import "bootstrap/variables.less";
+@import "custom-variables.less";
+
+//@import "icon.less";
+//@import "stripe.less";
+//@import "badge.less";
+@import "column.less";
+//@import "button-material.less";
+//@import "label.less";
+//@import "card.less";
+//@import "tile.less";
+//@import "tooltip.less";
+@import "overload-kendo.less";
+@import "overload-smartadmin.less";
+@import "overload-angular.less";
+//@import "overload-bootstrap.less";
+html, body {
+    overflow-x: hidden;
+}
+
+.jarviswidget {
+    margin-bottom: 13px;
+}
+
+.smart-style-2.menu-on-top .menu-item-parent {
+    font-size: 12px;
+}
+
+.menu-on-top .menu-item-parent {
+    max-width: 90px;
+}
+
+.btn {
+    min-width: 50px;
+    padding: 5px 12px 6px;
+    border-radius: 2px !important;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.05) inset;
+
+    &.icon {
+        min-width: 0;
+    }
+}
+
+#orderPrintReviewArea iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.custom-lookup {
+    & > span {
+        padding-left: 0;
+    }
+
+    > span > span {
+        padding: 0 2.5em 0 0;
+    }
+
+    > span .k-input {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.k-window-content.k-content .k-dropdown {
+    width: 110%;
+}
+
+.k-datetimepicker .k-picker-wrap {
+    padding-right: 2.5em;
+}
+
+.k-picker-wrap .k-input {
+    height: 2.17em !important;
+}
+
+.k-dropdown-wrap .k-input {
+    padding: 4px 8px;
+}
+
+.popup-footer {
+    background: none repeat scroll 0 0 #ddd;
+    border-top: 1px solid #ccc;
+    float: left;
+    height: 30px;
+    padding: 5px 0;
+    text-align: right;
+    width: 100%;
+}
+
+.k-window-content.k-content {
+    padding: 0;
+}
+
+.k-grid tbody .k-button, .k-ie8 .k-grid tbody button.k-button {
+    min-width: 40px;
+}
+
+label.sandi {
+    font-weight: bold;
+    font-style: italic;
+
+    &:after {
+        content: "\00a0";
+    }
+}
+
+input[type="checkbox"] {
+    //margin: 3px 3px 3px 4px;
+    margin-right: 3px;
+}
+
+.overflow-avoid {
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+}
+
+custom-lookup {
+    & > span.k-widget.k-input {
+        padding: 0;
+    }
+
+    span.k-select {
+        border-left: none;
+    }
+}
+
+.info-label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 50px;
+    margin: 10px;
+}
+
+.alert-label {
+    color: #f00;
+    font-weight: bold;
+}
+
+.k-grouping-row > td {
+    color: @brand-primary;
+    padding-bottom: 2px;
+    border-bottom: 1px solid @brand-primary !important;
+    padding-left: 12px;
+}
+
+.alphabetLetter {
+    //background: none repeat scroll 0 0 blue;
+    color: @brand-info;
+    font-weight: bold;
+    margin-bottom: 1px;
+    cursor: pointer;
+    font-size: 10px;
+
+    &:first-child {
+        border-top: 1px solid #ebebeb;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.alphabetLetterActive {
+    font-size: 11px;
+    color: @brand-primary;
+    //background: lightblue;
+}
+
+div.popup-body.modal-body .bootstrap-duallistbox-container .btn-group .btn {
+    width: 80%;
+}
+
+.dashboardOrderDetail{
+    padding: 10px;
+    margin: 10px 0;
+    background: #eee;
+}
+a.disabled {
+    color: #ddd !important;
+    pointer-events: none;
+    cursor: default;
+}
+.k-input[type="password"]{border:1px solid #ddd;}
+.k-window custom-lookup > span.k-widget.k-input{border:none;width:110%;}
+.k-window custom-lookup > .k-textbox .k-icon{left:10px}
+.k-window textarea{height:50px;width:110% !important;}
+.k-window input.k-input{padding:5px 8px;}
+#logo{margin-top:0;margin-left:0;}
+span#activity{width:auto;margin:10px 0 0;height:30px;-moz-border-radius: 2px !important;
+  -webkit-border-radius: 2px !important;
+  border-radius: 2px !important;
+  cursor: default!important;
+  display: inline-block;
+  font-weight: 700;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none!important;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  background-color: #f8f8f8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+  border: 1px solid #bfbfbf;
+  color: #c4bab6;
+  font-size: 19px;
+  position: relative;}
+ 

@@ -1,0 +1,251 @@
+@bgDefault: #fff;
+@bgHighlight: mix(@color-main,#fff,5%);
+@colDefault: @color-main;
+@colHighlight: @color-main-text;
+
+.navbar-default {
+    background-color: @bgDefault;
+    border-color: @bgHighlight;
+
+    .navbar-brand {
+        color: @colDefault;
+
+        &:hover, &:focus {
+            color: @colHighlight;
+        }
+    }
+
+    .navbar-text {
+        color: @colDefault;
+    }
+
+    .navbar-nav {
+        > li {
+            > a {
+                color: @colDefault;
+
+                &:hover, &:focus {
+                    color: @colHighlight;
+                }
+            }
+        }
+
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+
+        > .open {
+            > a, > a:hover, > a:focus {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        border-color: @bgHighlight;
+
+        &:hover, &:focus {
+            background-color: @bgHighlight;
+        }
+
+        .icon-bar {
+            background-color: @colDefault;
+        }
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: @colDefault;
+    }
+
+    .navbar-link {
+        color: @colDefault;
+
+        &:hover {
+            color: @colHighlight;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: @colDefault;
+
+            &:hover, &:focus {
+                color: @colHighlight;
+            }
+        }
+
+        > .active {
+            > a, > a:hover, > a:focus, {
+                color: @colHighlight;
+                background-color: @bgHighlight;
+            }
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .navbar-default .navbar-nav > .active, {
+        border-bottom: 2px solid @color-main;
+
+        & > a, & > a:hover, & > a:focus {
+            padding-bottom: 8px;
+        }
+    }
+}
+
+
+.navbar {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 0;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid @color-main;
+    border-radius: 0;
+    min-height: 40px;
+}
+
+.navbar-brand {
+    padding: 0;
+    height: 40px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar-toggle {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+a, a:hover, a:active, a:focus,
+input[type="radio"], input[type="radio"]:hover, input[type="radio"]:focus,
+input[type="checkbox"], input[type="checkbox"]:hover, input[type="checkbox"]:focus {
+    outline: 0;
+}
+
+.form-control {
+    border-radius: 0;
+    height: 2em;
+    line-height: 1.65em;
+    margin: 0;
+    padding: 0.177em 0;
+    text-indent: 0.33em;
+    box-shadow: none;
+
+    &:focus {
+        box-shadow: none;
+        border-color: @color-form-border;
+    }
+}
+
+.panel {
+    cursor: default;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    overflow: hidden;
+
+    &.layered {
+        position: absolute;
+        margin-top: 10px;
+        left: 10px;
+        right: 10px;
+    }
+
+    .panel-content {
+        background-color: #fafafa;
+        overflow: hidden;
+    }
+    .panel-body{
+        
+        background-color: #fafafa;
+    }
+
+    .panel-control {
+        background-color: #fff; //#f9f9f9;
+        padding: 10px;
+    }
+
+    &.disabled {
+        margin: 0;
+        color: #ccc !important;
+
+        .panel-heading {
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+    }
+}
+
+.panel-table {
+    border-radius: 0;
+    //padding: 10px;
+    //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.panel-heading {
+    color: @color-main;
+    //border-bottom: 1px #ebebeb solid;
+    height: 40px;
+
+    &.extended-height {
+        height: auto;
+    }
+    //padding-bottom: 15px;
+    text-transform: uppercase;
+
+    .panel-title-small {
+        font-weight: 400;
+        font-size: 16px;
+    }
+
+    .panel-title {
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+    .panel-window {
+        position: absolute;
+        right: 0;
+        margin: 10px;
+    }
+}
+
+.dropdown-menu {
+    margin: 0;
+    font-size: 13px;
+    //border-color: @brand-primary;
+    & > li > a {
+        &:hover, &:focus {
+            background-color: mix(@color-main,#fff,5%);
+        }
+    }
+}
+
+.border-top {
+    border-top: 1px @color-border solid;
+}
+
+.border-bottom {
+    border-bottom: 1px @color-border solid;
+}
+
+.border-left {
+    border-left: 1px @color-border solid;
+}
+
+.border-right {
+    border-right: 1px @color-border solid;
+}

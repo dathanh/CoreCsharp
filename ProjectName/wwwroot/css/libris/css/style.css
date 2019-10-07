@@ -1,0 +1,1810 @@
+﻿body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    background-color: #E9EAEC;
+}
+.font-italic {
+    font-style: italic !important;
+}
+.container {
+    width: 100%;
+}
+.gray {
+    color: gray !important;
+}
+.red {
+    color: red !important;
+}
+.no-radius{ border-radius: 0 !important;}
+.no-border-top{ border-top: none !important;}
+.no-border-left{ border-left: none !important;}
+.no-border-bottom{ border-bottom: none !important;}
+.no-border-right{ border-right: none !important;}
+
+.margin-top-20 {
+    margin-top: 20px !important;
+}
+.margin-right-5{ margin-right: 5px !important;}
+.k-select:hover {
+    cursor: pointer;
+    background: #337ab7;
+    color: white;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+.no-padding-left {
+    padding-left: 0 !important;
+}
+.no-padding-right {
+    padding-right: 0 !important;
+}
+.no-padding-bottom {
+    padding-bottom: 0 !important;
+}
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}
+.margin-bottom-10{ margin-bottom: 10px !important;}
+.margin-top-10{ margin-top: 10px !important;}
+.padding-top-10{ padding-top: 10px !important;}
+.btn.switch-on{ background: #3276B1;color: white;}
+.k-window-titlebar.k-header {
+    background-color: black;
+    color: white;
+}
+
+.k-window-actions > .k-link > .k-icon {
+    background-color: white;
+}
+
+.bootbox {
+    overflow: hidden;
+}
+
+body.modal-open, .modal-open .navbar-fixed-top, .modal-open .navbar-fixed-bottom {
+    margin: 0;
+}
+
+#demo-setting {
+    display: none !important;
+}
+
+.panel-heading {
+    background: #F8F9FA;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    padding-top: 10px;
+    font-style: italic;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background: none;
+    color: white;
+}
+
+.navbar-inverse {
+    background: #073648;
+    text-transform: none !important;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        padding-top: 12px;
+        color: #ddd;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            cursor: pointer;
+        }
+
+    .navbar-inverse .navbar-nav > .active > a {
+        border-bottom: 2px solid #fff;
+        background: #073648;
+    }
+    .navbar-inverse .navbar-nav > .active.dropdown > a:focus,.navbar-inverse .navbar-nav > .active.dropdown > a:hover {
+        background: #fff !important;
+        color: #073648 !important;
+    }
+
+    .navbar-inverse .navbar-nav > .open > a {
+        background: #fff !important;
+        color: #013a5e !important;
+        cursor: pointer;
+    }
+
+    .navbar-inverse .navbar-nav > .active > a:hover {
+        background: none !important;
+    }
+
+    .navbar-inverse .navbar-nav .dropdown-menu {
+        animation: 0.8s ease 0s normal none 1 running fade-in;
+        background: #fff none repeat scroll 0 0;
+        box-shadow: 5px 2px 5px 0 rgba(0, 0, 0, 0.05);
+        border: none;
+        z-index: 9999;
+    }
+
+        .navbar-inverse .navbar-nav .dropdown-menu li a:hover {
+            background: #073648 !important;
+            color: white;
+        }
+
+    .navbar-inverse .navbar-nav.navbar-right > li > a {
+        padding: 12px 10px !important;
+        color: white;
+    }
+
+.dropdown-menu {
+    padding: 0;
+    width: 100%;
+}
+
+    .dropdown-menu > li > a {
+        padding: 10px 20px;
+    }
+
+.btn {
+    border-radius: 2px;
+    font: 700 13px Arial,Helvetica,sans-serif;
+    padding: 8px 12px !important;
+    text-align: center;
+    transition-duration: 0.2s;
+    transition-property: background-color, color;
+    transition-timing-function: ease;
+    margin-right: 0;
+}
+
+    .btn.btn-sm {
+        padding: 7px 10px !important;
+    }
+
+.btn-red {
+    background: #e84d3d none repeat scroll 0 0;
+    border: 2px solid #e84d3d;
+    color: #fff;
+    border-radius: 2px;
+    font-size: 11px;
+    margin: 9px 30px 8px 10px;
+    padding: 6px 12px;
+    text-transform: uppercase;
+    transition: all 0.15s ease 0s;
+}
+
+    .btn-red:hover {
+        background: none;
+        color: #e84d3d;
+    }
+
+.panel .panel-heading .panel-tools {
+    display: inline-block;
+    list-style-type: none;
+    margin: -6px 0 0;
+    padding: 0;
+}
+
+.panel .panel-heading .panel-title {
+    display: inline-block;
+    font-family: "Oswald",Helvetica,Arial,sans-serif;
+    font-weight: 400 !important;
+    height: 17px !important;
+    vertical-align: middle;
+}
+
+.panel .panel-heading .panel-tools .dropdown-menu {
+    left: auto;
+    right: 0;
+    text-align: left;
+}
+
+.panel .panel-heading .panel-tools li {
+    display: block;
+    float: left;
+    margin-right: 5px;
+    width: 100%;
+}
+
+    .panel .panel-heading .panel-tools li:last-child {
+        margin-right: 0;
+    }
+
+.k-grid-header th.k-header, .k-filter-row th {
+    padding: 0.7em 0.6em;
+}
+
+.k-block > .k-header, .k-window-titlebar {
+    margin-top: -50px !important;
+    padding: 15px 0;
+    height: 19px;
+    background: #fff !important;
+}
+
+.k-window-title {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.k-window-titlebar .k-window-actions {
+    padding-top: 0.8em;
+}
+
+div.k-window-content {
+    padding: 0;
+}
+
+    div.k-window-content .popup-footer {
+        height: 50px;
+        line-height: 48px;
+        border-top: 1px solid #ccc;
+        padding: 0 10px;
+        text-align: right;
+    }
+
+.k-ff input.k-textbox {
+    width: 100%;
+}
+
+.smart-form *, .smart-form *::after, .smart-form *::before {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+.smart-form .checkbox + .checkbox, .smart-form .radio + .radio {
+    margin-top: 0;
+}
+
+.smart-form legend {
+    padding-top: 15px;
+}
+
+.smart-form {
+    color: #666;
+    margin: 0;
+    outline: 0 none;
+    position: relative;
+}
+
+    .smart-form header {
+        background: #fff none repeat scroll 0 0;
+        border-bottom: 1px dashed rgba(0, 0, 0, 0.2);
+        color: #232323;
+        display: block;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 10px 14px 0;
+        padding: 8px 0;
+    }
+
+    .smart-form fieldset {
+        background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+        border: medium none;
+        display: block;
+        padding: 25px 14px 5px;
+        position: relative;
+    }
+
+        .smart-form fieldset + fieldset {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+    .smart-form section {
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .smart-form footer {
+        background: rgba(248, 248, 248, 0.9) none repeat scroll 0 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: block;
+        padding: 7px 14px 15px;
+    }
+
+        .smart-form footer::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+    .smart-form .label {
+        color: #333;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 19px;
+        margin-bottom: 6px;
+        text-align: left;
+        white-space: normal;
+    }
+
+        .smart-form .label.col {
+            margin: 0;
+            padding-top: 7px;
+        }
+
+    .note, .smart-form .note {
+        color: #999;
+        font-size: 11px;
+        line-height: 15px;
+        margin-top: 6px;
+        padding: 0 1px;
+    }
+
+        .smart-form .note a {
+            font-size: 13px;
+        }
+
+    .smart-form .button, .smart-form .checkbox, .smart-form .input, .smart-form .radio, .smart-form .select, .smart-form .textarea, .smart-form .toggle {
+        display: block;
+        font-weight: 400;
+        position: relative;
+    }
+
+        .smart-form .input input, .smart-form .select select, .smart-form .textarea textarea {
+            -moz-appearance: none;
+            background: #fff none repeat scroll 0 0;
+            border-radius: 2px;
+            border-style: solid;
+            box-sizing: border-box;
+            color: #404040;
+            display: block;
+            font: 13px/16px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+            height: 32px;
+            outline: 0 none;
+            width: 100%;
+        }
+
+    .smart-form .input-file .button {
+        float: none;
+        font-size: 13px;
+        height: 22px;
+        line-height: 22px;
+        margin: 0;
+        padding: 0 14px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+    }
+
+        .smart-form .input-file .button:hover {
+            box-shadow: none;
+        }
+
+        .smart-form .input-file .button input {
+            cursor: pointer;
+            font-size: 30px;
+            opacity: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+    .smart-form .select i {
+        background: #fff none repeat scroll 0 0;
+        box-shadow: 0 0 0 9px #fff;
+        height: 11px;
+        position: absolute;
+        right: 11px;
+        top: 10px;
+        width: 5px;
+    }
+
+        .smart-form .select i::after, .smart-form .select i::before {
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            content: "";
+            position: absolute;
+            right: 0;
+        }
+
+        .smart-form .select i::after {
+            border-top: 4px solid #404040;
+            bottom: 0;
+        }
+
+        .smart-form .select i::before {
+            border-bottom: 4px solid #404040;
+            top: 0;
+        }
+
+    .smart-form .select-multiple select {
+        height: auto;
+    }
+
+    .smart-form .textarea textarea {
+        height: auto;
+        resize: none;
+    }
+
+    .smart-form .textarea-resizable textarea {
+        resize: vertical;
+    }
+
+    .smart-form .textarea-expandable textarea {
+        height: 31px;
+    }
+
+        .smart-form .textarea-expandable textarea:focus {
+            height: auto;
+        }
+
+    .smart-form .checkbox, .smart-form .radio {
+        color: #404040;
+        cursor: pointer;
+        font-size: 13px;
+        line-height: 25px;
+        margin-bottom: 4px;
+        padding-left: 25px;
+    }
+
+        .smart-form .checkbox:last-child, .smart-form .radio:last-child {
+            margin-bottom: 0;
+        }
+
+        .smart-form .checkbox input, .smart-form .radio input {
+            left: -9999px;
+            position: absolute;
+        }
+
+        .smart-form .checkbox i, .smart-form .radio i {
+            background: #fff none repeat scroll 0 0;
+            border-style: solid;
+            border-width: 1px;
+            display: block;
+            height: 17px;
+            left: 0;
+            outline: 0 none;
+            position: absolute;
+            top: 3px;
+            width: 17px;
+        }
+
+        .smart-form .radio i {
+            border-radius: 50%;
+        }
+
+        .smart-form .checkbox input + i::after, .smart-form .radio input + i::after {
+            opacity: 0;
+            position: absolute;
+            transition: opacity 0.1s ease 0s;
+        }
+
+        .smart-form .radio input + i::after {
+            border-radius: 50%;
+            content: "";
+            height: 9px;
+            left: 4px;
+            top: 4px;
+            width: 9px;
+        }
+
+        .smart-form .checkbox input + i::after {
+            content: "";
+            font: 400 16px/19px FontAwesome;
+            height: 15px;
+            left: 1px;
+            text-align: center;
+            top: -1px;
+            width: 15px;
+        }
+
+        .smart-form .checkbox input:checked:hover + i::after {
+            content: "";
+        }
+
+        .smart-form .checkbox input:checked:disabled:hover + i::after {
+            content: "";
+        }
+
+        .smart-form .checkbox input:checked + i::after, .smart-form .radio input:checked + i::after {
+            opacity: 1;
+        }
+
+    .smart-form .inline-group {
+        margin: 0 -15px -4px 0;
+    }
+
+        .smart-form .inline-group::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+        .smart-form .inline-group .checkbox, .smart-form .inline-group .radio {
+            float: left;
+            margin-right: 30px;
+        }
+
+            .smart-form .inline-group .checkbox:last-child, .smart-form .inline-group .radio:last-child {
+                margin-bottom: 4px;
+            }
+
+    .smart-form .toggle {
+        color: #404040;
+        cursor: pointer;
+        font-size: 15px;
+        line-height: 25px;
+        margin-bottom: 4px;
+        padding-right: 61px;
+    }
+
+        .smart-form .toggle:last-child {
+            margin-bottom: 0;
+        }
+
+        .smart-form .toggle input {
+            left: -9999px;
+            position: absolute;
+        }
+
+        .smart-form .toggle i {
+            background: #fff none repeat scroll 0 0;
+            border-radius: 12px;
+            border-style: solid;
+            border-width: 1px;
+            content: "";
+            display: block;
+            height: 17px;
+            position: absolute;
+            right: 0;
+            top: 4px;
+            width: 49px;
+        }
+
+            .smart-form .toggle i::after {
+                color: #5f5f5f;
+                content: attr(data-swchoff-text);
+                font-size: 9px;
+                font-style: normal;
+                font-weight: 700;
+                left: 8px;
+                line-height: 13px;
+                position: absolute;
+                right: 8px;
+                text-align: left;
+                top: 2px;
+            }
+
+            .smart-form .toggle i::before {
+                border-radius: 50%;
+                content: "";
+                display: block;
+                height: 9px;
+                opacity: 1;
+                position: absolute;
+                right: 4px;
+                top: 4px;
+                transition: right 0.2s ease 0s;
+                width: 9px;
+                z-index: 1;
+            }
+
+        .smart-form .toggle input:checked + i::after {
+            content: attr(data-swchon-text);
+            text-align: right;
+        }
+
+        .smart-form .toggle input:checked + i::before {
+            right: 36px;
+        }
+
+    .smart-form .rating {
+        color: #404040;
+        font-size: 13px;
+        line-height: 25px;
+        margin-bottom: 4px;
+    }
+
+        .smart-form .rating:last-child {
+            margin-bottom: 0;
+        }
+
+        .smart-form .rating input {
+            left: -9999px;
+            position: absolute;
+        }
+
+        .smart-form .rating label {
+            cursor: pointer;
+            display: block;
+            float: right;
+            font-size: 17px;
+            height: 17px;
+            line-height: 17px;
+            margin-top: 5px;
+            padding: 0 2px;
+        }
+
+    .smart-form .button {
+        border: 0 none;
+        color: #fff;
+        cursor: pointer;
+        float: right;
+        font: 300 15px/31px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+        height: 31px;
+        margin: 10px 0 0 5px;
+        outline: 0 none;
+        overflow: hidden;
+        padding: 0 25px;
+        text-decoration: none;
+    }
+
+    .smart-form .icon-append, .smart-form .icon-prepend {
+        font-size: 14px;
+        height: 22px;
+        line-height: 22px;
+        position: absolute;
+        text-align: center;
+        top: 5px;
+        width: 22px;
+    }
+
+    .smart-form .icon-append {
+        border-left-style: solid;
+        border-left-width: 1px;
+        padding-left: 3px;
+        right: 5px;
+    }
+
+    .smart-form .icon-prepend {
+        border-right-style: solid;
+        border-right-width: 1px;
+        left: 5px;
+        padding-right: 3px;
+    }
+
+    .smart-form .input .icon-prepend + input, .smart-form .textarea .icon-prepend + textarea {
+        padding-left: 37px;
+    }
+
+    .smart-form .input .icon-append + input, .smart-form .textarea .icon-append + textarea {
+        padding-right: 37px;
+    }
+
+    .smart-form .input .icon-prepend + .icon-append + input, .smart-form .textarea .icon-prepend + .icon-append + textarea {
+        padding-left: 37px;
+    }
+
+    .smart-form .row {
+        margin: 0 -15px;
+    }
+
+        .smart-form .row::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+    .smart-form .col {
+        box-sizing: border-box;
+        float: left;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .smart-form .col-1 {
+        width: 8.33%;
+    }
+
+    .smart-form .col-2 {
+        width: 16.66%;
+    }
+
+    .smart-form .col-3 {
+        width: 25%;
+    }
+
+    .smart-form .col-4 {
+        width: 33.33%;
+    }
+
+    .smart-form .col-5 {
+        width: 41.66%;
+    }
+
+    .smart-form .col-6 {
+        width: 50%;
+    }
+    
+    .smart-form .col-7 {
+        width: 58.3333%;
+    }
+
+    .smart-form .col-8 {
+        width: 66.67%;
+    }
+
+    .smart-form .col-9 {
+        width: 75%;
+    }
+
+    .smart-form .col-10 {
+        width: 83.33%;
+    }
+
+    .smart-form .col-11 {
+        width: 91.6667%;
+    }
+
+    .smart-form .col-12 {
+        width: 100%;
+    }
+
+@media screen and (max-width: 600px) {
+    .smart-form .col {
+        float: none;
+        width: 100%;
+    }
+}
+
+.smart-form .select select {
+    padding: 5px;
+}
+
+.smart-form .tooltip {
+    background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 400;
+    left: -9999px;
+    line-height: 16px;
+    opacity: 0;
+    padding: 2px 8px 3px;
+    position: absolute;
+    transition: margin 0.3s ease 0s, opacity 0.3s ease 0s;
+    z-index: 99999;
+}
+
+    .smart-form .tooltip::after {
+        content: "";
+        position: absolute;
+    }
+
+.smart-form .input input:focus + .tooltip, .smart-form .textarea textarea:focus + .tooltip {
+    opacity: 1;
+}
+
+.smart-form .tooltip-top-right {
+    bottom: 100%;
+    margin-bottom: 15px;
+}
+
+    .smart-form .tooltip-top-right::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid rgba(0, 0, 0, 0.9);
+        right: 11px;
+        top: 100%;
+    }
+
+.smart-form .input input:focus + .tooltip-top-right, .smart-form .textarea textarea:focus + .tooltip-top-right {
+    left: auto;
+    margin-bottom: 5px;
+    right: 0;
+}
+
+.smart-form .tooltip-top-left {
+    bottom: 100%;
+    margin-bottom: 15px;
+}
+
+    .smart-form .tooltip-top-left::after {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid rgba(0, 0, 0, 0.9);
+        left: 11px;
+        top: 100%;
+    }
+
+.smart-form .input input:focus + .tooltip-top-left, .smart-form .textarea textarea:focus + .tooltip-top-left {
+    left: 0;
+    margin-bottom: 5px;
+    right: auto;
+}
+
+.smart-form .tooltip-right {
+    margin-left: 15px;
+    top: 4px;
+    white-space: nowrap;
+}
+
+    .smart-form .tooltip-right::after {
+        border-bottom: 4px solid transparent;
+        border-right: 4px solid rgba(0, 0, 0, 0.9);
+        border-top: 4px solid transparent;
+        right: 100%;
+        top: 6px;
+    }
+
+.smart-form .input input:focus + .tooltip-right, .smart-form .textarea textarea:focus + .tooltip-right {
+    left: 100%;
+    margin-left: 5px;
+}
+
+.smart-form .tooltip-left {
+    margin-right: 15px;
+    top: 4px;
+    white-space: nowrap;
+}
+
+    .smart-form .tooltip-left::after {
+        border-bottom: 4px solid transparent;
+        border-left: 4px solid rgba(0, 0, 0, 0.9);
+        border-top: 4px solid transparent;
+        left: 100%;
+        top: 6px;
+    }
+
+.smart-form .input input:focus + .tooltip-left, .smart-form .textarea textarea:focus + .tooltip-left {
+    left: auto;
+    margin-right: 5px;
+    right: 100%;
+}
+
+.smart-form .tooltip-bottom-right {
+    margin-top: 15px;
+    top: 100%;
+}
+
+    .smart-form .tooltip-bottom-right::after {
+        border-bottom: 4px solid rgba(0, 0, 0, 0.9);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        bottom: 100%;
+        right: 11px;
+    }
+
+.smart-form .input input:focus + .tooltip-bottom-right, .smart-form .textarea textarea:focus + .tooltip-bottom-right {
+    left: auto;
+    margin-top: 5px;
+    right: 0;
+}
+
+.smart-form .tooltip-bottom-left {
+    margin-top: 15px;
+    top: 100%;
+}
+
+    .smart-form .tooltip-bottom-left::after {
+        border-bottom: 4px solid rgba(0, 0, 0, 0.9);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        bottom: 100%;
+        left: 11px;
+    }
+
+.smart-form .input input:focus + .tooltip-bottom-left, .smart-form .textarea textarea:focus + .tooltip-bottom-left {
+    left: 0;
+    margin-top: 5px;
+    right: auto;
+}
+
+.smart-form .checkbox i, .smart-form .icon-append, .smart-form .icon-prepend, .smart-form .input input, .smart-form .radio i, .smart-form .select select, .smart-form .textarea textarea, .smart-form .toggle i {
+    border-color: #bdbdbd;
+    transition: border-color 0.3s ease 0s;
+}
+
+    .smart-form .toggle i::before {
+        background-color: #3276b1;
+    }
+
+.smart-form .rating label {
+    color: #ccc;
+    transition: color 0.3s ease 0s;
+}
+
+.smart-form .button {
+    background-color: #3276b1;
+    opacity: 0.8;
+    transition: opacity 0.2s ease 0s;
+}
+
+    .smart-form .button.button-secondary {
+        background-color: #b3b3b3;
+    }
+
+.smart-form .icon-append, .smart-form .icon-prepend {
+    color: #a2a2a2;
+}
+
+.smart-form .checkbox:hover i, .smart-form .input:hover input, .smart-form .radio:hover i, .smart-form .select:hover select, .smart-form .textarea:hover textarea, .smart-form .toggle:hover i {
+    border-color: #5d98cc;
+}
+
+.smart-form .rating input + label:hover, .smart-form .rating input + label:hover ~ label {
+    color: #3276b1;
+}
+
+.smart-form .button:hover {
+    opacity: 1;
+}
+
+.smart-form .checkbox:hover i, .smart-form .radio:hover i, .smart-form .toggle:hover i {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.smart-form .checkbox:active i, .smart-form .radio:active i, .smart-form .toggle:active i {
+    background: #f0f0f0 none repeat scroll 0 0;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+
+.smart-form .checkbox input:focus + i, .smart-form .input input:focus, .smart-form .radio input:focus + i, .smart-form .select select:focus, .smart-form .textarea textarea:focus, .smart-form .toggle input:focus + i {
+    border-color: #3276b1;
+}
+
+.smart-form .radio input + i::after {
+    background-color: #3276b1;
+}
+
+.smart-form .checkbox input + i::after {
+    color: #3276b1;
+}
+
+.smart-form .checkbox input:checked + i, .smart-form .radio input:checked + i, .smart-form .toggle input:checked + i {
+    border-color: #3276b1;
+}
+
+.smart-form .rating input:checked ~ label {
+    color: #3276b1;
+}
+
+.smart-form .checkbox.state-error i, .smart-form .radio.state-error i, .smart-form .state-error input, .smart-form .state-error select, .smart-form .state-error textarea, .smart-form .toggle.state-error i {
+    background: #fff0f0 none repeat scroll 0 0;
+    border-color: #a90329;
+}
+
+.smart-form .toggle.state-error input:checked + i {
+    background: #fff0f0 none repeat scroll 0 0;
+}
+
+.smart-form .state-error + em {
+    color: #d56161;
+    display: block;
+    font-size: 11px;
+    font-style: normal;
+    line-height: 15px;
+    margin-top: 6px;
+    padding: 0 1px;
+}
+
+.smart-form .rating.state-error + em {
+    margin-bottom: 4px;
+    margin-top: -4px;
+}
+
+.smart-form .state-error select + i {
+    background: #fff0f0 none repeat scroll 0 0;
+    box-shadow: 0 0 0 9px #fff0f0;
+}
+
+.state-error .icon-append, .state-error .icon-prepend {
+    color: #ed1c24;
+}
+
+.smart-form .checkbox.state-success i, .smart-form .radio.state-success i, .smart-form .state-success input, .smart-form .state-success select, .smart-form .state-success textarea, .smart-form .toggle.state-success i {
+    background: #f0fff0 none repeat scroll 0 0;
+    border-color: #7dc27d;
+}
+
+.smart-form .toggle.state-success input:checked + i {
+    background: #f0fff0 none repeat scroll 0 0;
+}
+
+.smart-form .note-success {
+    color: #6fb679;
+}
+
+.smart-form .state-success select + i {
+    background: #f0fff0 none repeat scroll 0 0;
+    box-shadow: 0 0 0 9px #f0fff0;
+}
+
+.smart-form .button.state-disabled, .smart-form .checkbox.state-disabled, .smart-form .input.state-disabled input, .smart-form .radio.state-disabled, .smart-form .select.state-disabled, .smart-form .textarea.state-disabled, .smart-form .toggle.state-disabled {
+    cursor: default !important;
+    opacity: 0.6 !important;
+}
+
+    .smart-form .checkbox.state-disabled:hover i, .smart-form .input.state-disabled:hover input, .smart-form .radio.state-disabled:hover i, .smart-form .select.state-disabled:hover select, .smart-form .textarea.state-disabled:hover textarea, .smart-form .toggle.state-disabled:hover i {
+        border-color: #e5e5e5 !important;
+    }
+
+.smart-form .state-disabled.checkbox input + i::after, .smart-form .state-disabled.checkbox input:checked + i, .smart-form .state-disabled.radio input + i::after, .smart-form .state-disabled.radio input:checked + i, .smart-form .state-disabled.toggle input:checked + i {
+    border-color: #e5e5e5 !important;
+    color: #333 !important;
+}
+
+.smart-form .state-disabled.radio input + i::after {
+    background-color: #333;
+}
+
+.smart-form .message {
+    color: #6fb679;
+    display: none;
+}
+
+    .smart-form .message i {
+        border: 1px solid #6fb679;
+        border-radius: 50%;
+        display: block;
+        font-size: 30px;
+        height: 81px;
+        line-height: 81px;
+        margin: 0 auto 20px;
+        width: 81px;
+    }
+
+.smart-form.submited fieldset, .smart-form.submited footer {
+    display: none;
+}
+
+.smart-form.submited .message {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    display: block;
+    font: 300 18px/27px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    padding: 25px 30px;
+    text-align: center;
+}
+
+.smart-form .ui-widget-content .ui-spinner-input {
+    border: 0 none;
+    box-shadow: none !important;
+    height: 29px;
+    margin: 0;
+}
+
+.k-widget.k-window {
+    transform: scale(1) !important;
+}
+/*.k-widget.k-window {
+    left: 23px !important;
+    top: 150px !important;
+    border-radius: 0 4px 4px 4px;
+    padding-top: 0 !important;
+    box-shadow: 5px 2px 5px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.k-window-titlebar.k-header {
+    border-radius: 0 4px 0 0;
+    display: none;
+}
+
+.k-overlay {
+    opacity: 0 !important;
+}*/
+
+.no-padding-right {
+    padding-right: 0 !important;
+}
+
+.no-padding-left {
+    padding-left: 0 !important;
+}
+
+.k-block, .k-button, .k-textbox, .k-drag-clue, .k-touch-scrollbar, .k-window, .k-window-titleless .k-window-content, .k-window-action, .k-inline-block, .k-grid .k-filter-options, .k-grouping-header .k-group-indicator, .k-autocomplete, .k-multiselect, .k-combobox, .k-dropdown, .k-dropdown-wrap, .k-datepicker, .k-timepicker, .k-colorpicker, .k-datetimepicker, .k-notification, .k-numerictextbox, .k-picker-wrap, .k-numeric-wrap, .k-colorpicker, .k-list-container, .k-calendar-container, .k-calendar td, .k-calendar .k-link, .k-treeview .k-in, .k-editor-inline, .k-tooltip, .k-tile, .k-slider-track, .k-slider-selection, .k-upload,
+.smart-form .input input, .smart-form .select select, .smart-form .textarea textarea {
+    border-radius: 2px;
+}
+
+    .k-dropdown-wrap .k-input, .k-picker-wrap .k-input, .k-numeric-wrap .k-input {
+        border-radius: 2px 0 0 2px;
+    }
+
+    .k-dropdown-wrap .k-select, .k-picker-wrap .k-select, .k-numeric-wrap .k-select, .k-datetimepicker .k-select + .k-select, .k-list-container.k-state-border-right {
+        border-radius: 0 2px 2px 0;
+    }
+    .k-picker-wrap .k-input {
+        padding: 0 !important;
+    }
+@-moz-document url-prefix() {
+    .firefox-hide {
+        display: none;
+    }
+}
+/*Chrome*/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+   
+}
+/*Safari*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+   
+}
+
+custom-lookup .k-widget.k-combobox.k-header.k-input {
+    width: 100%;
+}
+
+.tool-lookup {
+    border-left: 1px solid #ccc;
+    height: 30px;
+    line-height: 28px;
+    margin-right: 26px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 26px;
+    margin-top: 1px;
+    z-index: 1;
+}
+
+    .tool-lookup:hover {
+        cursor: pointer;
+        color: #002F48;
+        background: #EBEBEB;
+    }
+
+.angular-google-map-container {
+    height: 200px;
+}
+
+.k-checkbox-label::after {
+    border-radius: 0px;
+    width: 18px;
+    height: 18px;
+    line-height: 15px;
+}
+
+.k-checkbox:checked + .k-checkbox-label::after {
+    border-radius: 0px;
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+.k-grid-header .k-checkbox-label::after, .k-grid-content .k-checkbox-label::after {
+    margin-top: -10px;
+}
+
+.k-radio-label::before {
+    width: 16px;
+    height: 16px;
+}
+
+.pac-container {
+    z-index: 2147483647;
+}
+
+.smart-form .input input {
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid #ccc;
+}
+
+.k-widget.k-timepicker.k-header .k-picker-wrap.k-state-default .k-timepicker.k-input.k-textbox {
+    padding: 0;
+    border: none;
+}
+
+.k-radio:checked + .k-radio-label.large::after {
+    width: 12px;
+    height: 12px;
+}
+
+.k-radio-label {
+    height: 17px;
+    line-height: 17px;
+}
+
+.k-widget.k-combobox .k-dropdown-wrap {
+    height: 30px;
+    padding-right: 1.9em;
+}
+
+.k-picker-wrap.k-state-disabled .k-input {
+    background: #f9f9f9;
+}
+
+.k-picker-wrap.k-state-disabled .k-select:hover {
+    background: #f9f9f9;
+}
+.slipter-tracking{ margin: 0;}
+.slipter-tracking .panel-heading{ height: 15px;}
+.slipter-tracking td{ padding: 0 10px !important;}
+.slipter-tracking .panel-title{ font-size: 12px;font-weight: bold;overflow: hidden;}
+#request-list{ overflow-y: auto;}
+#courier-list-wrapper{ overflow-y: auto;}
+.k-datepicker .k-picker-wrap{ padding-right: 1.9em;}
+.k-datepicker.k-datetimepicker .k-select{ width: 1.9em;}
+.group-event-schedule{position:absolute;right:0;top:0;z-index:999;}
+.group-event-schedule button{padding:5px !important;border-color: #31708f;color: #31708f;}
+.tile.hover .group-event-schedule button{border-color: #BD8D45;color: #BD8D45;}
+.tile.active .group-event-schedule button{border-color: #A94442;color: #A94442;}
+.search-box .k-picker-wrap .k-input{ padding: 0.177em 0 !important;}
+.event{ padding:8px;border-bottom:1px solid #ebebeb;}
+.event:hover{ background: #ebebeb;cursor: pointer;}
+.k-datetimepicker.k-input.k-textbox{ border: none;}
+.smart-form .input input[disabled]{ background: #efefef;}
+.label-notsent{ background: #ccc;}
+.label-sent{ background: #daa520;}
+.label-waiting{ background: #ff8c00;}
+.label-abandoned{ background: #5f5f5f;}
+.label-declined{ background: #000000;}
+.label-received{ background: #00ced1;}
+.label-started{ background: #00bfff;}
+.label-completed{ background: #5cb85c;}
+.bootbox-small{ width: 370px;}
+.bootbox-small .modal-dialog,.bootbox-small .modal-content{ width: 350px;}
+.courier-tracking input{ font-style: italic;color: #aaa;}
+.panel-heading .panel-title.courier-selected-title{ font-weight: bold !important;font-style: italic}
+.k-dropdown-wrap.k-state-disabled,.k-dropdown-wrap.k-state-disabled .k-input{ background: #efefef;}
+.smart-form .input input[disabled]{ border: none;}
+.smart-form .checkbox input[disabled] + i{ background: #efefef;}
+.gmnoprint{ background: #fff;}
+.slipter-tracking td.request-active{ background: url(../img/icon_run.png) no-repeat;background-position: left;font-weight: bold;padding: 0 10px 0 25px !important;}
+.slipter-tracking td.request-selected{ color: #2196F3;}
+span.request-active{ background: url(../img/icon_run_button.png) no-repeat;background-position: left;padding-left: 15px !important;}
+.row-out-of-date{background-repeat: no-repeat;background-image: url('../img/out-of-date.png');background-position: center;}
+.row-expired{background-repeat: no-repeat;background-image: url('../img/icon_expired.png');background-position: center;}
+.table-month{ margin-bottom: 2px;border: none;}
+.table-month td{ height: 50px;border-right: 1px solid #ccc;border-bottom: 1px solid #ccc;padding: 0;}
+/*.table-month td .k-widget.k-listview{ height: 90px;overflow-y: auto;}*/
+.table-month td:last-child{ border-right: none;}
+.table-month td label{ width: 95%;float: left;border-left: 3px solid #31708F;background: #EBF1F4;padding-left: 5px;color: #31708F;}
+.table-month td label:hover{border-left: 3px solid #bd8d45;background: #F9F4EC;color: #bd8d45;}
+.table-month td label.active{border-left: 3px solid #a94442;background: #F6ECEC;color: #a94442;}
+.k-numerictextbox { width: 100%;}
+.k-numerictextbox .k-numeric-wrap input.k-input{ padding-right: 30px !important;border: none !important;}
+.format-label label{ width: 100%;overflow: hidden;height:17px;word-wrap: break-word;white-space: nowrap;text-overflow: ellipsis;margin: 0;margin-top: -2px;}
+.report-content {
+     margin: 10px;
+     padding:20px;
+     border:1px solid #ccc;
+     background:#fff;
+     /*-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+     box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);*/
+}
+.report-tool{position: fixed;bottom:16px;right: 30px;background: #fff;border:1px solid #ccc;padding: 10px;opacity: 0.5;}
+.report-tool:hover{ opacity: 1;}
+
+#plans section h2 {
+    background: #008de7;
+    color:#fff
+}
+
+#plans section ul {
+    background: #ffffff;
+    margin: 0;
+    padding: 15px 0px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+#plans section span.price,
+span.month {
+    color: #999
+}
+
+#plans section span.price {
+    font-size: 30px
+}
+
+#plans section span.month {
+    font-size: 15px
+}
+
+#plans section li {
+    font-weight: 600;
+    padding: 0px 0px;
+    margin-bottom: 0px;
+    height: 23px
+}
+
+#plans .current h2 {
+    background: #008de7;
+    color: #fff
+}
+
+#plans .current .plan-msg {
+    background: white
+}
+
+#plans .current ul {
+    color: #000
+}
+
+#plans .current .star {
+    display: none
+}
+
+#plans section.current h2 {
+    position: relative
+}
+
+#plans section.current h2:before {
+    content: " ";
+    position: absolute;
+    b1ackground: url("/images/ui/formfields-sprite.png?v=5.1 0.106") no-repeat scroll -30px 0 transparent;
+    display: inline-block;
+    height: 17px;
+    position: absolute;
+    right: 0;
+    top: 3px;
+    width: 20px
+}
+
+#plans section.horizontal h2 {
+    float: left;
+    white-space: nowrap;
+    width: auto;
+    height: 60px;
+    line-height: 53px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    border-right: 1px solid #e0e0e0
+}
+
+#plans section.horizontal h2.button {
+    background: white;
+    float: right;
+    white-space: nowrap;
+    width: auto;
+    line-height: 52px;
+    border-radius: 4px;
+    border: none
+}
+
+#plans section.horizontal .planBtn {
+    vertical-align: middle
+}
+
+#plans .current,
+#plans .current h2,
+#plans section.horizontal.current h2 {
+    border-color: ##008de7
+}
+
+#plans section:first-of-type {
+    border-width: 1px
+}
+
+#plans section.most-popular {
+    background: #637479;
+    margin-top: 0px
+}
+
+#plans section input[type=radio]+label:after {
+    content: " ";
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    display: inline-block;
+    height: 14px;
+    line-height: 11px;
+    margin: 0px 5px 0 -20px;
+    padding: 0;
+    position: relative;
+    vertical-align: middle;
+    width: 14px;
+    position: absolute;
+    top: 3px;
+    right: 0
+}
+
+#plans h2 {
+    height: 50px;
+    line-height: 50px;
+    color: #fff
+    background: white;
+    display: block;
+    padding: 4px 10px;
+    font-size: 18px;
+    margin: 0;
+    border-radius: 4px;
+    border-bottom: 1px solid #e0e0e0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0
+}
+
+#plans .plan-monthly {
+    font-size: 24px;
+    font-weight: 400;
+    padding: 15px 0
+}
+
+#plans .plan-yearly {
+    font-size: 18px;
+    font-weight: 400
+}
+
+#plans .highlight,
+.highlight {
+    font-weight: 600
+}
+
+#plans .most-popular .most-popular-caption {
+    color: white;
+    font-size: 13px;
+    padding: 5px
+}
+
+.annual-billing {
+    float: right;
+    padding-top: 20px
+}
+
+.annual-billing .caption-monthly {
+    float: left;
+    padding-right: 10px
+}
+
+.annual-billing .caption-yearly {
+    float: right;
+    padding-left: 10px
+}
+
+#plans li {
+    color: #555
+}
+
+#plans .price-cycle-options label:first-of-type {
+    border-bottom-left-radius: 4px;
+    border-right: 1px solid #e0e0e0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+#plans .price-cycle-options label:last-of-type {
+    border-bottom-right-radius: 4px
+}
+
+#plans .price-cycle-options input[type="radio"] {
+    display: none
+}
+
+#plans .price-cycle-options input[type=radio]+label {
+    font-size: 20px;
+    position: relative
+}
+
+#plans .price-cycle-options price {
+    font-size: 20px
+}
+
+#plans .price-cycle-options label {
+    color: #999;
+    font-weight: 600;
+    cursor: pointer
+}
+
+#plans .price-cycle-options input[type=radio]:checked+label {
+    background-color: #f1f1f1;
+    color: #555
+}
+
+#plans .price-cycle-options input[type=radio]:checked:parent {
+    background-color: #f1f1f1
+}
+
+#plans .price-cycle-options label:hover {
+    background-color: #f1f1f1;
+    color: #555
+}
+
+#plans .price-cycle-option {
+    float: left;
+    width: 50%;
+    padding: 15px 0;
+    margin: 0;
+    text-align: center
+}
+
+#plans .price-cycle-option label {
+    margin: 0;
+    padding: 0;
+    width: auto
+}
+
+#plans section.horizontal {
+    display: inline-block;
+    float: none;
+    width: 100%;
+    margin-top: 0px;
+    vertical-align: middle;
+    line-height: 60px
+}
+
+#plans .note {
+    margin-left: 0px;
+    display: block;
+    float: left;
+    font-size: 12px;
+    font-weight: normal
+}
+
+#plans section.current {
+    box-shadow: 0 0 3px 0 0 3px rgba(68, 131, 247, 0.5)
+}
+
+#plans section.horizontal ul {
+    padding-bottom: 10px
+}
+
+#plans section.horizontal .price-cycle-options {
+    overflow: hidden;
+    border-top: 0 none
+}
+
+#plans section.horizontal .price-cycle-options .price-cycle-option {
+    border-right: 0 none;
+    border-radius: 0 4px 4px 0;
+    padding: 9px
+}
+
+#plans .blue-btn {
+    margin: 18px 0 19px
+}
+
+#plans h2,
+.pricing-modal-content h2 {
+    height: 50px;
+    line-height: 40px;
+    f1ont-size: 36px;
+    t1ext-shadow: -1px 1px 1px white;
+    m1argin: 10px 0 22px
+}
+
+#plans h2 span,
+.pricing-modal-content h2 span {
+    color: #666666;
+    display: inline;
+    font-style: italic
+}
+
+#plans ul,
+.pricing-modal-content ul {
+    margin-bottom: 15px
+}
+
+#plans ul li,
+.pricing-modal-content ul li {
+    line-height: 30px
+}
+
+#plans .popular {
+    width: 279px;
+    font-size: 16px;
+    margin-top: 0
+}
+
+#plans .popular h2 {
+    font-size: 40px
+}
+
+#plans .popular ul li {
+    line-height: 34px
+}
+
+#plans .popular li span {
+    border-bottom: 1px solid #CFE0F0;
+    padding-botttom: 1px
+}
+
+#plans ul,
+.pricing-modal-content ul {
+    list-style-type: none;
+    color: #333333;
+    line-height: 26px
+}
+
+#plans .actionbutton {
+    margin: 15px 0 0;
+    padding: 0 45px
+}
+
+#plans .popular:after,
+#plans .price-cycle-options input[type="radio"]:checked+label:after {
+    content: "\2713";
+    color: #4486F7;
+    font-size: 20px;
+    font-weight: normal
+}
+
+#plans>p {
+    text-align: center;
+    margin-bottom: 20px
+}
+
+#plans>p a {
+    font-weight: bold
+}
+
+#plans .no-cc {
+    display: block;
+    color: #666666;
+    font-size: 14px;
+    margin-top: 3px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: -30px;
+    left: 0
+}
+
+#plans .popular .no-cc {
+    font-size: 15px;
+    color: #000;
+    padding: 0px 10px;
+    border: 1px solid #ecb207;
+    width: auto;
+    left: 25px;
+    bottom: -40px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #ffb500;
+    background-image: -moz-linear-gradient(top, #fed500 0%, #ffb500 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fed500), color-stop(100%, #ffb500));
+    background-image: -webkit-linear-gradient(top, #fed500 0%, #ffb500 100%);
+    background-image: -o-linear-gradient(top, #fed500 0%, #ffb500 100%);
+    background-image: -ms-linear-gradient(top, #fed500 0%, #ffb500 100%);
+    background-image: linear-gradient(top, #fed500 0%, #ffb500 100%)
+}
+
+#plans .contact,
+#plans .annual-discount {
+    clear: both;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #666
+}
+
+#plans .annual-discount {
+    color: #ff5033;
+    font-size: 18px;
+    margin-bottom: -10px
+}
+
+#plans .annual-discount span {
+    font-style: italic
+}
+
+#plans .contact a,
+#plans .contact a:hover {
+    font-weight: 600;
+    color: #666
+}
+
+#plans-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: #666
+}
+
+#plans-questions-icon {
+    margin: -12px 0 -12px 20px;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: url(/images/publicsite/publicsite-sprite.png) -100px -650px
+}
+
+@media (max-width: 1199px) {
+    #plans .planRow {
+        margin-left: -8px;
+        margin-right: -8px
+    }
+}
+
+@media (max-width: 991px) {
+    #plans .planRow {
+        margin-left: 0px;
+        margin-right: 0px
+    }
+}
+#plans section.park h2 {
+    float: left;
+    white-space: nowrap;
+    width: auto;
+    height: 60px;
+    line-height: 53px;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-right: 1px solid #e0e0e0;
+    background: #e3f4f7;
+    border-color: #34a7c1
+}
+
+#plans section.park h2 span {
+    display: inline-block
+}
+
+#plans section.park h2.button {
+    background: white;
+    float: right;
+    white-space: nowrap;
+    width: auto;
+    line-height: 52px;
+    border-radius: 4px;
+    border: none
+}
+
+#plans section.park {
+    display: inline-block;
+    float: none;
+    width: 100%;
+    margin-top: 0px;
+    vertical-align: middle;
+    line-height: 60px;
+    border-color: #34a7c1
+}
+
+#plans section.park span {
+    margin-left: 38px;
+    margin-right: 43px
+}
+
+#plans section.park h2 span {
+    margin-left: 0px;
+    margin-right: 5px
+}
+
+#plans {
+    padding-top: 8px;
+    overflow: hidden;
+    border-bottom: none;
+    clear: both;
+    padding-bottom: 0
+}
+
+#plans .outerBtn {
+    display: inline-block
+}
+
+#plans section {
+    text-align: center;
+    position: relative;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: auto
+}
+#plans section.current {
+    border: 1px solid #008de7;
+}
+
+.btn.btn-o-main {
+  border-radius: 2px;
+  color: #fff;
+  background-color: #008de7;
+  border-color: #008de7;
+}
+.btn.btn-o-main:hover {
+  background-color: transparent;
+  color: #008de7;
+}
+
+.font-billing {
+    font-family: 'Roboto Condensed', sans-serif;
+    border-width: 2px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}

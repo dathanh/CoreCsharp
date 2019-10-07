@@ -1,0 +1,88 @@
+.icon {
+    width: @icon-size;
+    height: @icon-size;
+    padding: @icon-padding;
+    horiz-align: center;
+    vert-align: middle;
+    background-color: transparent;
+    border: 1px solid;
+    box-sizing: content-box;
+    //transition: background 0.5s linear, color 0.5s linear;
+    &:hover {
+        color: #fff;
+    }
+    &.no-border {
+        border: none;
+    }
+    .icon(#000);
+}
+
+.icon(@theme-color: @gray) {
+    color: @theme-color;
+    border-color: @theme-color;
+
+    &:hover {
+    color: #fff;
+        //background-color: mix(@theme-color,#fff,5%) !important;
+        background-color: @theme-color;
+    }
+    &.solid{
+        border: none;
+        background-color: @theme-color;
+    }
+}
+
+.stripe-online .icon {
+    .icon(@color-online);
+}
+
+.stripe-offline .icon {
+    .icon(@color-offline);
+}
+
+.icon-primary {
+    .icon(@brand-primary);
+}
+
+.icon-danger {
+    .icon(@brand-danger);
+}
+
+.icon-success {
+    .icon(@brand-success);
+}
+
+.stripe.k-state-selected {
+    .icon {
+        //color: #fff;
+        //border-color: #fff;
+        &:hover {
+            background-color: #fff;
+        }
+    }    
+    .icon(@theme-color: @gray) {        
+        &:hover {
+            color: @theme-color;
+        }
+    }
+
+    .icon-primary {
+        .icon(@brand-primary);
+    }
+
+    .icon-success {
+        .icon(@brand-success);
+    }
+
+    .icon-danger {
+        .icon(@brand-danger);
+    }
+        
+    &.stripe-online .icon:hover {
+        color: @color-online;        
+    }
+
+    &.stripe-offline .icon:hover {
+        color: @color-offline;        
+    }
+}

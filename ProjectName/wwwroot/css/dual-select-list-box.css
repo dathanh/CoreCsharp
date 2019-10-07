@@ -1,0 +1,135 @@
+﻿
+.right-dual-select-list-box {
+    padding-left: 10px;
+}
+
+.dual-select-tree {
+    /*min-height: 320px !important;*/
+}
+
+.left-dual-select-list-box, .right-dual-select-list-box {
+    width: 49%;
+    display: inline-block;
+    margin-top: 10px;
+    float: left;
+    min-height: 200px;
+}
+
+.dual-select-list-box-label {
+    display: inline-block;
+    float: left;
+    min-height: 15px;
+    float: left;
+}
+
+.left-dual-select-list-box-top, .left-dual-select-list-box-bottom {
+    height: 45%;
+    float: left;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+    min-height: 145px;
+}
+
+
+.left-dual-select-list-box-bottom {
+    padding-top: 40px;
+}
+
+.left-dual-select-list-box-grid {
+    height: 95%;
+    width: 100%;
+    float: left;
+}
+
+.left-dual-select-list-box-grid-container {
+    height: 100%;
+    width: 99.35%;
+}
+
+.dual-select-list-box-fieldset {
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.full-height-reduce {
+    height: 88% !important;
+}
+
+.fieldset-reduce {
+    height: 75% !important;
+}
+
+.fieldset-dual-select {
+    height: 600px;
+    width: 854px;
+}
+
+.tree-view {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    border: solid 1px #dadada;
+}
+
+
+.left-dual-select-list-box-bottom .buttons, .left-dual-select-list-box-top .buttons {
+    width: 100%;
+    margin-bottom: -2px;
+    display: inline-block;
+    text-align: left;
+}
+
+.left-dual-select-list-box-bottom .move, .left-dual-select-list-box-top .move,
+.right-dual-select-list-box .remove {
+    width:  46.3% !important;
+    float: left;
+}
+
+.left-dual-select-list-box-bottom .moveall, .left-dual-select-list-box-top .moveall,
+.right-dual-select-list-box .removeall {
+    width: 46.3% !important;
+    float: left;
+}
+
+
+
+.right-dual-select-list-box .buttons {
+    width: 100%;
+    margin-bottom: -1px;
+    float: left;
+}
+
+
+
+.left-dual-select-list-box {
+    min-height: 200px;
+}
+
+    .left-dual-select-list-box.btn-group .btn {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+.icon-arrow-right.disabled {
+    color: #BDBDBD;
+}
+
+.left-dual-select-list-box.bs2compatible .btn-group > .btn + .btn {
+    margin-left: 0;
+}
+
+.dual-select-list-box {
+    min-height: 200px;
+    width: 100%;
+}
+
+    .dual-select-list-box.k-grid .k-grid-content,.left-dual-select-list-box-grid .k-grid-content {
+        height: 100% !important;
+    }
+    .k-grid-content {
+        /*overflow-y: auto;*/
+    }

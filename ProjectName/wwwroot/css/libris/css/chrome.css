@@ -1,0 +1,14 @@
+﻿ .k-widget.search-box .k-picker-wrap {
+        height: 30px;
+    }
+
+        .k-widget.search-box .k-picker-wrap .k-input {
+            margin-top: -30px;
+        }
+
+    .k-widget.k-timepicker.k-header .k-picker-wrap .k-timepicker.k-input.k-textbox {
+        margin-top: -30px;
+    }
+    .k-datetimepicker.k-input.k-textbox{margin-top: -29px;height: 30px;}
+    
+.k-numerictextbox .k-numeric-wrap input.k-input{ padding-right: 30px !important;border: none !important;margin-top: -30px;}

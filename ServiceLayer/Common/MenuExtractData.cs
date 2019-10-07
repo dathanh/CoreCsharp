@@ -89,13 +89,7 @@ namespace ServiceLayer.Common
             {
                 objResult.CanViewUser = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.User, OperationAction.ShowMenu);
                 objResult.CanViewRole = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.UserRole, OperationAction.ShowMenu);
-                objResult.CanViewCategory = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Category, OperationAction.ShowMenu);
-                objResult.CanViewVideo = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Video, OperationAction.ShowMenu);
-                objResult.CanViewSeries = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Series, OperationAction.ShowMenu);
-                objResult.CanViewBanner = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Banner, OperationAction.ShowMenu);
                 objResult.CanViewConfig = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Config, OperationAction.ShowMenu);
-                objResult.CanViewPlayList = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.PlayList, OperationAction.ShowMenu);
-                objResult.CanViewCustomer = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Customer, OperationAction.ShowMenu);
             }
 
             return objResult;

@@ -1,7 +1,7 @@
 ﻿<div class="popup-footer">
     <!--footer-->
-    <button ng-click="vm.basePopup.cancel()" class="btn btn-default mb0"><i class="fa fa-close"></i> Hủy</button>
-    <button ng-show="!$root.waitingModified" ng-disabled="!$root.popupFormModified" class="btn btn-primary mb0" ng-click="vm.basePopup.create()"><i class="fa fa-save"></i> Tạo mới</button>
+    <button ng-click="vm.basePopup.cancel()" class="btn btn-default mb0"><i class="fa fa-close"></i> Cancel</button>
+    <button ng-show="!$root.waitingModified" ng-disabled="!$root.popupFormModified" class="btn btn-primary mb0" ng-click="vm.basePopup.create()"><i class="fa fa-save"></i> Create</button>
     <button ng-show="$root.waitingModified" class="btn btn-primary mb0"><img src="/css/images/waiting.gif" style="width: 70px;height: 10px" /></button>
 
     <!--end footer-->

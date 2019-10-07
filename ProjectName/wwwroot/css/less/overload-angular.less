@@ -1,0 +1,28 @@
+.ng-animate {
+    -webkit-transition: all ease 1s;
+    -moz-transition: all ease 1s;
+    -o-transition: all ease 1s;
+    transition: all ease 1s;
+
+    &.ng-fade {
+        
+        &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
+        opacity: 0;
+        }
+
+        &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active {
+            opacity: 1;
+        }
+    }
+
+    &.ng-slide {
+        &.ng-hide-remove, &.ng-hide-add.ng-hide-add-active{
+        overflow-y: hidden;
+        max-height: 0;
+        
+    }
+    &.ng-hide-add, &.ng-hide-remove.ng-hide-remove-active{ max-height: 1000px;
+    }
+    
+    }
+}

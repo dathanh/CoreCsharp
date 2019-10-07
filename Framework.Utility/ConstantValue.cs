@@ -33,34 +33,8 @@ namespace Framework.Utility
         public static string ChooseSubCategoryBackground = "ChooseSubCategoryBackground";
         public static string ChooseCategoryBackground = "ChooseCategoryBackground";
 
-        public static int LimitBannerTop = 3;
-        public static int LimitComingSoon = 8;
-        public static int LimitPlaylist = 3;
-        public static int LimitVideoPlaylist = 3;
-        public static int LimitAdvBanner = 1;
-        public static int LimitVideoForUser = 10;
-        public static int LimitVideoContinueWatching = 10;
-        public static int LimitVideoTrending = 10;
-        public static int LimitVideoPopular = 10;
-        public static int LimitVideoRecently = 10;
-        public static int LimitSeries = 4;
-        public static int LikeVideo = 1;
-        public static int LikeComment = 2;
-        public static int Like = 1;
-        public static int Dislike = 2;
-        public static int NoActionLike = 0;
-        public static int LimitVideoWatchNext = 10;
-        public static int LimitVideoMightLove = 5;
-        public static int LimitCategories = 4;
         public static int PageSize = 8;
-        public static int LimitVideoSameCategory = 10;
-        public static int LimitBannerVideoDetail = 2;
-        public static int SortCommentNewest = 1;
-        public static int SortCommentOldest = 2;
-        public static int LimitComment = 10;
-        public static int LimitChildComment = 2;
         public static int ExpiredTime = 5;
-        public static int LimitVideoCategoty = 20;
 
     }
 }

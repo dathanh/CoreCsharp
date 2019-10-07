@@ -12,20 +12,4 @@
     <item value="9">Type 9</item>
     <item value="10">Type 9</item>
   </CategoryBackgroundColor>
-  <BannerType>
-    <item value="1">Top Banner</item>
-    <item value="2">Comming Soon</item>
-    <item value="3">Advertisement Banner</item>
-    <item value="4">Video Detail Banner</item>
-  </BannerType>
-  <GenderType>
-    <item value="0">Choose Gender</item>
-    <item value="1">Male</item>
-    <item value="2">Female</item>
-  </GenderType>
-  <CustomerRegister>
-    <item value="1">Via Email</item>
-    <item value="2">Via Google</item>
-    <item value="3">Via Facebook</item>
-  </CustomerRegister>
 </root>

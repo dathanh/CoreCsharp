@@ -1,0 +1,57 @@
+.stripe(@theme-color: @brand-primary) {
+    &:hover {
+        background-color: mix(@theme-color, #fff, 5%);
+    }
+}
+
+.stripe {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 36px;
+    //transition: background 0.5s linear;
+    transform: translateZ(0);
+    font-weight: 500;
+    background-color: #fff;
+    cursor: pointer;
+    //border-right: 1px #ccc solid;
+    .stripe();
+
+    .badge {
+        background-color: @brand-primary;
+    }
+}
+
+.stripe-online {
+    .stripe(@color-online);
+}
+
+.stripe-offline {
+    .stripe(@color-offline);
+}
+
+.k-state-selected {
+    .stripe(@theme-color: @brand-primary) {
+        background-color: mix(@theme-color,#fff, 10%);
+        color: @theme-color;
+    }
+    &.stripe {
+        .stripe();
+        font-weight: bold;
+
+        /*.badge {
+            background-color: #fff;
+            color: @brand-primary;
+        }*/
+    }
+
+    &.stripe-online {
+        .stripe(@color-online);
+    }
+
+    &.stripe-offline {
+        .stripe(@color-offline);
+    }
+}

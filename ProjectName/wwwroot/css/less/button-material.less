@@ -1,0 +1,47 @@
+.material {
+    overflow: hidden;
+
+    &.btn {
+        border-radius:0;
+        display: inline-block;
+        //transition: background 0.5s linear, color 0.5s linear;
+        min-width: @icon-size + 10;
+        box-shadow: none;
+        text-transform: uppercase;
+        transform: translateZ(0);
+        font-weight: 500;
+        padding: 3px 6px;
+        horiz-align: center;
+        vert-align: middle;
+        //background-color: #fff;
+        //transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        //transition-delay: 0.2s;
+        //box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.26);
+        //border:none;
+        &:hover {
+            color: #fff;
+        }
+        
+        
+        
+        &.solid {
+            padding: 4px 6px;
+            color: #fff;
+            
+        }
+    }
+}
+
+.btn {
+    &:active, &.active {
+        //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        //transition-delay: 0s;
+        //border:none;
+        box-shadow: none;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn.actve:focus, .btn.focus,
+.btn.focus:active, .btn.active.focus {
+    outline: none;
+}
