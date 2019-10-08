@@ -1,0 +1,12 @@
+using {{projectName}}.Models.Base;
+
+namespace {{projectName}}.Models.{{entityName}}
+{
+    public class Dashboard{{entityName}}DataViewModel : MasterfileViewModelBase<Framework.DomainModel.Entities.{{entityName}}>
+    {
+        public override void MapFromClientParameters(MasterfileParameter parameters)
+        {
+            SharedViewModel = MapFromClientParameters<Dashboard{{entityName}}ShareViewModel>(parameters);
+        }
+    }
+}

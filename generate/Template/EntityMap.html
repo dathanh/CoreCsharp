@@ -1,0 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Framework.DomainModel.Entities.Mapping
+{
+    public class {{entityName}}Map : {{projectName}}EntityTypeConfiguration<{{entityName}}>
+    {
+        public override void Configure(EntityTypeBuilder<{{entityName}}> builder)
+        {
+            base.Configure(builder);
+            builder.ToTable("{{entityName}}");
+            {{#each EntityFields}}
+            {{#if this.isRela}}
+            builder.HasOne(t => t.{{this.field}}).WithMany(c => c.{{entityName}}s).HasForeignKey(k => k.{{this.field}}Id);
+            {{else}}
+            builder.Property(t => t.{{this.field}}).HasColumnName("{{this.field}}");
+            {{/if}}
+            {{/each}}
+        }
+    }
+}

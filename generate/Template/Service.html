@@ -1,0 +1,20 @@
+using Database.Persistance.Tenants;
+using Framework.BusinessRule;
+using Framework.DomainModel.Entities;
+using Repositories.Interfaces;
+using ServiceLayer.Interfaces;
+
+namespace ServiceLayer
+{
+    public class {{entityName}}Service : MasterFileService<{{entityName}}>, I{{entityName}}Service
+    {
+        private readonly I{{entityName}}Repository _{{entityVar}}Repository;
+
+        public {{entityName}}Service(ITenantPersistenceService tenantPersistenceService, I{{entityName}}Repository {{entityVar}}Repository,
+            IBusinessRuleSet<{{entityName}}> businessRuleSet = null)
+            : base({{entityVar}}Repository, {{entityVar}}Repository, tenantPersistenceService, businessRuleSet)
+        {
+            _{{entityVar}}Repository = {{entityVar}}Repository;
+        }
+    }
+}

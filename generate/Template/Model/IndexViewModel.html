@@ -1,0 +1,9 @@
+using {{projectName}}.Models.Base;
+
+namespace {{projectName}}.Models.{{entityName}}
+{
+    public class Dashboard{{entityName}}IndexViewModel : DashboardGridViewModelBase<Framework.DomainModel.Entities.{{entityName}}>
+    {
+        public bool CanAddNewRecord { get; set; }
+    }
+}

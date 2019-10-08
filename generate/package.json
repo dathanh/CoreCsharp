@@ -1,0 +1,16 @@
+{
+  "name": "generate",
+  "version": "1.0.0",
+  "description": "cli",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node pizza crate-entity customer"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^3.0.2",
+    "config": "^3.2.3",
+    "handlebars": "^4.4.2"
+  }
+}

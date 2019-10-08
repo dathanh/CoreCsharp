@@ -1,0 +1,144 @@
+using Framework.DomainModel.Entities;
+using Framework.DomainModel.Entities.Common;
+using Framework.DomainModel.ValueObject;
+using Framework.Mapping;
+using Microsoft.AspNetCore.Mvc;
+using ServiceLayer.Authorization;
+using ServiceLayer.Interfaces;
+using {{projectName}}.Attributes;
+using {{projectName}}.Controllers.Base;
+using {{projectName}}.Models.Base;
+using {{projectName}}.Models.{{entityName}};
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace {{projectName}}.Controllers
+{
+    public class {{entityName}}Controller : ApplicationControllerGeneric<{{entityName}}, Dashboard{{entityName}}DataViewModel>
+    {
+        private readonly I{{entityName}}Service _{{entityVar}}Service;
+        private readonly IGridConfigService _gridConfigService;
+
+        public {{entityName}}Controller(I{{entityName}}Service {{entityName}}Service, IGridConfigService gridConfigService, IOperationAuthorization operationAuthorization)
+            : base({{entityName}}Service, operationAuthorization)
+        {
+            _{{entityVar}}Service = {{entityName}}Service;
+            _gridConfigService = gridConfigService;
+        }
+
+        // GET: {{entityName}}
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.View)]
+        public async Task<ActionResult> Index()
+        {
+            var canAddRecord = OperationAuthorization.VerifyAccess(DocumentTypeKey.{{entityName}}, OperationAction.Add, out List<UserRoleFunction> userRoleFunctions);
+            var viewModel = new Dashboard{{entityName}}IndexViewModel
+            {
+                CanAddNewRecord = canAddRecord
+            };
+
+            Func<GridViewModel> gridViewModel = () => new GridViewModel
+            {
+                GridId = "{{entityName}}Grid",
+                ModelName = "{{entityName}}",
+                DocumentTypeId = (int)DocumentTypeKey.{{entityName}},
+                GridInternalName = "{{entityName}}",
+                ActionDefaultWidthColumn = 150,
+                UseActionDefaultColumn = true,
+                AddFunction = "vm.add",
+                UpdateFunction = "vm.edit",
+            };
+
+            viewModel.GridViewModel = await BuildGridViewModel(_gridConfigService, gridViewModel);
+            return View(viewModel);
+        }
+
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.View)]
+        public MasterfileGridDataVo GetDataForGrid(QueryInfo queryInfo)
+        {
+            return _{{entityVar}}Service.GetDataForGridMasterFile(queryInfo);
+        }
+
+        protected override IList<ViewColumnViewModel> GetViewColumns()
+        {
+            return new List<ViewColumnViewModel>
+
+            {
+                {{#each EntityFields}}
+                new ViewColumnViewModel
+                {
+                    ColumnOrder = 1,
+                    ColumnWidth = 100,
+                    Name = "{{this.field}}",
+                    Text = "{{this.field}}",
+                    ColumnJustification = GridColumnJustification.Left,
+                    {{#ifCond this.type 'bool'}}
+                    Sortable = false,
+                    CustomTemplate = "isActiveTemplate",
+                    {{/ifCond}}
+                },
+                {{/each}}
+            };
+        }
+
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.View)]
+        public ActionResult Shared()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.Add)]
+        public int Create([FromBody]{{entityName}}Parameter parameters)
+        {
+            var viewModel = MapFromClientParameters(parameters);
+            var entity = viewModel.MapTo<{{entityName}}>();
+            return _{{entityVar}}Service.Add(entity).Id;
+        }
+
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.View)]
+        public ActionResult Update(int id)
+        {
+            var viewModel = GetMasterFileViewModel(id);
+            return Json(viewModel.SharedViewModel);
+        }
+
+        [HttpPost]
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.Update)]
+        public ActionResult Update([FromBody]{{entityName}}Parameter parameters)
+        {
+            var viewModel = MapFromClientParameters(parameters);
+
+            byte[] lastModified = null;
+
+            if (ModelState.IsValid)
+            {
+                var entity = MasterFileService.GetById(viewModel.SharedViewModel.Id);
+                var mappedEntity = viewModel.MapPropertiesToInstance(entity);
+                lastModified = MasterFileService.Update(mappedEntity).LastModified;
+            }
+
+            return Json(new { Error = string.Empty, Data = new { LastModified = lastModified } });
+        }
+
+        [Authorize(DocumentTypeKey.{{entityName}}, OperationAction.Delete)]
+        [HttpDelete]
+        public JsonResult Delete(int id)
+        {
+            MasterFileService.DeleteById(id);
+            return Json(true);
+        }
+
+        public List<LookupItemVo> GetLookup(LookupQuery queryInfo)
+        {
+            var selector = new Func<{{entityName}}, LookupItemVo>(o => new LookupItemVo
+            {
+                KeyId = o.Id,
+                DisplayName = o.Name
+            });
+            return GetLookupForEntity(queryInfo, selector);
+        }
+
+    }
+}

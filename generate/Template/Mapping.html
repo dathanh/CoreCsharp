@@ -1,0 +1,23 @@
+using AutoMapper;
+using Framework.Mapping;
+using {{projectName}}.Models.{{entityName}};
+
+namespace {{projectName}}.Models.Mapping
+{
+    public class {{entityName}}MappingProfile : Profile
+    {
+        public {{entityName}}MappingProfile()
+        {
+            CreateMap<Framework.DomainModel.Entities.{{entityName}}, Dashboard{{entityName}}DataViewModel>().AfterMap((s, d) =>
+            {
+                d.SharedViewModel = s.MapTo<Dashboard{{entityName}}ShareViewModel>();
+            });
+
+            CreateMap<Dashboard{{entityName}}DataViewModel, Framework.DomainModel.Entities.{{entityName}}>().AfterMap((s, d) =>
+            {
+                d = s.SharedViewModel.MapPropertiesToInstance(d);
+            });
+            CreateMap<Dashboard{{entityName}}ShareViewModel, Framework.DomainModel.Entities.{{entityName}}>().ReverseMap();
+        }
+    }
+}

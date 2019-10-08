@@ -295,3 +295,4 @@ src/Qsr.Uluru.Transcription/ui/src/Qsr.Uluru.Transcription.Web/yarn.lock
 src/Qsr.Uluru.Core/ui/Qsr.Uluru.Core.Web/reports-test/test-reporter.xml
 /src/Qsr.Uluru.Core/api/.vscode
 UploadTemp/
+generate/node_modules/*

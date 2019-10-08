@@ -1,0 +1,14 @@
+using {{projectName}}.Models.Base;
+{{#if isDateTime}}
+using System;
+
+{{/if}}
+namespace {{projectName}}.Models.{{entityName}}
+{
+    public class Dashboard{{entityName}}ShareViewModel : DashboardSharedViewModel
+    {
+        {{#each EntityFields}}
+        public {{this.type}} {{this.field}} { get; set; }
+        {{/each}}
+    }
+}

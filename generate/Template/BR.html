@@ -1,0 +1,43 @@
+
+
+using Framework.BusinessRule;
+using Framework.DomainModel;
+using Framework.DomainModel.Entities.Common;
+using Framework.DomainModel.Interfaces;
+using Repositories.Interfaces;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Framework.DomainModel.Entities;
+
+
+namespace ServiceLayer.BusinessRules
+{
+    public class {{entityName}}Rule<TEntity> : IBusinessRule<TEntity> where TEntity : Entity
+    {
+        private readonly I{{entityName}}Repository _{{entityVar}}Repository;
+
+        public {{entityName}}Rule(I{{entityName}}Repository {{entityVar}}Repository)
+        {
+            _{{entityVar}}Repository = {{entityVar}}Repository;
+        }
+
+        public BusinessRuleResult Execute(IEntity instance)
+        {
+            var failed = false;
+            var {{entityName}} = instance as {{entityName}};
+            var validationResult = new List<ValidationResult>();
+            if ({{entityName}} != null)
+            {
+
+                var result = new BusinessRuleResult(failed, "", instance.GetType().Name, instance.Id, PropertyNames, Name) { ValidationResults = validationResult };
+                return result;
+            }
+
+            return new BusinessRuleResult();
+        }
+
+        public string Name => "{{entityName}}Rule";
+
+        public string[] PropertyNames { get; set; }
+    }
+}

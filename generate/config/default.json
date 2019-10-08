@@ -1,0 +1,23 @@
+{
+  "ProjectName": "VingID",
+  "Dir": {
+    "Entity": "/Framework.DomainModel/Entities/",
+    "Tanent": "/Database.Persistance/Tenants/TenantDataContext.cs",
+    "EntityMap": "/Framework.DomainModel/Entities/Mapping/",
+    "GridVo": "/Framework.DomainModel/ValueObject/",
+    "Service": "/ServiceLayer/",
+    "IService": "/ServiceLayer.Interfaces/",
+    "BusinessRules": "/ServiceLayer/BusinessRules/",
+    "Repositories": "/Repositories/",
+    "IRepositories": "/Repositories.Interfaces/",
+    "CoreModule": "/Services/Container/CoreModule.cs",
+    "WebModule": "/Services/Container/WebModule.cs/",   
+    "Controller": "/Controllers/",
+    "Mapping": "/Models/Mapping/",
+    "Models": "/Models/",
+    "Views": "/Views/",
+    "Sql": "/generate/InitSql/init.sql",
+    "Solution": "/InitSql/init.sql"
+  },
+  "IgnoreFile": ["aaaa"]
+}

@@ -1,0 +1,29 @@
+using Framework.Utility;
+{{#if isDateTime}}
+using System;
+
+{{/if}}
+namespace Framework.DomainModel.ValueObject
+{
+    public class {{entityName}}GridVo : ReadOnlyGridVo
+    {
+        {{#each EntityFields}}
+        {{#if this.isDateTime}}
+        public {{this.type}} {{this.field}}Value { get; set; }
+        public string {{this.field}}
+        {
+            get
+            {
+                if ({{this.field}}Value.GetValueOrDefault() == DateTime.MinValue)
+                {
+                    return "";
+                }
+                return {{this.field}}Value.GetValueOrDefault().ToString(ConstantValue.DateFormat);
+            }
+        }
+        {{else}}
+        public {{this.type}} {{this.field}} { get; set; }
+        {{/if}}
+        {{/each}}
+    }
+}

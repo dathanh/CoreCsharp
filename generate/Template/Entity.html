@@ -1,0 +1,13 @@
+{{#if isDateTime}}
+using System;
+
+{{/if}}
+namespace Framework.DomainModel.Entities
+{
+    public class {{entityName}} : Entity
+    {   
+        {{#each EntityFields}}
+        public {{this.type}} {{this.field}} { get; set; }
+        {{/each}}
+    }
+}
