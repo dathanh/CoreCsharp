@@ -37,8 +37,8 @@ program.command('import')
                 }
             })
             setTimeout(() => {
-                // fs.copyFileSync(genDir + '/menuExtemp.cs', dir.MenuExtraData);
-                // fs.unlinkSync(genDir + '/menuExtemp.cs');
+					fs.copyFileSync(genDir + '/menuExtemp.cs', dir.MenuExtraData);
+					fs.unlinkSync(genDir + '/menuExtemp.cs');
                 console.log(`import menuEx ${entityName} complete !!!`);
             }, 1000);
 
