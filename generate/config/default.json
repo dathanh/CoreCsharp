@@ -17,7 +17,10 @@
     "Models": "/Models/",
     "Views": "/Views/",
     "Sql": "/generate/InitSql/init.sql",
-    "Solution": "/InitSql/init.sql"
+    "Solution": "/InitSql/init.sql",
+    "Router": "/wwwroot/app/config/router.js",
+    "Main": "/wwwroot/app/main.js",
+    "ControllerJs": "/wwwroot/app/controller"
   },
   "IgnoreFile": ["aaaa"]
 }

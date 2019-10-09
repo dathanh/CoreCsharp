@@ -1,0 +1,16 @@
+                                {
+                                    name: '{{entityName}}',
+                                    url: '/{{entityVar}}',
+                                    urlShow: '/{{entityVar}}',
+                                    views: {
+                                        "main": {
+                                            templateUrl: '/{{entityName}}/Index',
+                                            title: 'Manage {{entityVar}}',
+                                            settings: {
+                                                nav: {{navNumber}},
+                                                isShow: true
+                                            }
+                                        }
+                                    },
+                                    resolve: loadController('{{entityVar}}Controller')
+                                },

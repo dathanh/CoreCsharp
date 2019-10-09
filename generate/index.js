@@ -56,6 +56,9 @@ exec("node ./Command/CreateViewIndex create", function (data) {
 exec("node ./Command/CreateViewShare create", function (data) {
     console.log('CreateViewShare done');
 });
+exec("node ./Command/CreateControllerJs create", function (data) {
+    console.log('CreateControllerJs done');
+});
 
 exec("node ./Command/ImportCoreModule import", function (data) {
     console.log('ImportCoreModule done');
@@ -65,6 +68,12 @@ exec("node ./Command/ImportTanent import", function (data) {
 });
 exec("node ./Command/ImportWebModule import", function (data) {
     console.log('ImportWebModule done');
+});
+exec("node ./Command/ImportControllerJs import", function (data) {
+    console.log('ImportControllerJs done');
+});
+exec("node ./Command/ImportRouterJs import", function (data) {
+    console.log('ImportRouterJs done');
 });
 
 

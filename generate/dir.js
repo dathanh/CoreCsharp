@@ -9,7 +9,8 @@ const projectDir = __dirname.replaceAll('\\', '/').replace('/generate', '');
 let formatDir = [];
 for (var dir in dirConfig) {
     if (dir == 'CoreModule' || dir == 'WebModule' || dir == 'Controller'
-        || dir == 'Mapping' || dir == 'Models' || dir == 'Views') {
+        || dir == 'Mapping' || dir == 'Models' || dir == 'Views'
+        || dir == 'Router' || dir == 'Main' || dir == 'ControllerJs') {
         formatDir[dir] = projectDir + `/${projectName}` + dirConfig[dir];
     } else {
         formatDir[dir] = projectDir + dirConfig[dir];

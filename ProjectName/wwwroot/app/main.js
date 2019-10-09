@@ -73,7 +73,11 @@ require.config({
 
         /*Config*/
         'configController': 'controller/Config/configController',
-        'sharedConfigController': 'controller/Config/sharedConfigController',
+        'sharedConfigController': 'controller/Config/sharedConfigControllezr',
+
+        //========Import Controller Start========//
+
+        //========Import Controller End========//
 
         /*Other*/
         'loginController': 'controller/Authentication/loginController',

@@ -13,11 +13,15 @@ CREATE TABLE [dbo].[{{entityName}}](
     [LastModified] [timestamp] NOT NULL,
     {{#each EntityFields}}
             {{#ifCond this.type 'bool'}}
-                [{{this.field}}] [bit] NULL,
+                [{{this.field}}] [bit] NOT NULL,
             {{else ifCond this.type 'string'}}
-                [{{this.field}}] [nvarchar](1000) NULL,
+                [{{this.field}}] [nvarchar](1000) NOT NULL,
             {{else ifCond this.type 'int'}}
                 [{{this.field}}] [int] NOT NULL,
+            {{else ifCond this.type 'DateTime'}}
+                [{{this.field}}] [datetime] NULL,
+            {{else ifCond this.type 'DateTime?'}}
+                [{{this.field}}] [datetime] NULL,
             {{/ifCond}}
     {{/each}}
  CONSTRAINT [PK_{{entityName}}] PRIMARY KEY CLUSTERED 
