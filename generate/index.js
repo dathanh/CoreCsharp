@@ -5,6 +5,27 @@ const dir = require('./dir');
 const source = '<div>{{title}}</div>';
 
 console.log(dir);
+exec("node ./Command/ImportCoreModule import", function (data) {
+    console.log('ImportCoreModule done');
+});
+exec("node ./Command/ImportTanent import", function (data) {
+    console.log('ImportTanent done');
+});
+exec("node ./Command/ImportWebModule import", function (data) {
+    console.log('ImportWebModule done');
+});
+exec("node ./Command/ImportControllerJs import", function (data) {
+    console.log('ImportControllerJs done');
+});
+exec("node ./Command/ImportRouterJs import", function (data) {
+    console.log('ImportRouterJs done');
+});
+exec("node ./Command/ImportDocumentTypeKey import", function (data) {
+    console.log('ImportDocumentTypeKey done');
+});
+exec("node ./Command/ImportMenuView import", function (data) {
+    console.log('ImportMenuView done');
+});
 exec("node ./Command/CreateEntity create", function (data) {
     console.log('CreateEntity done');
 });
@@ -60,20 +81,5 @@ exec("node ./Command/CreateControllerJs create", function (data) {
     console.log('CreateControllerJs done');
 });
 
-exec("node ./Command/ImportCoreModule import", function (data) {
-    console.log('ImportCoreModule done');
-});
-exec("node ./Command/ImportTanent import", function (data) {
-    console.log('ImportTanent done');
-});
-exec("node ./Command/ImportWebModule import", function (data) {
-    console.log('ImportWebModule done');
-});
-exec("node ./Command/ImportControllerJs import", function (data) {
-    console.log('ImportControllerJs done');
-});
-exec("node ./Command/ImportRouterJs import", function (data) {
-    console.log('ImportRouterJs done');
-});
 
 

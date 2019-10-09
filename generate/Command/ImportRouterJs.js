@@ -47,7 +47,7 @@ program.command('import')
                 fs.copyFileSync(genDir + '/routertemp.js', dir.Router);
                 fs.unlinkSync(genDir + '/routertemp.js');
                 console.log(`import router ${entityName} complete !!!`);
-            }, 200);
+            }, 1000);
 
         });
 

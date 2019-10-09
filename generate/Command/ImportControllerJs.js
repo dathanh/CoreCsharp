@@ -44,7 +44,7 @@ program.command('import')
                 fs.copyFileSync(genDir + '/maintemp.js', dir.Main);
                 fs.unlinkSync(genDir + '/maintemp.js');
                 console.log(`import main ${entityName} complete !!!`);
-            }, 200);
+            }, 1000);
 
         });
 

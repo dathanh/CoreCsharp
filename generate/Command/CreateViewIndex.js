@@ -19,6 +19,7 @@ program.command('create')
                 const template = Handlebars.compile(data.toString());
                 var contents = template({
                     entityName: entityName.capitalize(),
+                    entityVar: entityName.toLowerCase(),
                     projectName: projectName,
                 });
                 if (!fs.existsSync(dir.Views + `${entityName.capitalize()}/`)) {
