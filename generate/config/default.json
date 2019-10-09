@@ -1,5 +1,5 @@
 {
-  "ProjectName": "VingID",
+  "ProjectName": "ProjectName",
   "Dir": {
     "Entity": "/Framework.DomainModel/Entities/",
     "Tanent": "/Database.Persistance/Tenants/TenantDataContext.cs",

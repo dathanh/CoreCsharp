@@ -382,27 +382,3 @@ GO
 ALTER TABLE [dbo].[UserRoleFunction] CHECK CONSTRAINT [FK_UserRoleFunction_UserRole]
 GO
 /****** =============================================================================================================================== ******/
-
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Customer](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[CreatedById] [int] NOT NULL,
-	[LastUserId] [int] NOT NULL,
-	[LastTime] [datetime] NOT NULL,
-	[CreatedOn] [datetime] NOT NULL,
-    [LastModified] [timestamp] NOT NULL,
-    [IsActive] [bit] NULL,
-                [FullName] [nvarchar](1000) NULL,
-                [isActive] [bit] NULL,
-                [Phone] [nvarchar](1000) NULL,
- CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-ALTER TABLE [dbo].[Customer] ADD  CONSTRAINT [DF__Customer__LastTime]  DEFAULT (getdate()) FOR [LastTime]
-GO

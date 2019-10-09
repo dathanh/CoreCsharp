@@ -27,7 +27,7 @@ namespace Database.Persistance.Tenants
         public DbSet<Language> Languages { get; set; }
         public DbSet<Config> Configs { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
-
+        //=====Import DB Set=======//
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IDiagnosticService _diagnosticService;
 
@@ -164,6 +164,7 @@ namespace Database.Persistance.Tenants
             modelBuilder.ApplyConfiguration(new LanguageMap());
             modelBuilder.ApplyConfiguration(new ConfigMap());
             modelBuilder.ApplyConfiguration(new RefreshTokenMap());
+            //=====Import DB Map=======//
         }
     }
 }

@@ -22,7 +22,13 @@ namespace Repositories
                     select new {{entityName}}GridVo
                     {
                         {{#each EntityFields}}
-                        {{this.field}} = g.{{this.field}},                        
+                        {{#ifCond this.field 'DateTime'}}
+                        {{this.field}}Value = g.{{this.field}},
+                        {{ else ifCond this.field 'DateTime?'}}
+                        {{this.field}}Value = g.{{this.field}},
+                        {{else}}
+                        {{this.field}} = g.{{this.field}},
+                        {{/ifCond}}                       
                         {{/each}}
                     }).OrderBy(queryInfo.SortString);
         }

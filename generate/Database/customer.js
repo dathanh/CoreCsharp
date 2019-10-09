@@ -3,5 +3,4 @@ module.exports = {
     "isActive": "bool",
     "Phone": "string",
     "DOB": "DateTime?",
-    "City": "virtual City"
 };

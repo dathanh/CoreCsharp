@@ -27,9 +27,6 @@ program.command('create')
 							field: key,
 						});
 					}
-					if (entityFormat[key].includes('DateTime')) {
-						key += 'Value';
-					}
 					entityTemplate.push({
 						field: key,
 					});

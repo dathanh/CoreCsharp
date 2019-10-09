@@ -25,22 +25,27 @@ program.command('create')
             fs.readFile(genDir + 'Template/ControllerCs.html', function (err, data) {
                 const template = Handlebars.compile(data.toString());
                 const entityFormat = require(genDir + `/Database/${entityName}`);
-                isDateTime = false;
+                let isAddLookup = false;
+                let fieldLoopKup = '';
                 for (var key in entityFormat) {
                     if (entityFormat[key].includes('string') || entityFormat[key].includes('bool')) {
                         entityTemplate.push({ 'field': key, 'type': entityFormat[key] });
+                    }
+                    if (key.includes('Name')) {
+                        entityTemplate.push({ 'field': key, 'type': entityFormat[key] });
+                        isAddLookup = true;
+                        fieldLoopKup = key;
                     }
 
                 }
                 var contents = template({
                     entityName: entityName.capitalize(),
                     EntityFields: entityTemplate,
-                    projectName: projectName
+                    projectName: projectName,
+                    isAddLookup: isAddLookup,
+                    fieldLoopKup: fieldLoopKup,
                 });
 
-                // if (!fs.existsSync(genDir)) {
-                //     fs.mkdirSync(genDir + 'aaa/' + fileName);
-                // }
                 fs.writeFile(dir.Controller + fileName, contents, err => {
                     if (err) {
                         return console.error(`Autsch! Failed to store template: ${err.message}.`);

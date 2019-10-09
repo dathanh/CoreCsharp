@@ -11,7 +11,7 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/tmp.cs', '');
+        fs.writeFileSync(genDir + '/tmp2.cs', '');
         allEntity.forEach(entityName => {
             let rl = readline.createInterface({
                 input: fs.createReadStream(dir.WebModule)
@@ -33,19 +33,19 @@ program.command('import')
                 }
                 if (condService || isImportBr) {
                     if (condService && isImportService) {
-                        fs.appendFileSync(genDir + '/tmp.cs', '            ' + serviceImport + "\n");
+                        fs.appendFileSync(genDir + '/tmp2.cs', '            ' + serviceImport + "\n");
                     }
                     if (condBr && isImportBr) {
-                        fs.appendFileSync(genDir + '/tmp.cs', '           ' + brImport + "\n");
+                        fs.appendFileSync(genDir + '/tmp2.cs', '           ' + brImport + "\n");
                     }
-                    fs.appendFileSync(genDir + '/tmp.cs', line.toString() + "\n");
+                    fs.appendFileSync(genDir + '/tmp2.cs', line.toString() + "\n");
                 } else {
-                    fs.appendFileSync(genDir + '/tmp.cs', line.toString() + "\n");
+                    fs.appendFileSync(genDir + '/tmp2.cs', line.toString() + "\n");
                 }
             })
             setTimeout(() => {
-                fs.copyFileSync(genDir + '/tmp.cs', dir.WebModule);
-                fs.unlinkSync(genDir + '/tmp.cs');
+                fs.copyFileSync(genDir + '/tmp2.cs', dir.WebModule);
+                fs.unlinkSync(genDir + '/tmp2.cs');
                 console.log(`import Service and buseiness rule ${entityName} complete !!!`);
             }, 200);
 

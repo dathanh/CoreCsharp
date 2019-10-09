@@ -11,7 +11,7 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/tmp.cs', '');
+        fs.writeFileSync(genDir + '/tmp1.cs', '');
         allEntity.forEach(entityName => {
             let rl = readline.createInterface({
                 input: fs.createReadStream(dir.Tanent)
@@ -32,19 +32,19 @@ program.command('import')
                 }
                 if (condDBset || condDBmap) {
                     if (condDBset && isImportDBset) {
-                        fs.appendFileSync(genDir + '/tmp.cs', '        ' + dbSetImport + "\n");
+                        fs.appendFileSync(genDir + '/tmp1.cs', '        ' + dbSetImport + "\n");
                     }
                     if (condDBmap && isImportDBmap) {
-                        fs.appendFileSync(genDir + '/tmp.cs', '            ' + dbMapImport + "\n");
+                        fs.appendFileSync(genDir + '/tmp1.cs', '            ' + dbMapImport + "\n");
                     }
-                    fs.appendFileSync(genDir + '/tmp.cs', line.toString() + "\n");
+                    fs.appendFileSync(genDir + '/tmp1.cs', line.toString() + "\n");
                 } else {
-                    fs.appendFileSync(genDir + '/tmp.cs', line.toString() + "\n");
+                    fs.appendFileSync(genDir + '/tmp1.cs', line.toString() + "\n");
                 }
             })
             setTimeout(() => {
-                fs.copyFileSync(genDir + '/tmp.cs', dir.Tanent);
-                fs.unlinkSync(genDir + '/tmp.cs');
+                fs.copyFileSync(genDir + '/tmp1.cs', dir.Tanent);
+                fs.unlinkSync(genDir + '/tmp1.cs');
                 console.log(`import tanent ${entityName} complete !!!`);
             }, 200);
 

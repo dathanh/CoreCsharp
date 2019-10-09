@@ -130,15 +130,17 @@ namespace {{projectName}}.Controllers
             return Json(true);
         }
 
+        {{#if isAddLookup}}
         public List<LookupItemVo> GetLookup(LookupQuery queryInfo)
         {
             var selector = new Func<{{entityName}}, LookupItemVo>(o => new LookupItemVo
             {
                 KeyId = o.Id,
-                DisplayName = o.Name
+                DisplayName = o.{{fieldLoopKup}}
             });
             return GetLookupForEntity(queryInfo, selector);
         }
+        {{/if}}
 
     }
 }
