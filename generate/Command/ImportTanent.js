@@ -46,7 +46,7 @@ program.command('import')
                 fs.copyFileSync(genDir + '/tmp1.cs', dir.Tanent);
                 fs.unlinkSync(genDir + '/tmp1.cs');
                 console.log(`import tanent ${entityName} complete !!!`);
-            }, 200);
+            }, 1000);
 
         });
 
