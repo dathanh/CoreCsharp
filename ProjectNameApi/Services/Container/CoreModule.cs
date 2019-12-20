@@ -46,7 +46,7 @@ namespace ProjectName.Services.Container
 
         private void RegisterEntityFrameworkRepositories(ContainerBuilder builder)
         {
-
+            //=====Import Repository=======//
         }
 
     }
