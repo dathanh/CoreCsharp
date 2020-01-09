@@ -11,10 +11,10 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.cs', '');
+        fs.writeFileSync(genDir + '/dataTempCoreModule.cs', '');
         allEntity.forEach(entityName => {
             const repoImport = `builder.RegisterType<EntityFramework${entityName.capitalize()}Repository>().As<I${entityName.capitalize()}Repository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));`;
-            fs.appendFileSync(genDir + '/dataTemp.cs', '            ' + repoImport + "\n");
+            fs.appendFileSync(genDir + '/dataTempCoreModule.cs', '            ' + repoImport + "\n");
         });
         let rl = readline.createInterface({
             input: fs.createReadStream(dir.CoreModule)
@@ -29,7 +29,7 @@ program.command('import')
                 isImport = false;
             }
             if (line.includes(coreModuleEnd)) {
-                var dataImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                var dataImport = fs.readFileSync(genDir + '/dataTempCoreModule.cs', '');
                 fs.appendFileSync(genDir + '/tmp.cs', dataImport);
                 fs.appendFileSync(genDir + '/tmp.cs', line.toString() + "\n");
                 isImport = true;
@@ -40,7 +40,7 @@ program.command('import')
         setTimeout(() => {
             fs.copyFileSync(genDir + '/tmp.cs', dir.CoreModule);
             fs.unlinkSync(genDir + '/tmp.cs');
-            fs.unlinkSync(genDir + '/dataTemp.cs');
+            fs.unlinkSync(genDir + '/dataTempCoreModule.cs');
             console.log(`import Repo ${entityName} complete !!!`);
         }, 200);
     });

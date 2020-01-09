@@ -11,13 +11,13 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.cs', '');
-        fs.writeFileSync(genDir + '/dataTemp1.cs', '');
+        fs.writeFileSync(genDir + '/dataTempTanent.cs', '');
+        fs.writeFileSync(genDir + '/dataTempTanent1.cs', '');
         allEntity.forEach(entityName => {
             const dbSetImport = `public DbSet<${entityName.capitalize()}> ${entityName.capitalize()} { get; set; }`;
             const dbMapImport = `modelBuilder.ApplyConfiguration(new ${entityName.capitalize()}Map());`;
-            fs.appendFileSync(genDir + '/dataTemp.cs', '\n' + dbSetImport + "\n");
-            fs.appendFileSync(genDir + '/dataTemp1.cs', '\n' + dbMapImport + "\n");
+            fs.appendFileSync(genDir + '/dataTempTanent.cs', '\n' + dbSetImport + "\n");
+            fs.appendFileSync(genDir + '/dataTempTanent1.cs', '\n' + dbMapImport + "\n");
         });
         fs.writeFileSync(genDir + '/tanentTemp.cs', '');
 
@@ -43,12 +43,12 @@ program.command('import')
             }
             if (condDBsetEnd || condDBmapEnd) {
                 if (condDBsetEnd && !isImportDBset) {
-                    var dbSetImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                    var dbSetImport = fs.readFileSync(genDir + '/dataTempTanent.cs', '');
                     fs.appendFileSync(genDir + '/tanentTemp.cs', '        ' + dbSetImport + "\n");
                     isImportDBset = true;
                 }
                 if (condDBmapEnd && !isImportDBmap) {
-                    var dbMapImport = fs.readFileSync(genDir + '/dataTemp1.cs', '');
+                    var dbMapImport = fs.readFileSync(genDir + '/dataTempTanent1.cs', '');
                     fs.appendFileSync(genDir + '/tanentTemp.cs', '        ' + dbMapImport + "\n");
                     isImportDBmap = true;
                 }
@@ -60,8 +60,8 @@ program.command('import')
         setTimeout(() => {
             fs.copyFileSync(genDir + '/tanentTemp.cs', dir.Tanent);
             fs.unlinkSync(genDir + '/tanentTemp.cs');
-            fs.unlinkSync(genDir + '/dataTemp.cs');
-            fs.unlinkSync(genDir + '/dataTemp1.cs');
+            fs.unlinkSync(genDir + '/dataTempTanent.cs');
+            fs.unlinkSync(genDir + '/dataTempTanent1.cs');
             console.log(`import tanent ${entityName} complete !!!`);
         }, 1000);
     });

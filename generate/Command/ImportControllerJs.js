@@ -12,7 +12,7 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.js', '');
+        fs.writeFileSync(genDir + '/dataTempControllerJs.js', '');
         allEntity.forEach(entityName => {
             const data = fs.readFileSync(genDir + 'Template/Main.html');
             const template = Handlebars.compile(data.toString());
@@ -20,7 +20,7 @@ program.command('import')
                 entityName: entityName.capitalize(),
                 entityVar: entityName.toLowerCase(),
             });
-            fs.appendFileSync(genDir + '/dataTemp.js', '\n' + contents + "\n");
+            fs.appendFileSync(genDir + '/dataTempControllerJs.js', '\n' + contents + "\n");
         });
         let rl = readline.createInterface({
             input: fs.createReadStream(dir.Main)
@@ -35,7 +35,7 @@ program.command('import')
                 isImport = false;
             }
             if (line.includes(mainEnd)) {
-                var dataImport = fs.readFileSync(genDir + '/dataTemp.js', '');
+                var dataImport = fs.readFileSync(genDir + '/dataTempControllerJs.js', '');
                 fs.appendFileSync(genDir + '/maintemp.js', dataImport);
                 fs.appendFileSync(genDir + '/maintemp.js', line.toString() + "\n");
                 isImport = true;
@@ -46,7 +46,7 @@ program.command('import')
         setTimeout(() => {
             fs.copyFileSync(genDir + '/maintemp.js', dir.Main);
             fs.unlinkSync(genDir + '/maintemp.js');
-            fs.unlinkSync(genDir + '/dataTemp.js');
+            fs.unlinkSync(genDir + '/dataTempControllerJs.js');
             console.log(`import main ${entityName} complete !!!`);
         }, 1000);
     });

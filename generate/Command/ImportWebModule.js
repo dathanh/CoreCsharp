@@ -11,14 +11,14 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.cs', '');
-        fs.writeFileSync(genDir + '/dataTemp1.cs', '');
+        fs.writeFileSync(genDir + '/dataTempWebModule.cs', '');
+        fs.writeFileSync(genDir + '/dataTempWebModule1.cs', '');
         allEntity.forEach(entityName => {
             const serviceImport = `builder.RegisterType<${entityName.capitalize()}Service>().As<I${entityName.capitalize()}Service`;
             let brImport = ` builder.RegisterType<BusinessRuleSet<${entityName.capitalize()}>>().AsImplementedInterfaces();` + '\n';
             brImport += `            builder.RegisterType<${entityName.capitalize()}Rule<${entityName.capitalize()}>>().AsImplementedInterfaces();`;
-            fs.appendFileSync(genDir + '/dataTemp.cs', '\n' + serviceImport + "\n");
-            fs.appendFileSync(genDir + '/dataTemp1.cs', '\n' + brImport + "\n");
+            fs.appendFileSync(genDir + '/dataTempWebModule.cs', '\n' + serviceImport + "\n");
+            fs.appendFileSync(genDir + '/dataTempWebModule1.cs', '\n' + brImport + "\n");
         });
         let rl = readline.createInterface({
             input: fs.createReadStream(dir.WebModule)
@@ -43,12 +43,12 @@ program.command('import')
             }
             if (condServiceEnd || condBrEnd) {
                 if (condServiceEnd && !isImportService) {
-                    var serviceImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                    var serviceImport = fs.readFileSync(genDir + '/dataTempWebModule.cs', '');
                     fs.appendFileSync(genDir + '/webModuleTemp.cs', '            ' + serviceImport + "\n");
                     isImportService = true;
                 }
                 if (condBrEnd && !isImportBr) {
-                    var brImport = fs.readFileSync(genDir + '/dataTemp1.cs', '');
+                    var brImport = fs.readFileSync(genDir + '/dataTempWebModule1.cs', '');
                     fs.appendFileSync(genDir + '/webModuleTemp.cs', '           ' + brImport + "\n");
                     isImportBr = true;
                 }
@@ -60,8 +60,8 @@ program.command('import')
         setTimeout(() => {
             fs.copyFileSync(genDir + '/webModuleTemp.cs', dir.WebModule);
             fs.unlinkSync(genDir + '/webModuleTemp.cs');
-            fs.unlinkSync(genDir + '/dataTemp.cs');
-            fs.unlinkSync(genDir + '/dataTemp1.cs');
+            fs.unlinkSync(genDir + '/dataTempWebModule.cs');
+            fs.unlinkSync(genDir + '/dataTempWebModule1.cs');
             console.log(`import Service and buseiness rule ${entityName} complete !!!`);
         }, 200);
 

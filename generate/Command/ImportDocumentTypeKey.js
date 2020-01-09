@@ -12,12 +12,12 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.cs', '');
+        fs.writeFileSync(genDir + '/dataTempDocTypeKey.cs', '');
         let documentTypeKey = 3;
         allEntity.forEach(entityName => {
             documentTypeKey++;
             const data = `        ${entityName.capitalize()} = ${documentTypeKey},`
-            fs.appendFileSync(genDir + '/dataTemp.cs', '\n' + data + "\n");
+            fs.appendFileSync(genDir + '/dataTempDocTypeKey.cs', '\n' + data + "\n");
         });
         let rl = readline.createInterface({
             input: fs.createReadStream(dir.DocumentTypeKey)
@@ -33,7 +33,7 @@ program.command('import')
                 isImport = false;
             }
             if (line.includes(documentTypeKeyEnd)) {
-                var dataImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                var dataImport = fs.readFileSync(genDir + '/dataTempDocTypeKey.cs', '');
                 fs.appendFileSync(genDir + '/documentTypeKeytemp.cs', dataImport);
                 fs.appendFileSync(genDir + '/documentTypeKeytemp.cs', line.toString() + "\n");
                 isImport = true;
@@ -43,7 +43,7 @@ program.command('import')
         })
         setTimeout(() => {
             fs.copyFileSync(genDir + '/documentTypeKeytemp.cs', dir.DocumentTypeKey);
-            fs.unlinkSync(genDir + '/dataTemp.cs');
+            fs.unlinkSync(genDir + '/dataTempDocTypeKey.cs');
             fs.unlinkSync(genDir + '/documentTypeKeytemp.cs');
             console.log(`import documentTypeKey ${entityName} complete !!!`);
         }, 1000);

@@ -12,7 +12,7 @@ const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/dataTemp.cs', '');
+        fs.writeFileSync(genDir + '/dataTempRouter.cs', '');
         let navNumber = 1703;
         allEntity.forEach(entityName => {
             navNumber++;
@@ -23,7 +23,7 @@ program.command('import')
                 entityVar: entityName.toLowerCase(),
                 navNumber: navNumber,
             });
-            fs.appendFileSync(genDir + '/dataTemp.cs', '\n' + contents + "\n");
+            fs.appendFileSync(genDir + '/dataTempRouter.cs', '\n' + contents + "\n");
 
         });
         let rl = readline.createInterface({
@@ -40,7 +40,7 @@ program.command('import')
                 isImport = false;
             }
             if (line.includes(routerEnd)) {
-                var dataImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                var dataImport = fs.readFileSync(genDir + '/dataTempRouter.cs', '');
                 fs.appendFileSync(genDir + '/routertemp.js', dataImport);
                 fs.appendFileSync(genDir + '/routertemp.js', line.toString() + "\n");
                 isImport = true;
@@ -51,7 +51,7 @@ program.command('import')
         setTimeout(() => {
             fs.copyFileSync(genDir + '/routertemp.js', dir.Router);
             fs.unlinkSync(genDir + '/routertemp.js');
-            fs.unlinkSync(genDir + '/dataTemp.cs');
+            fs.unlinkSync(genDir + '/dataTempRouter.cs');
             console.log(`import router ${entityName} complete !!!`);
         }, 1000);
 
