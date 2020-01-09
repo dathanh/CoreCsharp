@@ -568,3 +568,188 @@ CREATE TABLE [dbo].[Product](
 GO
 ALTER TABLE [dbo].[Product] ADD  CONSTRAINT [DF__Product__LastTime]  DEFAULT (getdate()) FOR [LastTime]
 GO
+
+/****** =================================================Table Category============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Category](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [Name] [nvarchar](1000) NOT NULL,
+                [Thumbnail] [nvarchar](1000) NOT NULL,
+                [IsActive] [bit] NOT NULL,
+                [OrderNumber] [int] NOT NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Category] ADD  CONSTRAINT [DF__Category__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table Customer============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [FullName] [nvarchar](1000) NOT NULL,
+                [Phone] [nvarchar](1000) NOT NULL,
+                [Email] [nvarchar](1000) NOT NULL,
+                [VingId] [nvarchar](1000) NOT NULL,
+                [Password] [nvarchar](1000) NOT NULL,
+                [Identity] [int] NOT NULL,
+                [IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Customer] ADD  CONSTRAINT [DF__Customer__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table HotCategory============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HotCategory](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [Name] [nvarchar](1000) NOT NULL,
+                [Thumbnail] [nvarchar](1000) NOT NULL,
+                [isActive] [bit] NOT NULL,
+                [IsBrief] [bit] NOT NULL,
+                [ThumbnailBrief] [nvarchar](1000) NOT NULL,
+                [Brief] [nvarchar](1000) NOT NULL,
+                [OrderNumber] [int] NOT NULL,
+ CONSTRAINT [PK_HotCategory] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[HotCategory] ADD  CONSTRAINT [DF__HotCategory__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table OrderInfo============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OrderInfo](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+ CONSTRAINT [PK_OrderInfo] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[OrderInfo] ADD  CONSTRAINT [DF__OrderInfo__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table Order============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Order](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [Note] [nvarchar](1000) NOT NULL,
+                [Tax] [nvarchar](1000) NOT NULL,
+                [CompanyName] [nvarchar](1000) NOT NULL,
+                [CompanyAddress] [nvarchar](1000) NOT NULL,
+                [CityId] [int] NOT NULL,
+                [DistrictId] [int] NOT NULL,
+                [WardId] [int] NOT NULL,
+                [Type] [int] NOT NULL,
+ CONSTRAINT [PK_Order] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Order] ADD  CONSTRAINT [DF__Order__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table Store============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Store](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [Name] [nvarchar](1000) NOT NULL,
+                [Address] [nvarchar](1000) NOT NULL,
+                [IsActive] [bit] NOT NULL,
+                [OrderNumber] [int] NOT NULL,
+ CONSTRAINT [PK_Store] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Store] ADD  CONSTRAINT [DF__Store__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO
+
+/****** =================================================Table Product============================================================================== ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Product](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CreatedById] [int] NOT NULL,
+	[LastUserId] [int] NOT NULL,
+	[LastTime] [datetime] NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+    [LastModified] [timestamp] NOT NULL,
+                [Name] [nvarchar](1000) NOT NULL,
+                [Thumbnail] [nvarchar](1000) NOT NULL,
+                [Gift] [nvarchar](1000) NOT NULL,
+                [Price] [int] NOT NULL,
+                [Refund] [int] NOT NULL,
+                [isActive] [bit] NOT NULL,
+                [OrderNumber] [int] NOT NULL,
+                [CategoryId] [int] NOT NULL,
+ CONSTRAINT [PK_Product] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Product] ADD  CONSTRAINT [DF__Product__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+GO

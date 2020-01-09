@@ -14,7 +14,7 @@ program.command('import')
         fs.writeFileSync(genDir + '/dataTempWebModule.cs', '');
         fs.writeFileSync(genDir + '/dataTempWebModule1.cs', '');
         allEntity.forEach(entityName => {
-            const serviceImport = `builder.RegisterType<${entityName.capitalize()}Service>().As<I${entityName.capitalize()}Service`;
+            const serviceImport = `builder.RegisterType<${entityName.capitalize()}Service>().As<I${entityName.capitalize()}Service>();`;
             let brImport = ` builder.RegisterType<BusinessRuleSet<${entityName.capitalize()}>>().AsImplementedInterfaces();` + '\n';
             brImport += `            builder.RegisterType<${entityName.capitalize()}Rule<${entityName.capitalize()}>>().AsImplementedInterfaces();`;
             fs.appendFileSync(genDir + '/dataTempWebModule.cs', '\n' + serviceImport + "\n");
