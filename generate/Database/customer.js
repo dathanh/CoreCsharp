@@ -1,6 +1,9 @@
 module.exports = {
     "FullName": "string",
-    "isActive": "bool",
     "Phone": "string",
-    "DOB": "DateTime?",
+    "Email": "string",
+    "VingId": "string",
+    "Password": "string",
+    "Identity": "int",
+    "IsActive": "bool",
 };

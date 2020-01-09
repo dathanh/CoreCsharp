@@ -4,52 +4,66 @@ const readline = require('readline');
 const dir = require('../dir');
 const allEntity = require('../Core/AllEntities');
 
-String.prototype.capitalize = function () {
-    return this.replace(/(?:^|\s)\S/g, function (a) { return a.toUpperCase(); });
+String.prototype.capitalize = function() {
+    return this.replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
 };
 const genDir = __dirname.replace('Command', '')
 
 program.command('import')
     .action(() => {
-        fs.writeFileSync(genDir + '/tmp2.cs', '');
+        fs.writeFileSync(genDir + '/dataTemp.cs', '');
+        fs.writeFileSync(genDir + '/dataTemp1.cs', '');
         allEntity.forEach(entityName => {
-            let rl = readline.createInterface({
-                input: fs.createReadStream(dir.WebModule)
-            });
-            // event is emitted after each line
-            let isImportService = true;
-            let isImportBr = true;
-            rl.on('line', function (line) {
-                const serviceImport = `builder.RegisterType<${entityName.capitalize()}Service>().As<I${entityName.capitalize()}Service>();`;
-                let brImport = ` builder.RegisterType<BusinessRuleSet<${entityName.capitalize()}>>().AsImplementedInterfaces();`  +'\n';
-                brImport += `            builder.RegisterType<${entityName.capitalize()}Rule<${entityName.capitalize()}>>().AsImplementedInterfaces();`;
-                const condService = line.includes('//=====Import Service=======//');
-                const condBr = line.includes('//=====Import RegisterBusinessRules=======//');
-                if (line.includes(serviceImport)) {
-                    isImportService = false;
-                }
-                if (line.includes(brImport)) {
-                    isImportBr = false;
-                }
-                if (condService || isImportBr) {
-                    if (condService && isImportService) {
-                        fs.appendFileSync(genDir + '/tmp2.cs', '            ' + serviceImport + "\n");
-                    }
-                    if (condBr && isImportBr) {
-                        fs.appendFileSync(genDir + '/tmp2.cs', '           ' + brImport + "\n");
-                    }
-                    fs.appendFileSync(genDir + '/tmp2.cs', line.toString() + "\n");
-                } else {
-                    fs.appendFileSync(genDir + '/tmp2.cs', line.toString() + "\n");
-                }
-            })
-            setTimeout(() => {
-                fs.copyFileSync(genDir + '/tmp2.cs', dir.WebModule);
-                fs.unlinkSync(genDir + '/tmp2.cs');
-                console.log(`import Service and buseiness rule ${entityName} complete !!!`);
-            }, 200);
-
+            const serviceImport = `builder.RegisterType<${entityName.capitalize()}Service>().As<I${entityName.capitalize()}Service`;
+            let brImport = ` builder.RegisterType<BusinessRuleSet<${entityName.capitalize()}>>().AsImplementedInterfaces();` + '\n';
+            brImport += `            builder.RegisterType<${entityName.capitalize()}Rule<${entityName.capitalize()}>>().AsImplementedInterfaces();`;
+            fs.appendFileSync(genDir + '/dataTemp.cs', '\n' + serviceImport + "\n");
+            fs.appendFileSync(genDir + '/dataTemp1.cs', '\n' + brImport + "\n");
         });
+        let rl = readline.createInterface({
+            input: fs.createReadStream(dir.WebModule)
+        });
+        // event is emitted after each line
+        let isImportService = true;
+        let isImportBr = true;
+        fs.writeFileSync(genDir + '/webModuleTemp.cs', '');
+        rl.on('line', function(line) {
+
+            const condServiceStart = line.includes('//=====Start Import Service=======//');
+            const condServiceEnd = line.includes('//=====End Import Service=======//');
+            const condBrStart = line.includes('//=====Start Import RegisterBusinessRules=======//');
+            const condBrEnd = line.includes('//=====End Import RegisterBusinessRules=======//');
+            if (condServiceStart) {
+                fs.appendFileSync(genDir + '/webModuleTemp.cs', line.toString() + "\n");
+                isImportService = false;
+            }
+            if (condBrStart) {
+                fs.appendFileSync(genDir + '/webModuleTemp.cs', line.toString() + "\n");
+                isImportBr = false;
+            }
+            if (condServiceEnd || condBrEnd) {
+                if (condServiceEnd && !isImportService) {
+                    var serviceImport = fs.readFileSync(genDir + '/dataTemp.cs', '');
+                    fs.appendFileSync(genDir + '/webModuleTemp.cs', '            ' + serviceImport + "\n");
+                    isImportService = true;
+                }
+                if (condBrEnd && !isImportBr) {
+                    var brImport = fs.readFileSync(genDir + '/dataTemp1.cs', '');
+                    fs.appendFileSync(genDir + '/webModuleTemp.cs', '           ' + brImport + "\n");
+                    isImportBr = true;
+                }
+                fs.appendFileSync(genDir + '/webModuleTemp.cs', line.toString() + "\n");
+            } else if (isImportService && isImportBr) {
+                fs.appendFileSync(genDir + '/webModuleTemp.cs', line.toString() + "\n");
+            }
+        })
+        setTimeout(() => {
+            fs.copyFileSync(genDir + '/webModuleTemp.cs', dir.WebModule);
+            fs.unlinkSync(genDir + '/webModuleTemp.cs');
+            fs.unlinkSync(genDir + '/dataTemp.cs');
+            fs.unlinkSync(genDir + '/dataTemp1.cs');
+            console.log(`import Service and buseiness rule ${entityName} complete !!!`);
+        }, 200);
 
     });
 program.parse(process.argv);

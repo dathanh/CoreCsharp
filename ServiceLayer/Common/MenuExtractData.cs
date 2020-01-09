@@ -89,8 +89,8 @@ namespace ServiceLayer.Common
             {
                 objResult.CanViewUser = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.User, OperationAction.ShowMenu);
                 objResult.CanViewRole = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.UserRole, OperationAction.ShowMenu);
-                //objResult.CanViewConfig = CheckUserRoleForDocumentType(idRole, DocumentTypeKey.Config, OperationAction.ShowMenu);
                 //========Import Menu Start========//
+
                 //========Import Menu End========//
             }
 

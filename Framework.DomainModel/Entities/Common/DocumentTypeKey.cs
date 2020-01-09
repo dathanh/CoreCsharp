@@ -1,4 +1,4 @@
-﻿namespace Framework.DomainModel.Entities.Common
+namespace Framework.DomainModel.Entities.Common
 {
     public enum DocumentTypeKey
     {

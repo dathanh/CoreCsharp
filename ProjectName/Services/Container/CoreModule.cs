@@ -62,7 +62,8 @@ namespace ProjectName.Services.Container
             builder.RegisterType<EntityFrameworkUserRoleFunctionRepository>().As<IUserRoleFunctionRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
             builder.RegisterType<EntityFrameworkGridConfigRepository>().As<IGridConfigRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
             builder.RegisterType<EntityFrameworkConfigRepository>().As<IConfigRepository>().EnableInterfaceInterceptors().InterceptedBy(typeof(DataAccessExceptionInterceptor));
-            //=====Import Repository=======//
+            //=====Start Import Repository=======//
+            //=====End Import Repository=======//
         }
 
     }

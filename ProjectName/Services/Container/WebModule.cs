@@ -47,7 +47,8 @@ namespace ProjectName.Services.Container
             builder.RegisterType<UserRoleService>().As<IUserRoleService>();
             builder.RegisterType<GridConfigService>().As<IGridConfigService>();
             builder.RegisterType<ConfigService>().As<IConfigService>();
-            //=====Import Service=======//
+            //=====Start Import Service=======//
+            //=====End Import Service=======//
         }
 
 
@@ -61,7 +62,8 @@ namespace ProjectName.Services.Container
 
             builder.RegisterType<BusinessRuleSet<Config>>().AsImplementedInterfaces();
             builder.RegisterType<ConfigRule<Config>>().AsImplementedInterfaces();
-            //=====Import RegisterBusinessRules=======//
+            //=====Start Import RegisterBusinessRules=======//
+            //=====End Import RegisterBusinessRules=======//
 
         }
     }
