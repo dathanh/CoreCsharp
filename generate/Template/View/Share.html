@@ -1,30 +1,27 @@
-@using Framework.DomainModel.Entities.Common
-@using Framework.Utility
-@using {{projectName}}.HtmlHelpers
+@using Framework.DomainModel.Entities.Common @using Framework.Utility @using <%= projectName %>.HtmlHelpers
 <style>
     .content-tab-index {
         height: 100% !important;
     }
 </style>
-<div data-ng-controller="shared{{entityName}}Controller as vms" ng-init="vms.shareInit(vm.Id)">
+<div data-ng-controller="shared<%= entityName %>Controller as vms" ng-init="vms.shareInit(vm.Id)">
     <form name="popupForm">
         <div>
-            <h4 class="mb5">{{entityName}} information</h4>
+            <h4 class="mb5"><%= entityName %> information</h4>
             <hr class="mt0" />
         </div>
-        {{#each EntityFields}}
-            {{#ifCond this.type 'bool'}}
-                <div class="row">
-                @Html.CustomCheckBox("{{this.field}}", "{{this.field}}", "vms.{{entityName}}.{{this.field}}")
-                </div>
-            {{else}}
-                <div class="row">
-                @Html.CustomTextBox("{{this.field}}", "{{this.field}}", "vms.{{entityName}}.{{this.field}}", required: true, length: 300)
-                </div>
-            {{/ifCond}}
-        {{/each}}
-          
+        <% _.each(EntityFields, function(entity) { %>
+        <% if (entity.type =='bool') { %>
+        <div class="row">
+            @Html.CustomCheckBox("<%= entity.field %>", "<%= entity.field %>","vms.<%= entityName %>.<%= entity.field %>")
+        </div>
+        <% }else{ %>
+        <div class="row">
+            @Html.CustomTextBox("<%= entity.field %>", "<%= entity.field %>", "vms.<%= entityName %>.<%= entity.field %>", required:true, length: 300)
+        </div>
+        <% } %>
+        <% }); %>
     </form>
-    <div ng-if="vms.{{entityName}}.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
-    <div ng-if="!vms.{{entityName}}.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
+    <div ng-if="vms.<%= entityName %>.CreateMode" ng-include="'/app/layout/popupCreateFooter.html'"></div>
+    <div ng-if="!vms.<%= entityName %>.CreateMode" ng-include="'/app/layout/popupUpdateFooter.html'"></div>
 </div>
