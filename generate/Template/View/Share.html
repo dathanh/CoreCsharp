@@ -15,7 +15,11 @@
         <div class="row">
             @Html.CustomCheckBox("<%= entity.field %>", "<%= entity.field %>","vms.<%= entityName %>.<%= entity.field %>")
         </div>
-        <% }else{ %>
+        <% }else if (entity.type =='int'){ %>
+        <div class="row">
+            @Html.InputPositiveNumeric("<%= entity.field %>", "<%= entity.field %>","vms.<%= entityName %>.<%= entity.field %>", maximumValue: 100)
+        </div>
+            <% }else{ %>
         <div class="row">
             @Html.CustomTextBox("<%= entity.field %>", "<%= entity.field %>", "vms.<%= entityName %>.<%= entity.field %>", required:true, length: 300)
         </div>

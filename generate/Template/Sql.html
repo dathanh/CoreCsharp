@@ -1,34 +1,34 @@
 
-/****** =================================================Table {{entityName}}============================================================================== ******/
+/****** =================================================Table <%= entityName%>============================================================================== ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[{{entityName}}](
+CREATE TABLE [dbo].[<%= entityName%>](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[CreatedById] [int] NOT NULL,
 	[LastUserId] [int] NOT NULL,
 	[LastTime] [datetime] NOT NULL,
 	[CreatedOn] [datetime] NOT NULL,
     [LastModified] [timestamp] NOT NULL,
-    {{#each EntityFields}}
-            {{#ifCond this.type 'bool'}}
-                [{{this.field}}] [bit] NOT NULL,
-            {{else ifCond this.type 'string'}}
-                [{{this.field}}] [nvarchar](1000) NOT NULL,
-            {{else ifCond this.type 'int'}}
-                [{{this.field}}] [int] NOT NULL,
-            {{else ifCond this.type 'DateTime'}}
-                [{{this.field}}] [datetime] NULL,
-            {{else ifCond this.type 'DateTime?'}}
-                [{{this.field}}] [datetime] NULL,
-            {{/ifCond}}
-    {{/each}}
- CONSTRAINT [PK_{{entityName}}] PRIMARY KEY CLUSTERED 
+<% _.each(EntityFields, function(entity) { %>
+<% if (entity.type =='bool') { %>
+    [<%= entity.field%>] [bit] NOT NULL,
+<% }else if (entity.type =='string'){ %>
+    [<%= entity.field%>] [nvarchar](1000) NOT NULL,
+<% }else if (entity.type =='int'){ %>
+    [<%= entity.field%>] [int] NOT NULL,
+<% }else if (entity.type =='DateTime'){ %>
+    [<%= entity.field%>] [datetime] NULL,
+<% }else if (entity.type =='DateTime?'){ %>
+    [<%= entity.field%>] [datetime] NULL,
+<% } %>
+<% }); %>
+ CONSTRAINT [PK_<%= entityName%>] PRIMARY KEY CLUSTERED 
 (
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[{{entityName}}] ADD  CONSTRAINT [DF__{{entityName}}__LastTime]  DEFAULT (getdate()) FOR [LastTime]
+ALTER TABLE [dbo].[<%= entityName%>] ADD  CONSTRAINT [DF__<%= entityName%>__LastTime]  DEFAULT (getdate()) FOR [LastTime]
 GO
